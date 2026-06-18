@@ -1,0 +1,50 @@
+{
+  "meerkat": {
+    "layout": "images/meerkat_layout.png",
+    "uv": "images/meerkat_uv_coverage.png",
+    "sky_full": "images/meerkat_sky_model.png",
+    "sky_fov": "images/meerkat_sky_model_fov.png",
+    "figures": {
+      "model": "images/meerkat_model.png",
+      "clean": "images/meerkat_clean.png",
+      "residual": "images/meerkat_residual.png",
+      "dirty_image": "images/meerkat_dirty_image.png"
+    }
+  },
+  "ska": {
+    "layout": "images/ska_layout.png",
+    "uv": "images/ska_uv_coverage.png",
+    "sky_full": "images/ska_sky_model.png",
+    "sky_fov": "images/ska_sky_model_fov.png",
+    "figures": {
+      "model": "images/ska_model.png",
+      "clean": "images/ska_clean.png",
+      "residual": "images/ska_residual.png",
+      "dirty_image": "images/ska_dirty_image.png"
+    }
+  },
+  "vlaB": {
+    "layout": "images/vlaB_layout.png",
+    "uv": "images/vlaB_uv_coverage.png",
+    "sky_full": "images/vlaB_sky_model.png",
+    "sky_fov": "images/vlaB_sky_model_fov.png",
+    "figures": {
+      "model": "images/vlaB_model.png",
+      "clean": "images/vlaB_clean.png",
+      "residual": "images/vlaB_residual.png",
+      "dirty_image": "images/vlaB_dirty_image.png"
+    }
+  },
+  "vlaD": {
+    "layout": "images/vlaD_layout.png",
+    "uv": "images/vlaD_uv_coverage.png",
+    "sky_full": "images/vlaD_sky_model.png",
+    "sky_fov": "images/vlaD_sky_model_fov.png",
+    "figures": {
+      "model": "images/vlaD_model.png",
+      "clean": "images/vlaD_clean.png",
+      "residual": "images/vlaD_residual.png",
+      "dirty_image": "images/vlaD_dirty_image.png"
+    }
+  }
+}

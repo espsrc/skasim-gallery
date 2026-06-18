@@ -1,0 +1,198 @@
+{
+  "meerkat": {
+    "obs": {
+      "Telescope": "MeerKAT",
+      "Dish Diameter": "13.5 m",
+      "Antennas": "64",
+      "Beam FoV (FWHM)": "1.24\u00b0 (diffraction limit: 1.25 \u03bb/D)",
+      "Frequency Range": "856-1712 MHz",
+      "Central Frequency": "1284 MHz",
+      "Channels": "64 x 13.375 MHz",
+      "Total Bandwidth": "856 MHz",
+      "Obs Time": "21600 s",
+      "Timesteps": "2701",
+      "Integration": "7.997 s"
+    },
+    "imaging": [
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Beam": "BMAJ 5.004 arcsec \u00b7 BMIN 3.294 arcsec \u00b7 BPA 145.78 deg",
+        "Imager": "WSClean",
+        "Command": "wsclean",
+        "Weighting": "Briggs robust -2",
+        "Multiscale": "enabled",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Clean iterations": "10000",
+        "Major-cycle gain": "0.8",
+        "Auto threshold": "0.3",
+        "Auto mask": "3",
+        "Channels out": "8",
+        "Join channels": "enabled",
+        "Local RMS": "enabled",
+        "Output prefix": "wsclean-r-2_wsclean",
+        "Visibility input": "visibilities.MS"
+      },
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Imager": "OSKAR dirty",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Combine frequencies": "enabled",
+        "Phase centre": "RA 150.075385 deg, Dec 2.218322 deg",
+        "Visibility input": "visibilities.MS"
+      }
+    ],
+    "meta": "2026-06-15 19:36:17 UTC\n         \u00b7 2h 34m 6s\n         \u00b7 simulation 1h 52m 21s\n         \u00b7 imaging 31m 4s"
+  },
+  "ska": {
+    "obs": {
+      "Telescope": "SKA-MID-AAstar (SKA_OST_ARRAY_CONFIG_2_3_1)",
+      "Dish Diameter": "15.0 m",
+      "Antennas": "144",
+      "Beam FoV (FWHM)": "1.09\u00b0 (diffraction limit: 1.25 \u03bb/D)",
+      "Frequency Range": "950-1670 MHz",
+      "Central Frequency": "1310 MHz",
+      "Channels": "64 x 11.25 MHz",
+      "Total Bandwidth": "720 MHz",
+      "Obs Time": "1200 s",
+      "Timesteps": "150",
+      "Integration": "8 s"
+    },
+    "imaging": [
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Beam": "BMAJ 3.597 arcsec \u00b7 BMIN 3.055 arcsec \u00b7 BPA 144.02 deg",
+        "Imager": "WSClean",
+        "Command": "wsclean",
+        "Weighting": "Briggs robust 0",
+        "Multiscale": "enabled",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Clean iterations": "10000",
+        "Major-cycle gain": "0.8",
+        "Auto threshold": "0.3",
+        "Auto mask": "3",
+        "Channels out": "8",
+        "Join channels": "enabled",
+        "Local RMS": "enabled",
+        "Output prefix": "wsclean-r-0_wsclean",
+        "Visibility input": "visibilities.MS"
+      },
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Imager": "OSKAR dirty",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Combine frequencies": "enabled",
+        "Phase centre": "RA 150.075385 deg, Dec 2.218322 deg",
+        "Visibility input": "visibilities.MS"
+      }
+    ],
+    "meta": "2026-06-15 23:37:10 UTC\n         \u00b7 1h 5m 59s\n         \u00b7 simulation 31m 17s\n         \u00b7 imaging 33m 15s"
+  },
+  "vlaB": {
+    "obs": {
+      "Telescope": "VLA (B)",
+      "Antennas": "27",
+      "Frequency Range": "1000-2000 MHz",
+      "Central Frequency": "1500 MHz",
+      "Channels": "64 x 15.625 MHz",
+      "Total Bandwidth": "1000 MHz",
+      "Obs Time": "14400 s",
+      "Timesteps": "1800",
+      "Integration": "8 s"
+    },
+    "imaging": [
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Beam": "BMAJ 3.250 arcsec \u00b7 BMIN 2.300 arcsec \u00b7 BPA 118.75 deg",
+        "Imager": "WSClean",
+        "Command": "wsclean",
+        "Weighting": "Briggs robust -2",
+        "Multiscale": "enabled",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Clean iterations": "10000",
+        "Major-cycle gain": "0.8",
+        "Auto threshold": "0.3",
+        "Auto mask": "3",
+        "Channels out": "8",
+        "Join channels": "enabled",
+        "Local RMS": "enabled",
+        "Output prefix": "wsclean-r-2_wsclean",
+        "Visibility input": "visibilities.MS"
+      },
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Imager": "OSKAR dirty",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Combine frequencies": "enabled",
+        "Phase centre": "RA 150.075385 deg, Dec 2.218322 deg",
+        "Visibility input": "visibilities.MS"
+      }
+    ],
+    "meta": "2026-06-15 22:10:27 UTC\n         \u00b7 48m 4s\n         \u00b7 simulation 21m 34s\n         \u00b7 imaging 25m 56s"
+  },
+  "vlaD": {
+    "obs": {
+      "Telescope": "VLA (D)",
+      "Antennas": "27",
+      "Frequency Range": "1000-2000 MHz",
+      "Central Frequency": "1500 MHz",
+      "Channels": "64 x 15.625 MHz",
+      "Total Bandwidth": "1000 MHz",
+      "Obs Time": "14400 s",
+      "Timesteps": "1800",
+      "Integration": "8 s"
+    },
+    "imaging": [
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Beam": "BMAJ 30.621 arcsec \u00b7 BMIN 24.910 arcsec \u00b7 BPA 133.70 deg",
+        "Imager": "WSClean",
+        "Command": "wsclean",
+        "Weighting": "Briggs robust -2",
+        "Multiscale": "enabled",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Clean iterations": "10000",
+        "Major-cycle gain": "0.8",
+        "Auto threshold": "0.3",
+        "Auto mask": "3",
+        "Channels out": "8",
+        "Join channels": "enabled",
+        "Local RMS": "enabled",
+        "Output prefix": "wsclean-r-2_wsclean",
+        "Visibility input": "visibilities.MS"
+      },
+      {
+        "Image Size": "2048 x 2048",
+        "Total FoV": "0.2 deg",
+        "Pixel Size": "0.3516 arcsec",
+        "Imager": "OSKAR dirty",
+        "Image size": "2048 x 2048 pixels",
+        "Pixel scale": "0.3516 arcsec",
+        "Combine frequencies": "enabled",
+        "Phase centre": "RA 150.075385 deg, Dec 2.218322 deg",
+        "Visibility input": "visibilities.MS"
+      }
+    ],
+    "meta": "2026-06-15 22:58:33 UTC\n         \u00b7 38m 34s\n         \u00b7 simulation 18m 47s\n         \u00b7 imaging 19m 8s"
+  }
+}
