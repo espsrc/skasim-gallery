@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Case #3 — SKAO Staged Delivery · skasim portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --bg: #fafaf9;
+                --bg-elev: #ffffff;
+                --bg-card: #ffffff;
+                --text: #1c1917;
+                --text-muted: #78716c;
+                --accent: #9f1239;
+                --accent-2: #7c2d12;
+                --accent-3: #4338ca;
+                --border: #e7e5e4;
+                --radius: 16px;
+                --radius-sm: 8px;
+                --shadow: 0 12px 40px rgba(28, 25, 23, 0.08);
+                --max-w: 1080px;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: "Sora", system-ui, sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.65;
+                -webkit-font-smoothing: antialiased;
+            }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(14px);
+                background: rgba(250, 250, 249, 0.88);
+                border-bottom: 1px solid var(--border);
+            }
+            nav .wrap {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 14px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .logo {
+                font-family: "Cormorant Garamond", serif;
+                font-weight: 600;
+                font-size: 1.45rem;
+                color: var(--text);
+                letter-spacing: -0.01em;
+            }
+            .logo span {
+                color: var(--accent);
+                font-weight: 700;
+            }
+            .back {
+                font-size: 0.88rem;
+                font-weight: 500;
+                color: var(--text-muted);
+            }
+            .back:hover {
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            header.case-header {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 70px 24px 40px;
+            }
+            .case-header .tag {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 999px;
+                border: 1px solid var(--border);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                margin-bottom: 14px;
+            }
+            .case-header h1 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(2.4rem, 5vw, 3.6rem);
+                margin: 0 0 16px;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+            }
+            .case-header .lead {
+                font-size: 1.15rem;
+                color: var(--text-muted);
+                max-width: 760px;
+                margin: 0;
+                font-weight: 300;
+            }
+
+            main {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 0 24px 90px;
+            }
+            .case-block {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 36px;
+                margin-bottom: 28px;
+                box-shadow: var(--shadow);
+            }
+            .case-block h2 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.8rem;
+                margin: 0 0 18px;
+                font-weight: 500;
+            }
+            .case-block h3 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.35rem;
+                margin: 32px 0 12px;
+                font-weight: 500;
+            }
+            .case-block h3:first-child {
+                margin-top: 0;
+            }
+            .case-block p {
+                color: var(--text-muted);
+                margin: 0 0 16px;
+                font-weight: 300;
+            }
+            .case-block p:last-child {
+                margin-bottom: 0;
+            }
+            .case-block ul {
+                color: var(--text-muted);
+                font-weight: 300;
+                padding-left: 22px;
+            }
+            .case-block li {
+                margin-bottom: 8px;
+            }
+            .case-block code {
+                background: #f5f5f4;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 0.9em;
+                color: var(--accent-2);
+            }
+            .case-block strong {
+                color: var(--text);
+                font-weight: 600;
+            }
+
+            .run-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 14px;
+                margin-top: 22px;
+            }
+            .run-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 16px;
+            }
+            .run-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 12px;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            .run-card dl {
+                margin: 0;
+            }
+            .run-card dt {
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-weight: 600;
+                margin-bottom: 1px;
+            }
+            .run-card dd {
+                margin: 0 0 8px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--text);
+            }
+            .run-card dd:last-child {
+                margin-bottom: 0;
+            }
+
+            .result-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+                margin: 18px -12px 0;
+            }
+            .case-block + .case-block {
+                margin-top: 32px;
+            }
+            .case-block.takeaways {
+                margin-top: 56px;
+            }
+            @media (max-width: 720px) {
+                .result-grid {
+                    grid-template-columns: 1fr;
+                    margin: 18px 0 0;
+                }
+            }
+            .result-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 10px;
+                text-align: center;
+                cursor: zoom-in;
+                transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+            .result-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(28, 25, 23, 0.1);
+            }
+
+            .summary-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.95rem;
+                margin-top: 18px;
+            }
+            .summary-table th,
+            .summary-table td {
+                padding: 12px 14px;
+                border-bottom: 1px solid var(--border);
+                text-align: left;
+            }
+            .summary-table th {
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                background: #fafaf9;
+            }
+            .summary-table td {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .summary-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+            .summary-table tbody tr:hover td {
+                background: #fafaf9;
+            }
+
+            .result-card figure {
+                margin: 0;
+                pointer-events: none;
+            }
+            .result-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 6px;
+                border: 1px solid var(--border);
+                background: #fff;
+                display: block;
+                pointer-events: none;
+            }
+            .result-card figcaption {
+                font-size: 0.85rem;
+                color: var(--text);
+                font-weight: 500;
+                margin: 8px 0 6px;
+                pointer-events: none;
+            }
+
+            /* lightbox overlay */
+            .lightbox {
+                position: fixed;
+                inset: 0;
+                z-index: 200;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(28, 25, 23, 0.92);
+                padding: 24px;
+                opacity: 0;
+                transition: opacity 0.25s ease;
+            }
+            .lightbox.open {
+                display: flex;
+                opacity: 1;
+            }
+            .lightbox-content {
+                position: relative;
+                max-width: min(1100px, 92vw);
+                max-height: 92vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .lightbox-content img {
+                max-width: 100%;
+                max-height: 78vh;
+                width: auto;
+                height: auto;
+                border-radius: var(--radius-sm);
+                background: #fff;
+                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            }
+            .lightbox-caption {
+                margin-top: 14px;
+                color: #f5f5f4;
+                font-size: 0.95rem;
+                font-weight: 500;
+                text-align: center;
+                max-width: 600px;
+            }
+            .lightbox-close,
+            .lightbox-prev,
+            .lightbox-next {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #fff;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                transition: background 0.2s;
+            }
+            .lightbox-close:hover,
+            .lightbox-prev:hover,
+            .lightbox-next:hover {
+                background: rgba(255, 255, 255, 0.22);
+            }
+            .lightbox-close {
+                top: -56px;
+                right: 0;
+            }
+            .lightbox-prev {
+                left: -64px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .lightbox-next {
+                right: -64px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            @media (max-width: 900px) {
+                .lightbox-prev {
+                    left: 12px;
+                }
+                .lightbox-next {
+                    right: 12px;
+                }
+            }
+            .lightbox-counter {
+                position: absolute;
+                top: -50px;
+                left: 0;
+                color: #d6d3d1;
+                font-size: 0.78rem;
+                letter-spacing: 0.05em;
+            }
+
+            .takeaways {
+                background:
+                    radial-gradient(
+                        circle at 10% 20%,
+                        rgba(159, 18, 57, 0.14) 0%,
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        circle at 90% 80%,
+                        rgba(67, 56, 202, 0.12) 0%,
+                        transparent 45%
+                    ),
+                    #fff;
+            }
+
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 40px 24px;
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="wrap">
+                <a href="../index.html" class="logo">ska<span>sim</span></a>
+                <a href="../index.html#cases" class="back">← Back to cases</a>
+            </div>
+        </nav>
+
+        <header class="case-header">
+            <span class="tag">Science case #3</span>
+            <h1>SKAO Staged Delivery</h1>
+            <p class="lead">
+                Exploring the chronological staged delivery of the Square
+                Kilometre Array Observatory, from the initial AA0.5 verification
+                array to the full AA4 design baseline. To enable a fair
+                comparison across array assemblies, each stage was simulated as
+                an observation of a 0.6° portion of the SKA Data Challenge 1
+                catalogue, containing sources down to 10 μJy. All observations
+                were carried out in
+                <strong>SKA-MID Band 2 (950–1670 MHz)</strong>.
+            </p>
+        </header>
+
+        <main>
+            <div class="case-block">
+                <h2>Introduction & Strategy</h2>
+                <p>
+                    The SKA telescopes are being deployed through a staged
+                    delivery model. Construction is split into five
+                    chronological stages, known as Array Assemblies:
+                    <strong>AA0.5, AA1, AA2, AAstar, and AA4</strong>. All
+                    observations in this case were carried out in
+                    <strong>SKA-MID Band 2 (950–1670 MHz)</strong>, with a
+                    central frequency of 1310 MHz and 720 MHz of bandwidth.
+                </p>
+                <ul>
+                    <li>
+                        <strong>AA0.5 &amp; AA1:</strong> Commissioning and
+                        early verification, expanding the array from a minimal
+                        antenna set to a configuration capable of first imaging
+                        tests.
+                    </li>
+                    <li>
+                        <strong>AA2 &amp; AA* (AAstar):</strong> Science
+                        Verification stages. AA2 delivers a scientifically
+                        competitive facility and invites the community to
+                        propose SV targets; AA* is the currently planned SKA,
+                        supporting all observing modes at a level that enables
+                        transformational science.
+                    </li>
+                    <li>
+                        <strong>AA4:</strong> Going beyond the current plan, the
+                        full design baseline delivering maximum sensitivity,
+                        resolution, and complete observing capability.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- AA0.5 Block -->
+            <div class="case-block">
+                <h2>Array Assembly 0.5 (AA0.5)</h2>
+                <p>
+                    The initial stage of the SKAO deployment, designed to test
+                    core functionality and system integration. This minimal
+                    array enables early technical verification before scaling up
+                    the telescope structure.
+                </p>
+                <div class="result-grid">
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA0.5_layout.png"
+                        data-caption="AA0.5 Antenna Positions / Array Layout"
+                    >
+                        <figure>
+                            <img
+                                src="images/AA0.5_layout.png"
+                                alt="AA0.5 Layout"
+                            />
+                            <figcaption>Array Layout</figcaption>
+                        </figure>
+                    </div>
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA0.5_result.png"
+                        data-caption="AA0.5 Restored Image (Cleaned)"
+                    >
+                        <figure>
+                            <img
+                                src="images/AA0.5_result.png"
+                                alt="AA0.5 Result"
+                            />
+                            <figcaption>Restored Image</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AA1 Block -->
+            <div class="case-block">
+                <h2>Array Assembly 1 (AA1)</h2>
+                <p>
+                    Following successful verification, AA1 expands the array
+                    slightly, allowing preliminary imaging capabilities. At this
+                    stage, the array starts laying down the foundations for more
+                    extended baseline configurations.
+                </p>
+                <div class="result-grid">
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA1_layout.png"
+                        data-caption="AA1 Antenna Positions / Array Layout"
+                    >
+                        <figure>
+                            <img src="images/AA1_layout.png" alt="AA1 Layout" />
+                            <figcaption>Array Layout</figcaption>
+                        </figure>
+                    </div>
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA1_result.png"
+                        data-caption="AA1 Restored Image (Cleaned)"
+                    >
+                        <figure>
+                            <img src="images/AA1_result.png" alt="AA1 Result" />
+                            <figcaption>Restored Image</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AA2 Block -->
+            <div class="case-block">
+                <h2>Array Assembly 2 (AA2)</h2>
+                <p>
+                    By the end of AA2, the SKA telescopes become scientifically
+                    competitive. This marks an important milestone where the
+                    scientific community will be invited to submit suggestions
+                    for Science Verification targets.
+                </p>
+                <div class="result-grid">
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA2_layout.png"
+                        data-caption="AA2 Antenna Positions / Array Layout"
+                    >
+                        <figure>
+                            <img src="images/AA2_layout.png" alt="AA2 Layout" />
+                            <figcaption>Array Layout</figcaption>
+                        </figure>
+                    </div>
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA2_result.png"
+                        data-caption="AA2 Restored Image (Cleaned)"
+                    >
+                        <figure>
+                            <img src="images/AA2_result.png" alt="AA2 Result" />
+                            <figcaption>Restored Image</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AAstar Block -->
+            <div class="case-block">
+                <h2>Array Assembly Star (AA*)</h2>
+                <p>
+                    An intermediate target introduced to handle budgetary
+                    realities. While it contains fewer Mid dishes and Low
+                    stations than the full design, AA* will support all planned
+                    observing modes and give researchers access to an extremely
+                    powerful facility ahead of final completion. The layout
+                    shown here contains <strong>144 stations</strong>.
+                </p>
+                <div class="result-grid">
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AAstar_layout.png"
+                        data-caption="AA* Antenna Positions / Array Layout (144 stations)"
+                    >
+                        <figure>
+                            <img
+                                src="images/AAstar_layout.png"
+                                alt="AA* Layout"
+                            />
+                            <figcaption>Array Layout</figcaption>
+                        </figure>
+                    </div>
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AAstar_result.png"
+                        data-caption="AA* Restored Image (Cleaned)"
+                    >
+                        <figure>
+                            <img
+                                src="images/AAstar_result.png"
+                                alt="AA* Result"
+                            />
+                            <figcaption>Restored Image</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AA4 Block -->
+            <div class="case-block">
+                <h2>Array Assembly 4 (AA4 / Design Baseline)</h2>
+                <p>
+                    The full design baseline of the SKAO project. AA4 will
+                    deliver the complete observing capabilities with maximum
+                    sensitivity and resolution across all frequency bands,
+                    completing the transition from testing to a fully
+                    operational world-class observatory.
+                </p>
+                <div class="result-grid">
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA4_layout.png"
+                        data-caption="AA4 Antenna Positions / Array Layout"
+                    >
+                        <figure>
+                            <img src="images/AA4_layout.png" alt="AA4 Layout" />
+                            <figcaption>Array Layout</figcaption>
+                        </figure>
+                    </div>
+                    <div
+                        class="result-card"
+                        data-lightbox="images/AA4_result.png"
+                        data-caption="AA4 Restored Image (Cleaned)"
+                    >
+                        <figure>
+                            <img src="images/AA4_result.png" alt="AA4 Result" />
+                            <figcaption>Restored Image</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-block takeaways">
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li>
+                        <strong>Staged Implementation:</strong> Building the
+                        array in progressive stages lowers risk and enables
+                        early science capabilities prior to full completion.
+                    </li>
+                    <li>
+                        <strong>Evolving Performance:</strong> As we move from
+                        AA0.5 to AA4, the increase in stations and dishes
+                        dramatically improves image fidelity, UV coverage, and
+                        sensitivity.
+                    </li>
+                    <li>
+                        <strong>Early Science Access:</strong> AA2 and AA* are
+                        designed specifically to provide the scientific
+                        community with early, scientifically competitive data.
+                    </li>
+                </ul>
+
+                <h3 style="margin-top: 42px">Performance Summary</h3>
+                <p>
+                    Comparison of the five array assemblies for the same SDC1
+                    field and imaging setup. Beam values quote the smallest axis
+                    (BMIN) of the restored beam.
+                </p>
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Assembly</th>
+                            <th>Stations</th>
+                            <th>RMS (μJy/beam)</th>
+                            <th>Beam (arcsec)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AA0.5</td>
+                            <td>4</td>
+                            <td>177.52</td>
+                            <td>12.35</td>
+                        </tr>
+                        <tr>
+                            <td>AA1</td>
+                            <td>8</td>
+                            <td>153.20</td>
+                            <td>16.94</td>
+                        </tr>
+                        <tr>
+                            <td>AA2</td>
+                            <td>64</td>
+                            <td>20.16</td>
+                            <td>1.66</td>
+                        </tr>
+                        <tr>
+                            <td>AA*</td>
+                            <td>144</td>
+                            <td>5.48</td>
+                            <td>2.79</td>
+                        </tr>
+                        <tr>
+                            <td>AA4</td>
+                            <td>197</td>
+                            <td>4.96</td>
+                            <td>2.54</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Built for the
+                <a href="../index.html#about">CSIC4SKA</a> project. Source:
+                <a href="#">espsrc-ska-simulator</a>.
+            </p>
+        </footer>
+
+        <!-- lightbox -->
+        <div id="lightbox" class="lightbox" aria-hidden="true">
+            <div class="lightbox-content">
+                <span class="lightbox-counter" id="lightbox-counter"></span>
+                <button
+                    class="lightbox-close"
+                    aria-label="Close"
+                    onclick="closeLightbox()"
+                >
+                    ×
+                </button>
+                <button
+                    class="lightbox-prev"
+                    aria-label="Previous"
+                    onclick="prevImage()"
+                >
+                    ‹
+                </button>
+                <img id="lightbox-img" src="" alt="" />
+                <button
+                    class="lightbox-next"
+                    aria-label="Next"
+                    onclick="nextImage()"
+                >
+                    ›
+                </button>
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <script>
+            // lightbox logic
+            const cards = Array.from(
+                document.querySelectorAll(".result-card[data-lightbox]"),
+            );
+            const lightbox = document.getElementById("lightbox");
+            const lbImg = document.getElementById("lightbox-img");
+            const lbCaption = document.getElementById("lightbox-caption");
+            const lbCounter = document.getElementById("lightbox-counter");
+            let currentIdx = 0;
+
+            function openLightbox(index) {
+                currentIdx = index;
+                updateLightbox();
+                lightbox.classList.add("open");
+                lightbox.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove("open");
+                lightbox.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+            }
+
+            function updateLightbox() {
+                const card = cards[currentIdx];
+                lbImg.src = card.dataset.lightbox;
+                lbImg.alt = card.querySelector("img")?.alt || "";
+                lbCaption.textContent = card.dataset.caption || "";
+                lbCounter.textContent = `${currentIdx + 1} / ${cards.length}`;
+            }
+
+            function nextImage() {
+                currentIdx = (currentIdx + 1) % cards.length;
+                updateLightbox();
+            }
+
+            function prevImage() {
+                currentIdx = (currentIdx - 1 + cards.length) % cards.length;
+                updateLightbox();
+            }
+
+            cards.forEach((card, i) =>
+                card.addEventListener("click", () => openLightbox(i)),
+            );
+
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("open")) return;
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowRight") nextImage();
+                if (e.key === "ArrowLeft") prevImage();
+            });
+        </script>
+    </body>
+</html>

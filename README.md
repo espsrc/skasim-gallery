@@ -20,8 +20,10 @@ catalog files needed to reproduce it.
 
 | Case | Telescope | Key capability | Status |
 |------|-----------|----------------|--------|
-| MIGHTEE deep field | MeerKAT | Deep continuum survey, source confusion, and image fidelity comparison | complete |
-
+| MIGHTEE deep field | MeerKAT / SKA1-MID / VLA | Deep continuum survey, source confusion, and image-fidelity comparison | complete |
+| Polarization in the confusion limit | SKA-LOW | Stokes V detection of a polarized source in a crowded 0.07° field; auroral/SPI science case | complete |
+| SKAO staged delivery | SKA1-MID AA0.5 → AA4 | SDC1 field observed across five array assemblies (Band 2, 950–1670 MHz) | complete |
+| Arp 299 / redshift coverage | SKA1-MID | Multi-frequency study of an interacting galaxy system | placeholder |
 
 ## See also
 
