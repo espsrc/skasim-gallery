@@ -10,6 +10,16 @@
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [["\\(", "\\)"], ["$", "$"]],
+                    displayMath: [["\\[", "\\]"]],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
         <style>
             :root {
                 --bg: #fafaf9;
@@ -109,7 +119,7 @@
             .case-header .lead {
                 font-size: 1.15rem;
                 color: var(--text-muted);
-                max-width: 760px;
+                max-width: 790px;
                 margin: 0;
                 font-weight: 300;
             }
@@ -159,6 +169,21 @@
             .case-block strong {
                 color: var(--text);
                 font-weight: 500;
+            }
+            .equation-box {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 18px 22px;
+                margin: 18px 0;
+                overflow-x: auto;
+                color: var(--text);
+            }
+            .equation-box p {
+                margin-bottom: 10px;
+            }
+            .reference-note {
+                font-size: 0.9rem;
             }
 
             .wide-figure {
@@ -254,24 +279,62 @@
             <span class="tag">Science case #4</span>
             <h1>Redshifted radio galaxies</h1>
             <p class="lead">
-                Arp 220 at z = 0.018 placed at progressively higher redshift and
-                observed with SKA-MID-AA* for 10 minutes. Same source, same
-                telescope; only distance changes.
+                A nearby compact starburst is used as a controlled radio template:
+                how long does its nuclear structure remain detectable when the same
+                physical source is placed at cosmological distances and observed with SKA-MID?
             </p>
         </header>
 
         <main>
             <div class="case-block">
-                <h2>Science motivation</h2>
+                <h2>Physical motivation</h2>
                 <p>
-                    Arp 220 is the nearest ultra-luminous infrared galaxy and
-                    one of the brightest nearby radio sources. Its compact
-                    merger-driven starburst structure makes it a natural local
-                    template for high-redshift radio galaxies. Here the same
-                    resolved model is rescaled using luminosity distance,
-                    angular-diameter distance, K-correction (α = −0.7) and a
-                    Schreiber+15 star-forming main-sequence evolution, then
-                    observed by SKA-MID-AA* in bands 2, 5a and 5b.
+                    Local LIRGs and ULIRGs provide resolved laboratories for dusty,
+                    merger-driven star formation. Redshifting their radio structure tests
+                    when SKA-MID can still distinguish compact starburst morphology from an
+                    unresolved high-redshift source.
+                </p>
+            </div>
+
+            <div class="case-block">
+                <h2>The model</h2>
+                <p>
+                    The redshift scaling follows the framework of
+                    <a href="https://doi.org/10.1093/mnras/stac1393">Ghasemi-Nodehi et al. (2022)</a>,
+                    who model the radio-continuum surface brightness of local star-forming
+                    galaxies as they would appear at higher redshift.
+                </p>
+                <div class="equation-box">
+                    <p>The apparent angular size is set by the angular-diameter distance:</p>
+                    \[
+                        \theta(z) = \theta(z_0)\,\frac{D_A(z_0)}{D_A(z)} .
+                    \]
+                    <p>The total radio scaling used here combines distance dimming, K-correction and optional SFR evolution:</p>
+                    \[
+                        S_\nu(z) = S_\nu(z_0)
+                        \left[\frac{D_L(z_0)}{D_L(z)}\right]^2
+                        \left[\frac{1+z}{1+z_0}\right]^{0.3}
+                        f_{\rm SFR}(z) .
+                    \]
+                    <p>The SFR term uses the Schreiber et al. main sequence:</p>
+                    \[
+                        f_{\rm SFR}(z) =
+                        \frac{{\rm SFR}_{\rm MS}(M_\star,z)}
+                             {{\rm SFR}_{\rm MS}(M_\star,z_{\rm ref})},
+                    \]
+                    \[
+                        \log_{10}{\rm SFR}_{\rm MS} =
+                        m - m_0 + a_0 r
+                        - a_1\left[\max(0,m-m_1-a_2 r)\right]^2,
+                    \]
+                    \[
+                        m=\log_{10}\left(\frac{M_\star}{10^9 M_\odot}\right),
+                        \quad r=\log_{10}(1+z).
+                    \]
+                </div>
+                <p class="reference-note">
+                    This page shows the simple total-emission case: one radio image,
+                    one global spectral scaling, and no intrinsic size evolution.
                 </p>
             </div>
 
@@ -300,9 +363,9 @@
                         <h4>Input model</h4>
                         <dl>
                             <dt>Source</dt>
-                            <dd>Arp 220 recentered</dd>
-                            <dt>Format</dt>
-                            <dd>FITS image model (Jy/pixel)</dd>
+                            <dd>Arp 220</dd>
+                            <dt>Template</dt>
+                            <dd>Resolved radio sky model</dd>
                         </dl>
                     </div>
                     <div class="run-card">
@@ -310,8 +373,8 @@
                         <dl>
                             <dt>Redshift range</dt>
                             <dd>0.018 → 2.0</dd>
-                            <dt>Spectral index α</dt>
-                            <dd>−0.7</dd>
+                            <dt>Spectral scaling</dt>
+                            <dd>single global value</dd>
                             <dt>SFR model</dt>
                             <dd>Schreiber+15</dd>
                         </dl>
@@ -322,15 +385,15 @@
             <div class="case-block">
                 <h2>Results</h2>
                 <p>
-                    All three bands cover the same field of view. The source
-                    becomes smaller and fainter together; higher-frequency bands
-                    resolve the two nuclei better at low redshift, but also fade
-                    faster as redshift increases.
+                    The source shrinks in angular size and loses flux rapidly, while
+                    the higher-frequency maps preserve the compact double-nucleus
+                    structure for longer at low redshift. At later epochs, the source
+                    becomes beam-limited and progressively blends into a compact detection.
                 </p>
                 <figure class="wide-figure">
                     <img
                         src="images/arp220_redshift_sequence_combined.png"
-                        alt="Arp 220 redshift sequence at 1.35 GHz, ~6.5 GHz and ~11.9 GHz"
+                        alt="Arp 220 redshift sequence at 1.35 GHz, 6.5 GHz and 11.9 GHz"
                     />
                     <figcaption>
                         Redshift sequence from z = 0.018 to z = 2.00 across
@@ -341,23 +404,43 @@
                 </figure>
             </div>
 
+            <div class="case-block">
+                <h2>What is still missing</h2>
+                <ul>
+                    <li>
+                        <strong>Spectral-index maps:</strong> the current model uses one
+                        global spectral scaling rather than spatially varying radio colours.
+                    </li>
+                    <li>
+                        <strong>Thermal and non-thermal separation:</strong> the total
+                        emission is not yet decomposed into free-free and synchrotron components.
+                    </li>
+                    <li>
+                        <strong>Synchrotron evolution:</strong> the non-thermal spectral index
+                        is not yet linked to SFR surface density as in the reference model.
+                    </li>
+                    <li>
+                        <strong>Intrinsic size evolution:</strong> the source is kept physically
+                        fixed; optical-like compaction can be added as a sensitivity test.
+                    </li>
+                </ul>
+            </div>
+
             <div class="case-block takeaways">
                 <h2>Takeaways</h2>
                 <ul>
                     <li>
-                        <strong>Size evolution:</strong> the apparent angular
-                        diameter shrinks with redshift as θ ∝ D<sub>A</sub
-                        ><sup>−1</sup>.
+                        <strong>Angular size:</strong> cosmological distance alone can turn
+                        a resolved local merger into a compact high-redshift source.
                     </li>
                     <li>
-                        <strong>Flux evolution:</strong> luminosity-distance
-                        dimming and K-correction dominate; the higher-frequency
-                        bands fade faster.
+                        <strong>Flux evolution:</strong> luminosity-distance dimming dominates;
+                        SFR evolution only partly compensates the loss.
                     </li>
                     <li>
-                        <strong>Morphology:</strong> the double nucleus resolved
-                        at z = 0.018 is still separable at z = 0.15 in bands 5a
-                        and 5b, blends by z = 0.5, and disappears by z = 2.0.
+                        <strong>Morphology:</strong> the double nucleus resolved locally is
+                        still visible at low redshift in the high-frequency bands, blends by
+                        intermediate redshift, and is effectively unresolved at the highest redshifts.
                     </li>
                 </ul>
             </div>
