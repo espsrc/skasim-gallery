@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Case #4 — Redshifted radio galaxies · skasim portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --bg: #fafaf9;
+                --bg-elev: #ffffff;
+                --bg-card: #ffffff;
+                --text: #1c1917;
+                --text-muted: #78716c;
+                --accent: #9f1239;
+                --accent-2: #7c2d12;
+                --accent-3: #4338ca;
+                --border: #e7e5e4;
+                --radius: 16px;
+                --radius-sm: 8px;
+                --shadow: 0 12px 40px rgba(28, 25, 23, 0.08);
+                --max-w: 1080px;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: "Sora", system-ui, sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.65;
+                -webkit-font-smoothing: antialiased;
+            }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(14px);
+                background: rgba(250, 250, 249, 0.88);
+                border-bottom: 1px solid var(--border);
+            }
+            nav .wrap {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 14px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .logo {
+                font-family: "Cormorant Garamond", serif;
+                font-weight: 600;
+                font-size: 1.45rem;
+                color: var(--text);
+                letter-spacing: -0.01em;
+            }
+            .logo span {
+                color: var(--accent);
+                font-weight: 700;
+            }
+            .back {
+                font-size: 0.88rem;
+                font-weight: 500;
+                color: var(--text-muted);
+            }
+            .back:hover {
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            header.case-header {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 70px 24px 40px;
+            }
+            .case-header .tag {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 999px;
+                border: 1px solid var(--border);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                margin-bottom: 14px;
+            }
+            .case-header h1 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(2.4rem, 5vw, 3.6rem);
+                margin: 0 0 16px;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+            }
+            .case-header .lead {
+                font-size: 1.15rem;
+                color: var(--text-muted);
+                max-width: 760px;
+                margin: 0;
+                font-weight: 300;
+            }
+
+            main {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 0 24px 90px;
+            }
+            .case-block {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 36px;
+                margin-bottom: 28px;
+                box-shadow: var(--shadow);
+            }
+            .case-block h2 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.8rem;
+                margin: 0 0 18px;
+                font-weight: 500;
+            }
+            .case-block p {
+                color: var(--text-muted);
+                margin: 0 0 16px;
+                font-weight: 300;
+            }
+            .case-block p:last-child {
+                margin-bottom: 0;
+            }
+            .case-block ul {
+                color: var(--text-muted);
+                font-weight: 300;
+                padding-left: 22px;
+            }
+            .case-block li {
+                margin-bottom: 8px;
+            }
+            .case-block code {
+                background: #f5f5f4;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 0.9em;
+                color: var(--accent-2);
+            }
+            .case-block strong {
+                color: var(--text);
+                font-weight: 500;
+            }
+
+            .wide-figure {
+                margin: 22px 0 0;
+                text-align: center;
+            }
+            .wide-figure img {
+                width: 100%;
+                height: auto;
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--border);
+                background: #fafaf9;
+            }
+            .wide-figure figcaption {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 8px;
+            }
+
+            .run-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 14px;
+                margin-top: 22px;
+            }
+            .run-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 16px;
+            }
+            .run-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 12px;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            .run-card dl {
+                margin: 0;
+            }
+            .run-card dt {
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-weight: 600;
+                margin-bottom: 1px;
+            }
+            .run-card dd {
+                margin: 0 0 8px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--text);
+            }
+            .run-card dd:last-child {
+                margin-bottom: 0;
+            }
+
+            .takeaways {
+                background:
+                    radial-gradient(
+                        circle at 10% 20%,
+                        rgba(159, 18, 57, 0.14) 0%,
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        circle at 90% 80%,
+                        rgba(124, 45, 18, 0.12) 0%,
+                        transparent 45%
+                    ),
+                    #fff;
+            }
+
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 40px 24px;
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="wrap">
+                <a class="logo" href="../index.html">ska<span>sim</span></a>
+                <a class="back" href="../index.html#cases">← Back to cases</a>
+            </div>
+        </nav>
+
+        <header class="case-header">
+            <span class="tag">Science case #4</span>
+            <h1>Redshifted radio galaxies</h1>
+            <p class="lead">
+                Arp 220 at z = 0.018 placed at progressively higher redshift and
+                observed with SKA-MID-AA* for 10 minutes. Same source, same
+                telescope; only distance changes.
+            </p>
+        </header>
+
+        <main>
+            <div class="case-block">
+                <h2>Science motivation</h2>
+                <p>
+                    Arp 220 is the nearest ultra-luminous infrared galaxy and
+                    one of the brightest nearby radio sources. Its compact
+                    merger-driven starburst structure makes it a natural local
+                    template for high-redshift radio galaxies. Here the same
+                    resolved model is rescaled using luminosity distance,
+                    angular-diameter distance, K-correction (α = −0.7) and a
+                    Schreiber+15 star-forming main-sequence evolution, then
+                    observed by SKA-MID-AA* in bands 2, 5a and 5b.
+                </p>
+            </div>
+
+            <div class="case-block">
+                <h2>Simulation runs</h2>
+                <div class="run-grid">
+                    <div class="run-card">
+                        <h4>Telescope</h4>
+                        <dl>
+                            <dt>Array</dt>
+                            <dd>SKA-MID-AA*</dd>
+                            <dt>Mode</dt>
+                            <dd>Continuum snapshot</dd>
+                        </dl>
+                    </div>
+                    <div class="run-card">
+                        <h4>Observation</h4>
+                        <dl>
+                            <dt>Snapshot length</dt>
+                            <dd>10 minutes</dd>
+                            <dt>Bands</dt>
+                            <dd>1.35, ~6.5 &amp; ~11.9 GHz</dd>
+                        </dl>
+                    </div>
+                    <div class="run-card">
+                        <h4>Input model</h4>
+                        <dl>
+                            <dt>Source</dt>
+                            <dd>Arp 220 recentered</dd>
+                            <dt>Format</dt>
+                            <dd>FITS image model (Jy/pixel)</dd>
+                        </dl>
+                    </div>
+                    <div class="run-card">
+                        <h4>Scaling</h4>
+                        <dl>
+                            <dt>Redshift range</dt>
+                            <dd>0.018 → 2.0</dd>
+                            <dt>Spectral index α</dt>
+                            <dd>−0.7</dd>
+                            <dt>SFR model</dt>
+                            <dd>Schreiber+15</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-block">
+                <h2>Results</h2>
+                <p>
+                    All three bands cover the same field of view. The source
+                    becomes smaller and fainter together; higher-frequency bands
+                    resolve the two nuclei better at low redshift, but also fade
+                    faster as redshift increases.
+                </p>
+                <figure class="wide-figure">
+                    <img
+                        src="images/arp220_redshift_sequence_combined.png"
+                        alt="Arp 220 redshift sequence at 1.35 GHz, ~6.5 GHz and ~11.9 GHz"
+                    />
+                    <figcaption>
+                        Redshift sequence from z = 0.018 to z = 2.00 across
+                        bands 2, 5a and 5b. Each row shares its intensity scale
+                        and has a colorbar on the right. The label in the top
+                        right of each panel is the redshift.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="case-block takeaways">
+                <h2>Takeaways</h2>
+                <ul>
+                    <li>
+                        <strong>Size evolution:</strong> the apparent angular
+                        diameter shrinks with redshift as θ ∝ D<sub>A</sub
+                        ><sup>−1</sup>.
+                    </li>
+                    <li>
+                        <strong>Flux evolution:</strong> luminosity-distance
+                        dimming and K-correction dominate; the higher-frequency
+                        bands fade faster.
+                    </li>
+                    <li>
+                        <strong>Morphology:</strong> the double nucleus resolved
+                        at z = 0.018 is still separable at z = 0.15 in bands 5a
+                        and 5b, blends by z = 0.5, and disappears by z = 2.0.
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Built for the
+                <a href="../index.html#about">CSIC4SKA</a> project. Source:
+                <a href="https://github.com/your-org/espsrc-ska-simulator"
+                    >espsrc-ska-simulator</a
+                >.
+            </p>
+        </footer>
+    </body>
+</html>
