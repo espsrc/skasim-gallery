@@ -926,7 +926,7 @@
                             <h3>Case #4 — Redshifted radio galaxies</h3>
                             <p>
                                 Arp 220 placed at z = 0.018, 0.15, 0.30, 0.50, 1.00 and 2.00,
-                                observed with SKA-MID-AA* at 1.35 and ~6.5 GHz. Cosmological
+                                observed with SKA-MID-AA* at 1.35, 6.5 and 11.9 GHz. Cosmological
                                 dimming, angular-size scaling and SFR evolution applied to the
                                 same resolved radio galaxy model.
                             </p>
@@ -1104,12 +1104,100 @@
         </section>
 
         <footer>
-            <p>
-                Built for the <a href="#about">CSIC4SKA</a> project. Source:
-                <a href="https://github.com/your-org/espsrc-ska-simulator"
-                    >espsrc-ska-simulator</a
-                >.
-            </p>
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <img
+                        src="logos/institutional.svg"
+                        alt="Institutional logo"
+                        class="footer-logo-img"
+                    />
+                </div>
+                <div class="footer-acknowledgements">
+                    <p>
+                        This work acknowledges support by the grant INFRA24023
+                        (CSIC4SKA) funded by CSIC.
+                    </p>
+                    <p>
+                        The SPSRC acknowledges the Spanish Prototype of an SRC
+                        (SPSRC) service and support funded by the Ministerio de
+                        Ciencia, Innovación y Universidades (MICIU), by the Junta
+                        de Andalucía, by the European Regional Development Fund
+                        (ERDF) and by the European Union NextGenerationEU/PRTR.
+                        The SPSRC acknowledges financial support from the Agencia
+                        Estatal de Investigación (AEI) through the "Center of
+                        Excellence Severo Ochoa" award to the Instituto de
+                        Astrofísica de Andalucía (IAA-CSIC) (SEV-2017-0709) and
+                        from the grant CEX2021-001131-S funded by MICIU/AEI/
+                        10.13039/501100011033.
+                    </p>
+                    <p>
+                        This project acknowledges financial support from the grant
+                        CEX2021-001131-S funded by MICIU/AEI/
+                        10.13039/501100011033.
+                    </p>
+                    <p>
+                        This work acknowledges financial support from the
+                        coordination of the participation in SKA-SPAIN, funded by
+                        the Ministry of Science, Innovation and Universities
+                        (MICIU).
+                    </p>
+                </div>
+                <p class="footer-source">
+                    Built for the <a href="#about">CSIC4SKA</a> project. Source:
+                    <a href="https://github.com/your-org/espsrc-ska-simulator"
+                        >espsrc-ska-simulator</a
+                    >.
+                </p>
+            </div>
         </footer>
+
+        <style>
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 52px 24px;
+                background: #fff;
+            }
+            .footer-inner {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 32px;
+            }
+            .footer-logo {
+                width: min(420px, 60%);
+            }
+            .footer-logo-img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .footer-acknowledgements {
+                max-width: 920px;
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                text-align: center;
+            }
+            .footer-acknowledgements p {
+                margin: 0;
+                color: var(--text-muted);
+                font-size: 0.82rem;
+                line-height: 1.6;
+                font-weight: 300;
+            }
+            .footer-source {
+                margin: 8px 0 0;
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+            }
+            @media (max-width: 720px) {
+                .footer-logo {
+                    width: 80%;
+                }
+            }
+        </style>
     </body>
 </html>
