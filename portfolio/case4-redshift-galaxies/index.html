@@ -1,16 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Case #4 — Redshifted radio galaxies · skasim portfolio</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Case #4 — Redshifted radio galaxies · skasim portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Sora:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [["\\(", "\\)"], ["$", "$"]],
+                    displayMath: [["\\[", "\\]"]],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
             :root {
                 --bg: #fafaf9;
                 --bg-elev: #ffffff;
@@ -109,7 +117,7 @@
             .case-header .lead {
                 font-size: 1.15rem;
                 color: var(--text-muted);
-                max-width: 760px;
+                max-width: 790px;
                 margin: 0;
                 font-weight: 300;
             }
@@ -160,6 +168,39 @@
                 color: var(--text);
                 font-weight: 500;
             }
+            .equation-box {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 18px 22px;
+                margin: 18px 0;
+                overflow-x: auto;
+                color: var(--text);
+            }
+            .equation-box p {
+                margin-bottom: 10px;
+            }
+            .reference-note {
+                font-size: 0.9rem;
+            }
+            .orcid-symbol {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.55em;
+                height: 1.55em;
+                margin-left: 0.2em;
+                border-radius: 50%;
+                border: 1px solid var(--border);
+                font-size: 0.7em;
+                font-weight: 700;
+                color: var(--accent);
+                vertical-align: text-top;
+            }
+            .orcid-symbol:hover {
+                text-decoration: none;
+                border-color: var(--accent);
+            }
 
             .wide-figure {
                 margin: 22px 0 0;
@@ -176,6 +217,39 @@
                 font-size: 0.8rem;
                 color: var(--text-muted);
                 margin-top: 8px;
+            }
+
+
+            .source-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 18px;
+                margin: 22px 0 0;
+            }
+            .source-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                overflow: hidden;
+            }
+            .source-card img {
+                display: block;
+                width: 100%;
+                height: auto;
+                background: #000;
+            }
+            .source-card .source-body {
+                padding: 16px;
+            }
+            .source-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 8px;
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+            .source-card p {
+                margin-bottom: 0;
+                font-size: 0.92rem;
             }
 
             .run-grid {
@@ -241,136 +315,216 @@
                 background: #fff;
             }
         </style>
-    </head>
-    <body>
-        <nav>
-            <div class="wrap">
-                <a class="logo" href="../index.html">ska<span>sim</span></a>
-                <a class="back" href="../index.html#cases">← Back to cases</a>
-            </div>
-        </nav>
-
-        <header class="case-header">
-            <span class="tag">Science case #4</span>
-            <h1>Redshifted radio galaxies</h1>
-            <p class="lead">
-                Arp 220 at z = 0.018 placed at progressively higher redshift and
-                observed with SKA-MID-AA* for 10 minutes. Same source, same
-                telescope; only distance changes.
+</head>
+<body>
+<nav>
+<div class="wrap">
+<a class="logo" href="../index.html">ska<span>sim</span></a>
+<a class="back" href="../index.html#cases">← Back to cases</a>
+</div>
+</nav>
+<header class="case-header">
+<span class="tag">Science case #4</span>
+<h1>Redshifted radio galaxies</h1>
+<p class="lead">
+                A nearby compact starburst is used as a controlled radio template:
+                how long does its nuclear structure remain detectable when the same
+                physical source is placed at cosmological distances and observed with SKA-MID?
             </p>
-        </header>
-
-        <main>
-            <div class="case-block">
-                <h2>Science motivation</h2>
-                <p>
-                    Arp 220 is the nearest ultra-luminous infrared galaxy and
-                    one of the brightest nearby radio sources. Its compact
-                    merger-driven starburst structure makes it a natural local
-                    template for high-redshift radio galaxies. Here the same
-                    resolved model is rescaled using luminosity distance,
-                    angular-diameter distance, K-correction (α = −0.7) and a
-                    Schreiber+15 star-forming main-sequence evolution, then
-                    observed by SKA-MID-AA* in bands 2, 5a and 5b.
+</header>
+<main>
+<div class="case-block">
+<h2>Physical motivation</h2>
+<p>
+                    Local LIRGs and ULIRGs provide resolved laboratories for dusty,
+                    merger-driven star formation. Redshifting their radio structure tests
+                    when SKA-MID can still distinguish compact starburst morphology from an
+                    unresolved high-redshift source.
                 </p>
-            </div>
-
-            <div class="case-block">
-                <h2>Simulation runs</h2>
-                <div class="run-grid">
-                    <div class="run-card">
-                        <h4>Telescope</h4>
-                        <dl>
-                            <dt>Array</dt>
-                            <dd>SKA-MID-AA*</dd>
-                            <dt>Mode</dt>
-                            <dd>Continuum snapshot</dd>
-                        </dl>
-                    </div>
-                    <div class="run-card">
-                        <h4>Observation</h4>
-                        <dl>
-                            <dt>Snapshot length</dt>
-                            <dd>10 minutes</dd>
-                            <dt>Bands</dt>
-                            <dd>1.35, 6.5 &amp; 11.9 GHz</dd>
-                        </dl>
-                    </div>
-                    <div class="run-card">
-                        <h4>Input model</h4>
-                        <dl>
-                            <dt>Source</dt>
-                            <dd>Arp 220 recentered</dd>
-                            <dt>Format</dt>
-                            <dd>FITS image model (Jy/pixel)</dd>
-                        </dl>
-                    </div>
-                    <div class="run-card">
-                        <h4>Scaling</h4>
-                        <dl>
-                            <dt>Redshift range</dt>
-                            <dd>0.018 → 2.0</dd>
-                            <dt>Spectral index α</dt>
-                            <dd>−0.7</dd>
-                            <dt>SFR model</dt>
-                            <dd>Schreiber+15</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-
-            <div class="case-block">
-                <h2>Results</h2>
-                <p>
-                    All three bands cover the same field of view. The source
-                    becomes smaller and fainter together; higher-frequency bands
-                    resolve the two nuclei better at low redshift, but also fade
-                    faster as redshift increases.
+</div>
+<div class="case-block">
+<h2>Physical evolution model</h2>
+<p>
+                    The redshift scaling follows
+                    <a href="https://doi.org/10.1093/mnras/stac1393">Ghasemi-Nodehi et al. (2022)</a>:
+                    local radio-continuum maps are used as templates for how dusty
+                    star-forming galaxies would appear at higher redshift.
                 </p>
-                <figure class="wide-figure">
-                    <img
-                        src="images/arp220_redshift_sequence_combined.png"
-                        alt="Arp 220 redshift sequence at 1.35 GHz, ~6.5 GHz and ~11.9 GHz"
-                    />
-                    <figcaption>
+<div class="equation-box">
+<p>The apparent size is set by the angular-diameter distance:</p>
+\[
+    \theta(z) = \theta(z_0)\,\frac{D_A(z_0)}{D_A(z)} .
+\]
+<p>The integrated radio flux is scaled by distance, K-correction and optional SFR evolution:</p>
+\[
+    S_\nu(z) = S_\nu(z_0)
+    \left[\frac{D_L(z_0)}{D_L(z)}\right]^2
+    \left[\frac{1+z}{1+z_0}\right]^{1-\alpha}
+    f_{\rm SFR}(z) .
+\]
+<p>The SFR term follows the Schreiber et al. main sequence:</p>
+\[
+    f_{\rm SFR}(z) =
+    \frac{{\rm SFR}_{\rm MS}(M_\star,z)}
+         {{\rm SFR}_{\rm MS}(M_\star,z_{\rm ref})},
+\]
+\[
+    \log_{10}{\rm SFR}_{\rm MS} =
+    m - m_0 + a_0 r
+    - a_1\left[\max(0,m-m_1-a_2 r)\right]^2,
+\]
+\[
+    m=\log_{10}\left(\frac{M_\star}{10^9 M_\odot}\right),
+    \quad r=\log_{10}(1+z).
+\]
+</div>
+<p class="reference-note">
+                    This page shows the simple total-emission case: one radio image,
+                    one global spectral scaling, and no intrinsic size evolution.
+                </p>
+</div><div class="case-block">
+<h2>Input image models</h2>
+<p>
+                    The LIRG sky models were provided by Geferson Lucatelli
+                    <a aria-label="Geferson Lucatelli ORCID" class="orcid-symbol" href="https://orcid.org/0000-0002-2410-1776" title="Geferson Lucatelli ORCID">iD</a>
+                    (IAA-CSIC), from his high-resolution, multi-scale,
+                    multi-frequency observations of LIRGs; see his
+                    <a href="https://digital.csic.es/bitstream/10261/429296/1/Tesis_2025_Geferson%20Lucatelli.pdf">PhD thesis</a>.
+                </p>
+<div class="source-grid">
+<article class="source-card">
+<img alt="Radio model image of Arp 220" src="images/arp220_image.png"/>
+<div class="source-body">
+<h4>Arp 220</h4>
+<p>
+                                Late-stage ULIRG merger; distance ≈ 78 Mpc;
+                                IR-based SFR ≈ 200 M<sub>⊙</sub> yr<sup>−1</sup>.
+                            </p>
+</div>
+</article>
+<article class="source-card">
+<img alt="Radio model image of Arp 299" src="images/arp299_image.png"/>
+<div class="source-body">
+<h4>Arp 299</h4>
+<p>
+                                Interacting LIRG system; distance ≈ 45 Mpc;
+                                IR-based SFR ≈ 90 M<sub>⊙</sub> yr<sup>−1</sup>.
+                            </p>
+</div>
+</article>
+</div>
+</div>
+<div class="case-block">
+<h2>Simulation runs</h2>
+<div class="run-grid">
+<div class="run-card">
+<h4>Telescope</h4>
+<dl>
+<dt>Array</dt>
+<dd>SKA-MID-AA*</dd>
+<dt>Mode</dt>
+<dd>Continuum snapshot</dd>
+</dl>
+</div>
+<div class="run-card">
+<h4>Observation</h4>
+<dl>
+<dt>Snapshot length</dt>
+<dd>10 minutes</dd>
+<dt>Bands</dt>
+<dd>1.35, 6.5 &amp; 11.9 GHz</dd>
+</dl>
+</div>
+<div class="run-card">
+<h4>Redshift sequence</h4>
+<dl>
+<dt>Source redshifts</dt>
+<dd>Arp 299: 0.010 · Arp 220: 0.018</dd>
+<dt>Targets</dt>
+<dd>0.15, 0.3, 0.5, 1.0, 2.0</dd>
+</dl>
+</div>
+<div class="run-card">
+<h4>Products</h4>
+<dl>
+<dt>Emission</dt>
+<dd>Total radio continuum</dd>
+<dt>Output</dt>
+<dd>Simulated image sequences</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="case-block">
+<h2>Results</h2>
+<p>
+                    The source shrinks in angular size and loses flux rapidly, while
+                    the higher-frequency maps preserve the compact double-nucleus
+                    structure for longer at low redshift. At later epochs, the source
+                    becomes beam-limited and progressively blends into a compact detection.
+                </p>
+<figure class="wide-figure">
+<img alt="Arp 220 redshift sequence at 1.35 GHz, 6.5 GHz and 11.9 GHz" src="images/arp220_redshift_sequence_combined.png"/>
+<figcaption>
                         Redshift sequence from z = 0.018 to z = 2.00 across
                         bands 2, 5a and 5b. Each row shares its intensity scale
                         and has a colorbar on the right. The label in the top
                         right of each panel is the redshift.
                     </figcaption>
-                </figure>
-            </div>
-
-            <div class="case-block takeaways">
-                <h2>Takeaways</h2>
-                <ul>
-                    <li>
-                        <strong>Size evolution:</strong> the apparent angular
-                        diameter shrinks with redshift as θ ∝ D<sub>A</sub
-                        ><sup>−1</sup>.
+</figure>
+</div>
+<div class="case-block">
+    <h2>Beyond the current model</h2>
+    <p>
+        This first implementation captures the main cosmological effects and
+        provides a controlled baseline for comparing LIRG analogues across
+        redshift. The same framework can be made progressively more realistic
+        by adding further radio-continuum physics.
+    </p>
+    <ul>
+        <li>
+            <strong>Spectral-index maps:</strong> replace the single spectral
+            index with spatially resolved radio spectra.
+        </li>
+        <li>
+            <strong>Thermal and non-thermal components:</strong> evolve
+            free-free and synchrotron emission separately.
+        </li>
+        <li>
+            <strong>Resolved star-formation structure:</strong> link local
+            surface brightness to spatial variations in SFR density.
+        </li>
+        <li>
+            <strong>Frequency-dependent morphology:</strong> include changes
+            in compact and diffuse emission across bands.
+        </li>
+    </ul>
+</div>
+<div class="case-block takeaways">
+<h2>Takeaways</h2>
+<ul>
+<li>
+<strong>Angular size:</strong> cosmological distance alone can turn
+                        a resolved local merger into a compact high-redshift source.
                     </li>
-                    <li>
-                        <strong>Flux evolution:</strong> luminosity-distance
-                        dimming and K-correction dominate; the higher-frequency
-                        bands fade faster.
+<li>
+<strong>Flux evolution:</strong> luminosity-distance dimming dominates;
+                        SFR evolution only partly compensates the loss.
                     </li>
-                    <li>
-                        <strong>Morphology:</strong> the double nucleus resolved
-                        at z = 0.018 is still separable at z = 0.15 in bands 5a
-                        and 5b, blends by z = 0.5, and disappears by z = 2.0.
+<li>
+<strong>Morphology:</strong> the double nucleus resolved locally is
+                        still visible at low redshift in the high-frequency bands, blends by
+                        intermediate redshift, and is effectively unresolved at the highest redshifts.
                     </li>
-                </ul>
-            </div>
-        </main>
-
-        <footer>
-            <p>
+</ul>
+</div>
+</main>
+<footer>
+<p>
                 Built for the
                 <a href="../index.html#about">CSIC4SKA</a> project. Source:
-                <a href="https://github.com/your-org/espsrc-ska-simulator"
-                    >espsrc-ska-simulator</a
-                >.
+                <a href="https://github.com/your-org/espsrc-ska-simulator">espsrc-ska-simulator</a>.
             </p>
-        </footer>
-    </body>
+</footer>
+</body>
 </html>
