@@ -283,16 +283,12 @@
                 );
                 display: grid;
                 place-items: center;
-                padding: 28px;
                 overflow: hidden;
-                aspect-ratio: 16 / 10;
             }
             .case-media img {
-                max-width: 100%;
-                max-height: 100%;
-                border-radius: var(--radius-sm);
-                box-shadow: var(--shadow);
-                object-fit: contain;
+                width: 100%;
+                height: auto;
+                display: block;
             }
             .case-media .placeholder {
                 width: 160px;
@@ -416,10 +412,6 @@
             @media (max-width: 900px) {
                 .case-grid {
                     grid-template-columns: 1fr;
-                }
-                .case-media {
-                    aspect-ratio: 16 / 10;
-                    padding: 24px;
                 }
                 .case-body {
                     padding: 24px;
@@ -588,7 +580,9 @@
                         A curated portfolio of end-to-end SKA simulations: from
                         synthetic sky models to visibilities, dirty and CLEANed
                         images, and UV coverage across the world's most powerful
-                        radio interferometers, powered by the Karabo pipeline.
+                        radio interferometers, created with
+                        <a href="https://github.com/espsrc/espsrc_ska_simulator">skasim</a>
+                        and powered by the Karabo pipeline.
                     </p>
                     <div class="hero-actions">
                         <a href="#cases" class="btn btn-primary"
@@ -718,7 +712,7 @@
                 >
                     <div class="case-media">
                         <img
-                            src="case4-redshift-galaxies/images/arp220_band5a_z0018_thumbnail.png"
+                            src="case4-redshift-galaxies/images/arp299_image.png"
                             alt="Arp 220 redshift sequence"
                             loading="lazy"
                         />
@@ -899,7 +893,7 @@
                 </div>
                 <p class="footer-source">
                     Built for the <a href="#about">CSIC4SKA</a> project. Source:
-                    <a href="https://github.com/your-org/espsrc-ska-simulator"
+                    <a href="https://github.com/espsrc/espsrc_ska_simulator/"
                         >espsrc-ska-simulator</a
                     >.
                 </p>
