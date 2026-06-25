@@ -251,10 +251,12 @@
             /* cards */
             .case-grid {
                 display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 28px;
             }
             .case-card {
-                display: block;
+                display: flex;
+                flex-direction: column;
                 background: var(--bg-card);
                 border: 1px solid var(--border);
                 border-radius: var(--radius);
@@ -263,9 +265,6 @@
                     transform 0.25s,
                     box-shadow 0.25s,
                     border-color 0.25s;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                min-height: 400px;
                 box-shadow: var(--shadow);
                 color: inherit;
             }
@@ -274,12 +273,6 @@
                 border-color: rgba(159, 18, 57, 0.4);
                 box-shadow: 0 20px 52px rgba(28, 25, 23, 0.12);
                 text-decoration: none;
-            }
-            .case-card.reverse {
-                direction: rtl;
-            }
-            .case-card.reverse > * {
-                direction: ltr;
             }
             .case-media {
                 position: relative;
@@ -290,17 +283,20 @@
                 );
                 display: grid;
                 place-items: center;
-                padding: 40px;
+                padding: 28px;
                 overflow: hidden;
+                aspect-ratio: 16 / 10;
             }
             .case-media img {
                 max-width: 100%;
+                max-height: 100%;
                 border-radius: var(--radius-sm);
                 box-shadow: var(--shadow);
+                object-fit: contain;
             }
             .case-media .placeholder {
-                width: 220px;
-                height: 220px;
+                width: 160px;
+                height: 160px;
                 border-radius: var(--radius-sm);
                 background:
                     radial-gradient(
@@ -324,21 +320,24 @@
                 font-weight: 300;
             }
             .case-body {
-                padding: 44px;
+                padding: 28px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                flex: 1 1 auto;
             }
             .case-body h3 {
                 font-family: "Cormorant Garamond", serif;
-                font-size: 1.9rem;
-                margin: 0 0 12px;
+                font-size: 1.45rem;
+                margin: 0 0 10px;
                 font-weight: 500;
+                line-height: 1.2;
             }
             .case-body p {
                 color: var(--text-muted);
-                margin: 0 0 24px;
+                margin: 0 0 20px;
                 font-weight: 300;
+                font-size: 0.95rem;
+                line-height: 1.55;
             }
             .case-cta {
                 display: inline-flex;
@@ -349,31 +348,19 @@
                 font-size: 0.9rem;
                 color: var(--accent);
             }
-            .specs {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                margin-bottom: 28px;
-            }
-            .spec {
-                background: #fafaf9;
-                border: 1px solid var(--border);
-                border-radius: var(--radius-sm);
-                padding: 12px 14px;
-            }
-            .spec dt {
+            .case-card .case-body .tag-available {
+                display: inline-flex;
+                align-self: flex-start;
+                padding: 5px 12px;
+                border-radius: 999px;
+                background: rgba(21, 128, 61, 0.08);
+                border: 1px solid rgba(21, 128, 61, 0.2);
+                color: #15803d;
                 font-size: 0.7rem;
-                color: var(--text-muted);
+                font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 0.06em;
-                margin-bottom: 4px;
-                font-weight: 600;
-            }
-            .spec dd {
-                margin: 0;
-                font-weight: 600;
-                color: var(--text);
-                font-size: 0.95rem;
+                margin-bottom: 12px;
             }
 
             /* about */
@@ -426,146 +413,27 @@
                 color: var(--text-muted);
             }
 
-            /* placeholder cards */
-            .case-card.placeholder {
-                cursor: default;
-            }
-            .case-card.placeholder:hover {
-                transform: none;
-                border-color: var(--border);
-                box-shadow: var(--shadow);
-            }
-            .case-card.placeholder .case-media {
-                background:
-                    radial-gradient(
-                        circle at 20% 20%,
-                        rgba(159, 18, 57, 0.08) 0%,
-                        transparent 35%
-                    ),
-                    radial-gradient(
-                        circle at 80% 80%,
-                        rgba(67, 56, 202, 0.06) 0%,
-                        transparent 35%
-                    ),
-                    #f5f5f4;
-            }
-            .case-card.placeholder .placeholder-label {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                color: var(--text-muted);
-                font-size: 0.85rem;
-                font-weight: 300;
-                text-align: center;
-            }
-            .case-card.placeholder .placeholder-label strong {
-                font-family: "Cormorant Garamond", serif;
-                font-size: 1.5rem;
-                font-weight: 500;
-                color: var(--text);
-            }
-            .case-card.placeholder .case-body .tag-coming,
-            .case-card .case-body .tag-available {
-                display: inline-flex;
-                align-self: flex-start;
-                padding: 5px 12px;
-                border-radius: 999px;
-                background: #fafaf9;
-                border: 1px solid var(--border);
-                color: var(--text-muted);
-                font-size: 0.7rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                margin-bottom: 12px;
-            }
-            .case-card .case-body .tag-available {
-                background: rgba(21, 128, 61, 0.08);
-                border-color: rgba(21, 128, 61, 0.2);
-                color: #15803d;
-            }
-            .case-card.placeholder .case-body h3 {
-                color: var(--text);
-            }
-
-            /* carousel */
-            .carousel {
-                position: relative;
-                overflow: hidden;
-                padding: 0 48px;
-            }
-            .carousel-track {
-                display: flex;
-                gap: 28px;
-                transition: transform 0.35s ease;
-            }
-            .carousel .case-card {
-                flex: 0 0 100%;
-                min-height: 400px;
-                grid-template-columns: 1fr 1fr;
-            }
-            .carousel .case-card.placeholder {
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr;
-                min-height: 360px;
-            }
-            .carousel .case-card.placeholder .case-media {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 30px;
-            }
-            .carousel .case-card .case-media {
-                padding: 40px;
-            }
-            .carousel .case-card .case-body {
-                padding: 44px;
-            }
-            .carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 44px;
-                height: 44px;
-                border-radius: 50%;
-                border: 1px solid var(--border);
-                background: var(--bg-card);
-                color: var(--text);
-                display: grid;
-                place-items: center;
-                cursor: pointer;
-                box-shadow: var(--shadow);
-                z-index: 10;
-                transition:
-                    background 0.2s,
-                    border-color 0.2s;
-            }
-            .carousel-btn:hover {
-                background: #fff;
-                border-color: var(--accent);
-            }
-            .carousel-btn.prev {
-                left: 0;
-            }
-            .carousel-btn.next {
-                right: 0;
-            }
-            .carousel-btn:disabled {
-                opacity: 0.35;
-                cursor: not-allowed;
-                border-color: var(--border);
-            }
             @media (max-width: 900px) {
-                .carousel .case-card {
+                .case-grid {
                     grid-template-columns: 1fr;
-                    min-height: auto;
                 }
-                .carousel .case-card .case-media {
-                    padding: 30px;
+                .case-media {
+                    aspect-ratio: 16 / 10;
+                    padding: 24px;
                 }
-                .carousel .case-card .case-body {
-                    padding: 30px;
+                .case-body {
+                    padding: 24px;
+                }
+                .hero-inner,
+                .about-grid {
+                    grid-template-columns: 1fr;
+                }
+                .hero-visual {
+                    order: -1;
+                    height: 260px;
+                }
+                .links {
+                    display: none;
                 }
             }
 
@@ -697,17 +565,12 @@
             /* responsive */
             @media (max-width: 900px) {
                 .hero-inner,
-                .case-card,
-                .case-card.reverse,
                 .about-grid {
                     grid-template-columns: 1fr;
                 }
                 .hero-visual {
                     order: -1;
                     height: 260px;
-                }
-                .case-card.reverse {
-                    direction: ltr;
                 }
                 .links {
                     display: none;
@@ -1022,162 +885,109 @@
                 </p>
             </div>
 
-            <div class="carousel" role="region" aria-label="Science cases">
-                <button
-                    class="carousel-btn prev"
-                    aria-label="Previous case"
-                    type="button"
+            <div class="case-grid" role="list" aria-label="Science cases">
+                <!-- Case 1 -->
+                <a href="case1-mightee/index.html" class="case-card" role="listitem">
+                    <div class="case-media">
+                        <img
+                            src="case1-mightee/images/meerkat_clean.png"
+                            alt="MIGHTEE deep field preview"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="case-body">
+                        <span class="tag-available">Available</span>
+                        <h3>Case #1 — MIGHTEE deep field</h3>
+                        <p>
+                            A 1.28 GHz continuum field observed with MeerKAT
+                            L-band, SKA1-MID Band 1/2, and the VLA in B and
+                            D configurations. All runs share the MIGHTEE DR1
+                            sky model and a matched 0.2° field of view.
+                        </p>
+                        <span class="case-cta">Read the case →</span>
+                    </div>
+                </a>
+
+                <!-- Case 2 -->
+                <a href="case2-polarization/index.html" class="case-card" role="listitem">
+                    <div class="case-media">
+                        <img
+                            src="case2-polarization/images/clean_stokes_v.png"
+                            alt="SKA-LOW Stokes V restored image"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="case-body">
+                        <span class="tag-available">Available</span>
+                        <h3>
+                            Case #2 — Polarization in the confusion limit
+                        </h3>
+                        <p>
+                            A 200–400 MHz SKA-LOW-AAstar snapshot with 350
+                            sources in 0.07°. One source is set to Stokes V
+                            = 1 mJy, showing how circular polarization can
+                            lift a faint target out of a confusion-limited
+                            Stokes I field.
+                        </p>
+                        <span class="case-cta">Read the case →</span>
+                    </div>
+                </a>
+
+                <!-- Case 3 -->
+                <a
+                    href="case3-staged-delivery/index.html"
+                    class="case-card"
+                    role="listitem"
                 >
-                    ‹
-                </button>
-                <div class="carousel-track">
-                    <!-- Case 1 -->
-                    <a href="case1-mightee/index.html" class="case-card">
-                        <div class="case-media">
-                            <img
-                                src="case1-mightee/images/meerkat_clean.png"
-                                alt="MIGHTEE deep field preview"
-                            />
-                        </div>
-                        <div class="case-body">
-                            <span class="tag-available">Available</span>
-                            <h3>Case #1 — MIGHTEE deep field</h3>
-                            <p>
-                                A 1.28 GHz continuum field observed with MeerKAT
-                                L-band, SKA1-MID Band 1/2, and the VLA in B and
-                                D configurations. All runs share the MIGHTEE DR1
-                                sky model and a matched 0.2° field of view.
-                            </p>
-                            <span class="case-cta">Read the case →</span>
-                        </div>
-                    </a>
+                    <div class="case-media">
+                        <img
+                            src="case3-staged-delivery/images/AA4_result.png"
+                            alt="SKAO Staged Delivery"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="case-body">
+                        <span class="tag-available">Available</span>
+                        <h3>Case #3 — SKAO Staged Delivery</h3>
+                        <p>
+                            Exploring the chronological staged delivery of
+                            the SKA telescopes, from the initial AA0.5
+                            verification array to the full AA4 design
+                            baseline. Each assembly is simulated on a 0.6°
+                            portion of the SKA Data Challenge 1 catalogue
+                            with sources down to 10 μJy.
+                        </p>
+                        <span class="case-cta">Read the case →</span>
+                    </div>
+                </a>
 
-                    <!-- Case 2 -->
-                    <a href="case2-polarization/index.html" class="case-card">
-                        <div class="case-media">
-                            <img
-                                src="case2-polarization/images/clean_stokes_v.png"
-                                alt="SKA-LOW Stokes V restored image"
-                            />
-                        </div>
-                        <div class="case-body">
-                            <span class="tag-available">Available</span>
-                            <h3>
-                                Case #2 — Polarization in the confusion limit
-                            </h3>
-                            <p>
-                                A 200–400 MHz SKA-LOW-AAstar snapshot with 350
-                                sources in 0.07°. One source is set to Stokes V
-                                = 1 mJy, showing how circular polarization can
-                                lift a faint target out of a confusion-limited
-                                Stokes I field.
-                            </p>
-                            <span class="case-cta">Read the case →</span>
-                        </div>
-                    </a>
-
-                    <!-- Case 3 -->
-                    <a
-                        href="case3-staged-delivery/index.html"
-                        class="case-card"
-                    >
-                        <div class="case-media">
-                            <img
-                                src="case3-staged-delivery/images/AA4_result.png"
-                                alt="SKAO Staged Delivery"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div class="case-body">
-                            <span class="tag-available">Available</span>
-                            <h3>Case #3 — SKAO Staged Delivery</h3>
-                            <p>
-                                Exploring the chronological staged delivery of
-                                the SKA telescopes, from the initial AA0.5
-                                verification array to the full AA4 design
-                                baseline. Each assembly is simulated on a 0.6°
-                                portion of the SKA Data Challenge 1 catalogue
-                                with sources down to 10 μJy.
-                            </p>
-                            <span class="case-cta">Read the case →</span>
-                        </div>
-                    </a>
-
-                    <!-- Case 4 -->
-                    <a
-                        href="case4-redshift-galaxies/index.html"
-                        class="case-card"
-                    >
-                        <div class="case-media">
-                            <img
-                                src="case4-redshift-galaxies/images/arp220_band5a_z0018_thumbnail.png"
-                                alt="Arp 220 redshift sequence"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div class="case-body">
-                            <span class="tag-available">Available</span>
-                            <h3>Case #4 — Redshifted radio galaxies</h3>
-                            <p>
-                                Arp 220 and Arp 299 placed at z = 0.15, 0.30,
-                                0.50, 1.00 and 2.00, observed with SKA-MID-AA*
-                                at 1.35, 6.5 and 11.9 GHz. Cosmological dimming,
-                                angular-size scaling and SFR evolution applied
-                                to the same resolved radio galaxy model.
-                            </p>
-                            <span class="case-cta">Read the case →</span>
-                        </div>
-                    </a>
-                </div>
-                <button
-                    class="carousel-btn next"
-                    aria-label="Next case"
-                    type="button"
+                <!-- Case 4 -->
+                <a
+                    href="case4-redshift-galaxies/index.html"
+                    class="case-card"
+                    role="listitem"
                 >
-                    ›
-                </button>
+                    <div class="case-media">
+                        <img
+                            src="case4-redshift-galaxies/images/arp220_band5a_z0018_thumbnail.png"
+                            alt="Arp 220 redshift sequence"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="case-body">
+                        <span class="tag-available">Available</span>
+                        <h3>Case #4 — Redshifted radio galaxies</h3>
+                        <p>
+                            Arp 220 and Arp 299 placed at z = 0.15, 0.30,
+                            0.50, 1.00 and 2.00, observed with SKA-MID-AA*
+                            at 1.35, 6.5 and 11.9 GHz. Cosmological dimming,
+                            angular-size scaling and SFR evolution applied
+                            to the same resolved radio galaxy model.
+                        </p>
+                        <span class="case-cta">Read the case →</span>
+                    </div>
+                </a>
             </div>
-
-            <script>
-                (function () {
-                    const carousel = document.querySelector(".carousel");
-                    const track = carousel.querySelector(".carousel-track");
-                    const prevBtn =
-                        carousel.querySelector(".carousel-btn.prev");
-                    const nextBtn =
-                        carousel.querySelector(".carousel-btn.next");
-                    const cards = Array.from(track.children);
-                    let index = 0;
-
-                    function getVisible() {
-                        return 1;
-                    }
-
-                    function update() {
-                        const visible = getVisible();
-                        const cardWidth =
-                            cards[0].getBoundingClientRect().width;
-                        const gap = 28;
-                        track.style.transform =
-                            "translateX(-" + index * (cardWidth + gap) + "px)";
-                        prevBtn.disabled = index === 0;
-                        nextBtn.disabled = index >= cards.length - visible;
-                    }
-
-                    prevBtn.addEventListener("click", () => {
-                        if (index > 0) index--;
-                        update();
-                    });
-                    nextBtn.addEventListener("click", () => {
-                        const visible = getVisible();
-                        if (index < cards.length - visible) index++;
-                        update();
-                    });
-
-                    window.addEventListener("resize", update);
-                    update();
-                })();
-            </script>
         </section>
 
         <section
