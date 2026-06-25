@@ -1,0 +1,584 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Case #4 — Redshifted radio galaxies · skasim portfolio</title>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link
+            crossorigin=""
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Sora:wght@300;400;500;600;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["\\(", "\\)"],
+                        ["$", "$"],
+                    ],
+                    displayMath: [["\\[", "\\]"]],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+        <script
+            defer=""
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+        ></script>
+        <style>
+            :root {
+                --bg: #fafaf9;
+                --bg-elev: #ffffff;
+                --bg-card: #ffffff;
+                --text: #1c1917;
+                --text-muted: #78716c;
+                --accent: #9f1239;
+                --accent-2: #7c2d12;
+                --accent-3: #4338ca;
+                --border: #e7e5e4;
+                --radius: 16px;
+                --radius-sm: 8px;
+                --shadow: 0 12px 40px rgba(28, 25, 23, 0.08);
+                --max-w: 1080px;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: "Sora", system-ui, sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.65;
+                -webkit-font-smoothing: antialiased;
+            }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(14px);
+                background: rgba(250, 250, 249, 0.88);
+                border-bottom: 1px solid var(--border);
+            }
+            nav .wrap {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 14px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .logo {
+                font-family: "Cormorant Garamond", serif;
+                font-weight: 600;
+                font-size: 1.45rem;
+                color: var(--text);
+                letter-spacing: -0.01em;
+            }
+            .logo span {
+                color: var(--accent);
+                font-weight: 700;
+            }
+            .back {
+                font-size: 0.88rem;
+                font-weight: 500;
+                color: var(--text-muted);
+            }
+            .back:hover {
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            header.case-header {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 70px 24px 40px;
+            }
+            .case-header .tag {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 999px;
+                border: 1px solid var(--border);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                margin-bottom: 14px;
+            }
+            .case-header h1 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(2.4rem, 5vw, 3.6rem);
+                margin: 0 0 16px;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+            }
+            .case-header .lead {
+                font-size: 1.15rem;
+                color: var(--text-muted);
+                max-width: 790px;
+                margin: 0;
+                font-weight: 300;
+            }
+
+            main {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 0 24px 90px;
+            }
+            .case-block {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 36px;
+                margin-bottom: 28px;
+                box-shadow: var(--shadow);
+            }
+            .case-block h2 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.8rem;
+                margin: 0 0 18px;
+                font-weight: 500;
+            }
+            .case-block p {
+                color: var(--text-muted);
+                margin: 0 0 16px;
+                font-weight: 300;
+            }
+            .case-block p:last-child {
+                margin-bottom: 0;
+            }
+            .case-block ul {
+                color: var(--text-muted);
+                font-weight: 300;
+                padding-left: 22px;
+            }
+            .case-block li {
+                margin-bottom: 8px;
+            }
+            .case-block code {
+                background: #f5f5f4;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 0.9em;
+                color: var(--accent-2);
+            }
+            .case-block strong {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .equation-box {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 18px 22px;
+                margin: 18px 0;
+                overflow-x: auto;
+                color: var(--text);
+            }
+            .equation-box p {
+                margin-bottom: 10px;
+            }
+            .reference-note {
+                font-size: 0.9rem;
+            }
+            .orcid-symbol {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.55em;
+                height: 1.55em;
+                margin-left: 0.2em;
+                border-radius: 50%;
+                border: 1px solid var(--border);
+                font-size: 0.7em;
+                font-weight: 700;
+                color: var(--accent);
+                vertical-align: text-top;
+            }
+            .orcid-symbol:hover {
+                text-decoration: none;
+                border-color: var(--accent);
+            }
+
+            .wide-figure {
+                margin: 22px 0 0;
+                text-align: center;
+            }
+            .wide-figure img {
+                width: 100%;
+                height: auto;
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--border);
+                background: #fafaf9;
+            }
+            .wide-figure figcaption {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 8px;
+            }
+
+            .source-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 18px;
+                margin: 22px 0 0;
+            }
+            .source-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                overflow: hidden;
+            }
+            .source-card img {
+                display: block;
+                width: 100%;
+                height: auto;
+                background: #000;
+            }
+            .source-card .source-body {
+                padding: 16px;
+            }
+            .source-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 8px;
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+            .source-card p {
+                margin-bottom: 0;
+                font-size: 0.92rem;
+            }
+
+            .run-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 14px;
+                margin-top: 22px;
+            }
+            .run-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 16px;
+            }
+            .run-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 12px;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            .run-card dl {
+                margin: 0;
+            }
+            .run-card dt {
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-weight: 600;
+                margin-bottom: 1px;
+            }
+            .run-card dd {
+                margin: 0 0 8px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--text);
+            }
+            .run-card dd:last-child {
+                margin-bottom: 0;
+            }
+
+            .takeaways {
+                background:
+                    radial-gradient(
+                        circle at 10% 20%,
+                        rgba(159, 18, 57, 0.14) 0%,
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        circle at 90% 80%,
+                        rgba(124, 45, 18, 0.12) 0%,
+                        transparent 45%
+                    ),
+                    #fff;
+            }
+
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 40px 24px;
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+                background: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="wrap">
+                <a class="logo" href="../index.html">ska<span>sim</span></a>
+                <a class="back" href="../index.html#cases">← Back to cases</a>
+            </div>
+        </nav>
+        <header class="case-header">
+            <span class="tag">Science case #4</span>
+            <h1>Redshifted radio galaxies</h1>
+            <p class="lead">
+                Nearby starburst templates — Arp 220 at z = 0.018 and Arp 299 at
+                z = 0.0109 — how long does its nuclear structure remain
+                detectable when the same physical source is placed at
+                cosmological distances and observed with SKA-MID?
+            </p>
+        </header>
+        <main>
+            <div class="case-block">
+                <h2>Physical motivation</h2>
+                <p>
+                    Local LIRGs and ULIRGs provide resolved laboratories for
+                    dusty, merger-driven star formation. Redshifting their radio
+                    structure tests when SKA-MID can still distinguish compact
+                    starburst morphology from an unresolved high-redshift
+                    source.
+                </p>
+            </div>
+            <div class="case-block">
+                <h2>Physical evolution model</h2>
+                <p>
+                    The redshift scaling follows
+                    <a href="https://doi.org/10.1093/mnras/stac1393"
+                        >Ghasemi-Nodehi et al. (2022)</a
+                    >: local radio-continuum maps are used as templates for how
+                    dusty star-forming galaxies would appear at higher redshift.
+                </p>
+                <div class="equation-box">
+                    <p>
+                        The apparent size is set by the angular-diameter
+                        distance:
+                    </p>
+                    \[ \theta(z) = \theta(z_0)\,\frac{D_A(z_0)}{D_A(z)} . \]
+                    <p>
+                        The integrated radio flux is scaled by distance,
+                        K-correction and optional SFR evolution:
+                    </p>
+                    \[ S_\nu(z) = S_\nu(z_0)
+                    \left[\frac{D_L(z_0)}{D_L(z)}\right]^2
+                    \left[\frac{1+z}{1+z_0}\right]^{1-\alpha} f_{\rm SFR}(z) .
+                    \]
+                    <p>
+                        The SFR term follows the Schreiber et al. main sequence:
+                    </p>
+                    \[ f_{\rm SFR}(z) = \frac{{\rm SFR}_{\rm MS}(M_\star,z)}
+                    {{\rm SFR}_{\rm MS}(M_\star,z_{\rm ref})}, \] \[
+                    \log_{10}{\rm SFR}_{\rm MS} = m - m_0 + a_0 r -
+                    a_1\left[\max(0,m-m_1-a_2 r)\right]^2, \] \[
+                    m=\log_{10}\left(\frac{M_\star}{10^9 M_\odot}\right), \quad
+                    r=\log_{10}(1+z). \]
+                </div>
+                <p class="reference-note">
+                    This page shows the simple total-emission case: one radio
+                    image, one global spectral scaling, and no intrinsic size
+                    evolution.
+                </p>
+            </div>
+            <div class="case-block">
+                <h2>Input image models</h2>
+                <p>
+                    The LIRG sky models were provided by Geferson Lucatelli
+                    <a
+                        aria-label="Geferson Lucatelli ORCID"
+                        class="orcid-symbol"
+                        href="https://orcid.org/0000-0002-2410-1776"
+                        title="Geferson Lucatelli ORCID"
+                        >iD</a
+                    >
+                    (IAA-CSIC), from his high-resolution, multi-scale,
+                    multi-frequency observations of LIRGs; see his
+                    <a
+                        href="https://digital.csic.es/bitstream/10261/429296/1/Tesis_2025_Geferson%20Lucatelli.pdf"
+                        >PhD thesis</a
+                    >.
+                </p>
+                <div class="source-grid">
+                    <article class="source-card">
+                        <img
+                            alt="Radio model image of Arp 220"
+                            src="images/arp220_image.png"
+                        />
+                        <div class="source-body">
+                            <h4>Arp 220</h4>
+                            <p>
+                                Late-stage ULIRG merger; distance ≈ 78 Mpc;
+                                IR-based SFR ≈ 200 M<sub>⊙</sub>
+                                yr<sup>−1</sup>.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="source-card">
+                        <img
+                            alt="Radio model image of Arp 299"
+                            src="images/arp299_image.png"
+                        />
+                        <div class="source-body">
+                            <h4>Arp 299</h4>
+                            <p>
+                                Interacting LIRG system; distance ≈ 45 Mpc;
+                                IR-based SFR ≈ 90 M<sub>⊙</sub> yr<sup>−1</sup>.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="case-block">
+                <h2>Simulation runs</h2>
+                <div class="run-grid">
+                    <div class="run-card">
+                        <h4>Telescope</h4>
+                        <dl>
+                            <dt>Array</dt>
+                            <dd>SKA-MID-AA*</dd>
+                            <dt>Mode</dt>
+                            <dd>Continuum snapshot</dd>
+                        </dl>
+                    </div>
+                    <div class="run-card">
+                        <h4>Observation</h4>
+                        <dl>
+                            <dt>Snapshot length</dt>
+                            <dd>10 minutes</dd>
+                            <dt>Bands</dt>
+                            <dd>1.35, 6.5 &amp; 11.9 GHz</dd>
+                        </dl>
+                    </div>
+                    <div class="run-card">
+                        <h4>Redshift sequence</h4>
+                        <dl>
+                            <dt>Source redshifts</dt>
+                            <dd>Arp 299: 0.010 · Arp 220: 0.018</dd>
+                            <dt>Targets</dt>
+                            <dd>0.15, 0.3, 0.5, 1.0, 2.0</dd>
+                        </dl>
+                    </div>
+                    <div class="run-card">
+                        <h4>Products</h4>
+                        <dl>
+                            <dt>Emission</dt>
+                            <dd>Total radio continuum</dd>
+                            <dt>Output</dt>
+                            <dd>Simulated image sequences</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="case-block">
+                <h2>Results</h2>
+                <p>
+                    The source shrinks in angular size and loses flux rapidly,
+                    while the higher-frequency maps preserve the compact
+                    double-nucleus structure for longer at low redshift. At
+                    later epochs, the source becomes beam-limited and
+                    progressively blends into a compact detection.
+                </p>
+
+                <figure class="wide-figure">
+                    <img
+                        src="images/arp220_redshift_sequence_combined.png"
+                        alt="Arp 220 redshift sequence at 1.35 GHz, 6.5 GHz and 11.9 GHz"
+                    />
+                    <figcaption>
+                        Arp 220 redshift sequence from z = 0.15 to z = 2.00
+                        across bands 2, 5a and 5b. Each row shares its intensity
+                        scale and has a colorbar on the right. The label in the
+                        top right of each panel is the redshift.
+                    </figcaption>
+                </figure>
+
+                <figure class="wide-figure">
+                    <img
+                        src="images/arp299_redshift_sequence_combined.png"
+                        alt="Arp 299 redshift sequence at 1.35 GHz, 6.5 GHz and 11.9 GHz"
+                    />
+                    <figcaption>
+                        Arp 299 redshift sequence from z = 0.15 to z = 2.00
+                        across bands 2, 5a and 5b. Each row shares its intensity
+                        scale and has a colorbar on the right. The label in the
+                        top right of each panel is the redshift.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="case-block">
+                <h2>Beyond the current model</h2>
+                <p>
+                    This first implementation captures the main cosmological
+                    effects and provides a controlled baseline for comparing
+                    LIRG analogues across redshift. The same framework can be
+                    made progressively more realistic by adding further
+                    radio-continuum physics.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Spectral-index maps:</strong> replace the single
+                        spectral index with spatially resolved radio spectra.
+                    </li>
+                    <li>
+                        <strong>Thermal and non-thermal components:</strong>
+                        evolve free-free and synchrotron emission separately.
+                    </li>
+                    <li>
+                        <strong>Resolved star-formation structure:</strong> link
+                        local surface brightness to spatial variations in SFR
+                        density.
+                    </li>
+                    <li>
+                        <strong>Frequency-dependent morphology:</strong> include
+                        changes in compact and diffuse emission across bands.
+                    </li>
+                </ul>
+            </div>
+            <div class="case-block takeaways">
+                <h2>Takeaways</h2>
+                <ul>
+                    <li>
+                        <strong>Angular size:</strong> cosmological distance
+                        alone can turn a resolved local merger into a compact
+                        high-redshift source.
+                    </li>
+                    <li>
+                        <strong>Flux evolution:</strong> luminosity-distance
+                        dimming dominates; SFR evolution only partly compensates
+                        the loss.
+                    </li>
+                    <li>
+                        <strong>Morphology:</strong> the double nucleus resolved
+                        locally is still visible at low redshift in the
+                        high-frequency bands, blends by intermediate redshift,
+                        and is effectively unresolved at the highest redshifts.
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <p>
+                Built for the
+                <a href="../index.html#about">CSIC4SKA</a> project. Source:
+                <a href="https://github.com/your-org/espsrc-ska-simulator"
+                    >espsrc-ska-simulator</a
+                >.
+            </p>
+        </footer>
+    </body>
+</html>

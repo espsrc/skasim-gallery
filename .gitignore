@@ -1,0 +1,36 @@
+# raw FITS data products are kept out of the public repo
+# they can be regenerated / downloaded separately
+*.fits
+*.FITS
+portfolio/case4-redshift-galaxies/sources/
+portfolio/case4-redshift-galaxies/sources_arp299/
+
+# other large / local-only artifacts
+*.h5
+*.hdf5
+*.npz
+*.pkl
+*.ckpt
+*.pt
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# environment
+.env
+.venv/
+venv/
+node_modules/
+
+# temporary / local notes
+.stfolder/
