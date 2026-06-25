@@ -1,9 +1,13 @@
-# raw FITS data products are kept out of the public repo
+# raw FITS data products and generation scripts are kept out of the public repo
 # they can be regenerated / downloaded separately
 *.fits
 *.FITS
 portfolio/case4-redshift-galaxies/sources/
 portfolio/case4-redshift-galaxies/sources_arp299/
+
+# image generation scripts
+portfolio/case4-redshift-galaxies/scripts/
+case4-redshift-galaxies/scripts/
 
 # other large / local-only artifacts
 *.h5
