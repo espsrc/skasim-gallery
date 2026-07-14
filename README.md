@@ -29,4 +29,4 @@ catalog files needed to reproduce it.
 
 - [`skasim`](https://github.com/espsrc/espsrc_ska_simulator) — the simulator that powers
   every case in this gallery.
-- [skasim documentation / config examples](...)
+- [skasim documentation / config examples](https://espsrc.github.io/espsrc_ska_simulator/)
