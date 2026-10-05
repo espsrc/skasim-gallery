@@ -8,6 +8,7 @@ portfolio/case4-redshift-galaxies/sources_arp299/
 # image generation scripts
 portfolio/case4-redshift-galaxies/scripts/
 case4-redshift-galaxies/scripts/
+case5-hi-kinematics/scripts/
 
 # other large / local-only artifacts
 *.h5
