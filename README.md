@@ -1,7 +1,7 @@
 # skasim-gallery
 
 A curated collection of examples and real-world science cases built with
-[`skasim`](https://github.com/espsrc/espsrc_ska_simulator).  Each case in this repository is a
+[`skasim`](https://github.com/espsrc/skasim).  Each case in this repository is a
 self-contained reference that shows a concrete capability of the simulator using the actual config and
 catalog files needed to reproduce it.
 
@@ -28,6 +28,6 @@ catalog files needed to reproduce it.
 
 ## See also
 
-- [`skasim`](https://github.com/espsrc/espsrc_ska_simulator) — the simulator that powers
+- [`skasim`](https://github.com/espsrc/skasim) — the simulator that powers
   every case in this gallery.
-- [skasim documentation / config examples](https://espsrc.github.io/espsrc_ska_simulator/)
+- [skasim documentation / config examples](https://espsrc.github.io/skasim/)
