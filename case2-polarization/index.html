@@ -692,6 +692,7 @@
                 background: #fff;
             }
         </style>
+        <link rel="stylesheet" href="../assets/case-nav.css" />
     </head>
     <body>
         <nav>
@@ -711,6 +712,13 @@
                 confused Stokes I image. Can a blind Stokes V search pull them
                 out?
             </p>
+            <ul class="facts">
+                <li><strong>SKA-LOW-AAstar</strong></li>
+                <li>175 MHz · 50 MHz</li>
+                <li>2 h</li>
+                <li>1° field, 60 462 sources</li>
+                <li class="result">Both targets recovered in Stokes V</li>
+            </ul>
         </header>
 
         <main>
@@ -992,5 +1000,6 @@
                 if (e.key === "ArrowLeft") prevImage();
             });
         </script>
+        <script src="../assets/case-nav.js" defer></script>
     </body>
 </html>
