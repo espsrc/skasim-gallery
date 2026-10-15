@@ -1,0 +1,82 @@
+{
+  "20arcsec": {
+    "sigma_V_uJy_per_beam": 25.61704661796398,
+    "sigma_I_uJy_per_beam_MAD": 106.77636194159277,
+    "blind_V_search": {
+      "5sigma": {
+        "detections": [
+          {
+            "ra": 149.97175499307437,
+            "dec": -30.06666366912295,
+            "snr": 8.14077033022745,
+            "matches": "A"
+          },
+          {
+            "ra": 149.98458132823515,
+            "dec": -30.14555481509439,
+            "snr": -6.273522773166058,
+            "matches": "B"
+          }
+        ],
+        "false_positives": 0,
+        "expected_false_positives_gaussian": 0.016393100218667096
+      },
+      "4.5sigma": {
+        "detections": [
+          {
+            "ra": 150.09519458692523,
+            "dec": -30.262188985055374,
+            "snr": 4.513132217008452,
+            "matches": null
+          },
+          {
+            "ra": 149.97175499307437,
+            "dec": -30.06666366912295,
+            "snr": 8.14077033022745,
+            "matches": "A"
+          },
+          {
+            "ra": 149.57376790288632,
+            "dec": -29.763755650172158,
+            "snr": 4.55515273425557,
+            "matches": null
+          },
+          {
+            "ra": 149.98458132823515,
+            "dec": -30.14555481509439,
+            "snr": -6.273522773166058,
+            "matches": "B"
+          }
+        ],
+        "false_positives": 2,
+        "expected_false_positives_gaussian": 0.19430696185906543
+      }
+    },
+    "sources": {
+      "A": {
+        "true_V_uJy": 204.79999999999998,
+        "true_I_uJy": 256.0,
+        "measured_V_peak_uJy": 208.5424930555746,
+        "V_snr": 8.14077033022745,
+        "I_at_position_uJy_per_beam": 469.5800307672471,
+        "nearest_I_peak_offset_arcsec": 1.8462774731932674,
+        "nearest_I_peak_uJy_per_beam": 469.5800307672471,
+        "I_peaks_within_2arcmin": 36,
+        "I_peaks_within_2arcmin_at_least_as_bright": 23,
+        "true_I_over_sigma_I": 2.397534391928743
+      },
+      "B": {
+        "true_V_uJy": -128.0,
+        "true_I_uJy": 160.0,
+        "measured_V_peak_uJy": -160.70912533905357,
+        "V_snr": -6.273522773166058,
+        "I_at_position_uJy_per_beam": 500.9074811823666,
+        "nearest_I_peak_offset_arcsec": 13.16224900068677,
+        "nearest_I_peak_uJy_per_beam": 826.3112977147102,
+        "I_peaks_within_2arcmin": 33,
+        "I_peaks_within_2arcmin_at_least_as_bright": 29,
+        "true_I_over_sigma_I": 1.4984589949554643
+      }
+    }
+  }
+}

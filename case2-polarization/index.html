@@ -3,10 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-            Case #2 — Polarized sources in the confusion limit · skasim
-            portfolio
-        </title>
+        <title>Case #2 — Circular polarization in the confusion limit · skasim portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -130,6 +127,9 @@
                 margin-bottom: 28px;
                 box-shadow: var(--shadow);
             }
+            .case-block + .case-block {
+                margin-top: 32px;
+            }
             .case-block h2 {
                 font-family: "Cormorant Garamond", serif;
                 font-size: 1.8rem;
@@ -172,7 +172,183 @@
                 color: var(--text);
                 font-weight: 600;
             }
+            .case-block.takeaways {
+                margin-top: 56px;
+            }
+            .takeaways {
+                background:
+                    radial-gradient(
+                        circle at 10% 20%,
+                        rgba(159, 18, 57, 0.14) 0%,
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        circle at 90% 80%,
+                        rgba(67, 56, 202, 0.12) 0%,
+                        transparent 45%
+                    ),
+                    #fff;
+            }
+            .note {
+                font-size: 0.85rem;
+            }
 
+            /* table beside a figure */
+            .setup-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+                align-items: center;
+            }
+            .setup-grid .wide-figure {
+                margin: 0;
+            }
+            @media (max-width: 720px) {
+                .setup-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* single-run settings table */
+            .spec-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.88rem;
+                margin: 18px 0 10px;
+            }
+            .spec-table th,
+            .spec-table td {
+                text-align: left;
+                padding: 9px 12px;
+                border-bottom: 1px solid var(--border);
+            }
+            .spec-table th {
+                color: var(--text-muted);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                font-size: 0.7rem;
+                width: 30%;
+            }
+            .spec-table td {
+                font-weight: 400;
+            }
+            .spec-table tr:last-child th,
+            .spec-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            /* comparative runs table: one column per run */
+            .runs-table-wrap {
+                margin-top: 22px;
+                border-radius: var(--radius);
+                overflow: hidden;
+                box-shadow: var(--shadow);
+            }
+            .runs-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.9rem;
+                background: var(--bg-card);
+            }
+            .runs-table th,
+            .runs-table td {
+                padding: 14px 16px;
+                text-align: left;
+                border-bottom: 1px solid var(--border);
+                vertical-align: middle;
+            }
+            .runs-table thead th {
+                background: linear-gradient(180deg, #fff 0%, #fafaf9 100%);
+                font-weight: 600;
+                font-size: 0.95rem;
+                color: var(--text);
+                letter-spacing: -0.01em;
+                border-bottom: 2px solid var(--border);
+            }
+            .runs-table tbody th {
+                background: #fafaf9;
+                font-weight: 600;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-muted);
+                width: 18%;
+            }
+            .runs-table td {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .runs-table tbody tr:nth-child(odd) td {
+                background: rgba(250, 250, 249, 0.5);
+            }
+            .runs-table tbody tr:hover td {
+                background: rgba(159, 18, 57, 0.03);
+            }
+            .runs-table tbody tr:hover th {
+                background: #f5f5f4;
+                color: var(--text);
+            }
+            .runs-table tbody tr:last-child th,
+            .runs-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+            @media (max-width: 720px) {
+                .runs-table-wrap {
+                    border-radius: var(--radius-sm);
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .runs-table {
+                    min-width: 560px;
+                }
+                .runs-table th,
+                .runs-table td {
+                    padding: 10px 12px;
+                }
+            }
+
+            /* results summary table (e.g. rms / beam per run) */
+            .summary-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.95rem;
+                margin-top: 18px;
+            }
+            .summary-table th,
+            .summary-table td {
+                padding: 12px 14px;
+                border-bottom: 1px solid var(--border);
+                text-align: left;
+            }
+            .summary-table th {
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                background: #fafaf9;
+            }
+            .summary-table td {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .summary-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+            .summary-table tbody tr:hover td {
+                background: #fafaf9;
+            }
+            @media (max-width: 720px) {
+                .summary-table {
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                }
+            }
+
+            /* key/value cards */
             .run-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -212,17 +388,117 @@
                 margin-bottom: 0;
             }
 
+            /* input-model cards (image on top, text below) */
+            .source-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 18px;
+                margin: 22px 0 0;
+            }
+            .source-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                overflow: hidden;
+            }
+            .source-card img {
+                display: block;
+                width: 100%;
+                height: auto;
+                background: #000;
+            }
+            .source-card .source-body {
+                padding: 16px;
+            }
+            .source-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 8px;
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+            .source-card p {
+                margin-bottom: 0;
+                font-size: 0.92rem;
+            }
+
+            /* equations */
+            .equation-box {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 18px 22px;
+                margin: 18px 0;
+                overflow-x: auto;
+                color: var(--text);
+            }
+            .equation-box p {
+                margin-bottom: 10px;
+            }
+            .orcid-symbol {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.55em;
+                height: 1.55em;
+                margin-left: 0.2em;
+                border-radius: 50%;
+                border: 1px solid var(--border);
+                font-size: 0.7em;
+                font-weight: 700;
+                color: var(--accent);
+                vertical-align: text-top;
+            }
+            .orcid-symbol:hover {
+                text-decoration: none;
+                border-color: var(--accent);
+            }
+
+            /* static figures */
+            .wide-figure {
+                margin: 22px 0 0;
+            }
+            .wide-figure img {
+                width: 100%;
+                height: auto;
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--border);
+                background: #fafaf9;
+            }
+            .wide-figure figcaption {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 8px;
+                text-align: center;
+            }
+            .fig-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 18px;
+                margin: 22px 0 8px;
+            }
+            .fig-grid figure {
+                margin: 0;
+                text-align: center;
+            }
+            .fig-grid img {
+                width: 100%;
+                height: auto;
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--border);
+                background: #fafaf9;
+            }
+            .fig-grid figcaption {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 8px;
+            }
+
+            /* clickable result cards (open in lightbox) */
             .result-grid {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 14px;
                 margin: 18px -12px 0;
-            }
-            .case-block + .case-block {
-                margin-top: 32px;
-            }
-            .case-block.takeaways {
-                margin-top: 56px;
             }
             @media (max-width: 720px) {
                 .result-grid {
@@ -271,6 +547,39 @@
                 margin-bottom: 8px;
                 line-height: 1.4;
                 pointer-events: none;
+            }
+            .check-layout {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 999px;
+                border: 1px solid var(--accent);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 600;
+                cursor: pointer;
+                background: transparent;
+                font-family: inherit;
+                transition:
+                    background 0.2s,
+                    color 0.2s;
+            }
+            .check-layout:hover {
+                background: var(--accent);
+                color: #fff;
+            }
+            .layout-panel {
+                display: none;
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1px dashed var(--border);
+                text-align: left;
+                cursor: default;
+            }
+            .layout-panel.open {
+                display: block;
+            }
+            .layout-panel .fig-grid {
+                margin: 0;
             }
 
             /* lightbox overlay */
@@ -368,87 +677,10 @@
                 letter-spacing: 0.05em;
             }
 
-            .takeaways {
-                background:
-                    radial-gradient(
-                        circle at 10% 20%,
-                        rgba(159, 18, 57, 0.14) 0%,
-                        transparent 40%
-                    ),
-                    radial-gradient(
-                        circle at 90% 80%,
-                        rgba(67, 56, 202, 0.12) 0%,
-                        transparent 45%
-                    ),
-                    #fff;
-            }
-
-            .fig-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 18px;
-                margin: 22px 0 8px;
-            }
-            .fig-grid figure {
-                margin: 0;
-                text-align: center;
-            }
-            .fig-grid img {
-                width: 100%;
-                height: auto;
-                border-radius: var(--radius-sm);
-                border: 1px solid var(--border);
-                background: #fafaf9;
-            }
-            .fig-grid figcaption {
-                font-size: 0.8rem;
-                color: var(--text-muted);
-                margin-top: 8px;
-            }
-
-            .wide-figure {
-                margin: 22px 0 0;
-            }
-            .wide-figure img {
-                width: 100%;
-                height: auto;
-                border-radius: var(--radius-sm);
-                border: 1px solid var(--border);
-                background: #fafaf9;
-            }
-            .wide-figure figcaption {
-                font-size: 0.8rem;
-                color: var(--text-muted);
-                margin-top: 8px;
-                text-align: center;
-            }
-
-            .spec-table {
-                width: 100%;
-                border-collapse: collapse;
-                font-size: 0.88rem;
-                margin: 18px 0 10px;
-            }
-            .spec-table th,
-            .spec-table td {
-                text-align: left;
-                padding: 9px 12px;
-                border-bottom: 1px solid var(--border);
-            }
-            .spec-table th {
-                color: var(--text-muted);
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.04em;
-                font-size: 0.7rem;
-                width: 30%;
-            }
-            .spec-table td {
-                font-weight: 400;
-            }
-            .spec-table tr:last-child th,
-            .spec-table tr:last-child td {
-                border-bottom: none;
+            @media (max-width: 720px) {
+                .case-block {
+                    padding: 24px;
+                }
             }
 
             footer {
@@ -471,12 +703,13 @@
 
         <header class="case-header">
             <span class="tag">Science case #2</span>
-            <h1>Polarized sources in the confusion limit</h1>
+            <h1>Circular polarization in the confusion limit</h1>
             <p class="lead">
-                A SKA-LOW-AAstar snapshot at 200–400 MHz over a dense 0.07° field. All
-                sources are unpolarized except one with Stokes V = 1 mJy,
-                letting circular polarization act as a tag that lifts a faint
-                source out of a crowded Stokes I confusion floor.
+                A 2 h SKA-LOW-AAstar observation at 175 MHz of a 1° field
+                filled with a realistic T-RECS extragalactic population. Two
+                faint, 80% circularly polarized sources are buried in the
+                confused Stokes I image. Can a blind Stokes V search pull them
+                out?
             </p>
         </header>
 
@@ -484,146 +717,129 @@
             <div class="case-block">
                 <h2>Science motivation</h2>
                 <p>
-                    At low frequencies SKA-LOW will routinely map fields where
-                    the source density pushes Stokes I toward the confusion
-                    limit. In such crowded images, faint sources can blend into
-                    the background of stronger neighbors. Polarimetry provides
-                    an orthogonal handle: a source with a high degree of
-                    circular polarization stands out even when its
-                    total-intensity counterpart is buried.
+                    At the low frequencies targeted by SKA-Low, deep
+                    total-intensity images quickly reach the confusion limit,
+                    where faint sources blend into the population of brighter,
+                    unresolved neighbours. Circular polarization offers a way
+                    around this problem. Since the extragalactic radio
+                    background is mostly unpolarized in Stokes V, a source with
+                    a high degree of circular polarization can stand out in
+                    Stokes V even when it is lost in Stokes I.
                 </p>
                 <p>
-                    This matters for transient and time-domain programs that
-                    rely on short snapshots. Auroral radio emission from
-                    star-planet interaction, for example, is expected to be
-                    highly circularly polarized because the underlying
-                    electron-cyclotron maser process preferentially amplifies
-                    one magneto-ionic mode (e.g. Trigilio et al. 2023,
-                    arXiv:2305.00809; Yu et al. 2023, arXiv:2310.01240).
-                    Detecting the same target in Stokes I alone may be
-                    impossible when it sits in a confused field; a Stokes V
-                    image can reveal it in minutes.
+                    This is the case for coherent emission processes such as
+                    the electron-cyclotron maser, which powers the auroral
+                    radio emission of stars, brown dwarfs and star–planet
+                    interacting systems (Trigilio et al. 2023,
+                    arXiv:2305.00809; Yu et al. 2023, arXiv:2310.01240). With
+                    LOFAR, the V-LoTSS survey has already exploited this
+                    approach to identify circularly polarized sources over a
+                    large area of the sky (Callingham et al. 2023,
+                    arXiv:2212.09815).
                 </p>
                 <ul>
                     <li>
-                        Show that a modest 20 min SKA-LOW-AAstar snapshot can recover a
-                        fully polarized source in a dense 350-source field.
+                        Inject two faint, highly circularly polarized sources
+                        into a realistic, confusion-limited SKA-Low field.
                     </li>
                     <li>
-                        Quantify the contrast between the confusion-limited
-                        Stokes I image and the comparatively clean Stokes V
-                        image.
+                        Compare their visibility in Stokes I and Stokes V
+                        images restored with a common 20″ beam.
                     </li>
                     <li>
-                        Highlight the use case for auroral/star-planet
-                        interaction radio signatures, which are
-                        characteristically circularly polarized.
+                        Run a blind Stokes V search and measure both the
+                        recovered significance and the false-positive rate.
                     </li>
                 </ul>
             </div>
 
             <div class="case-block">
-                <h2>Simulation run</h2>
+                <h2>Simulation setup</h2>
                 <p>
-                    A single SKA-LOW-AAstar simulation, imaged with WSClean in
-                    Stokes I and Stokes V. The same 20 min snapshot produces two
-                    very different maps: a crowded total-intensity field and a
-                    polarization-selected detection.
+                    A single 2 h SKA-LOW-AAstar observation at 175 MHz, with
+                    the 50 MHz band split into 64 channels of 781.25 kHz to
+                    keep bandwidth smearing below 5% at the image edge. Thermal
+                    noise was injected from the station SEFD. The visibilities
+                    were imaged with WSClean (Briggs robust 0) in Stokes I
+                    (multiscale) and Stokes V over a 1° field, and both images
+                    were restored with a common 20″ beam.
+                </p>
+                <p>
+                    The background is a realistic extragalactic continuum
+                    population at 175 MHz generated with T-RECS (Bonaldi et al.
+                    2019, arXiv:1805.05222), including sources down to
+                    10 µJy, with their flux densities, spectral indices and
+                    morphologies, and no circular polarization. On top of it we
+                    injected two unresolved sources with a circular
+                    polarization fraction of 80% and opposite signs: source A,
+                    with V = +205 µJy (I = 256 µJy), and source B, with
+                    V = −128 µJy (I = 160 µJy). Each sits 8–12″ from a Stokes I
+                    neighbour 3–5 times brighter than itself.
                 </p>
 
-                <table class="spec-table">
-                    <tr>
-                        <th>Setting</th>
-                        <th>Value</th>
-                    </tr>
-                    <tr><td>Facility</td><td>SKA-LOW-AAstar</td></tr>
-                    <tr><td>Array config</td><td>SKA_OST_ARRAY_CONFIG_2_3_1</td></tr>
-                    <tr><td>Stations</td><td>307</td></tr>
-                    <tr><td>Frequency / bandwidth</td><td>300 MHz · 200 MHz (16 × 12.5 MHz)</td></tr>
-                    <tr><td>Observation time</td><td>1200 s · 150 × 8 s integrations</td></tr>
-                    <tr><td>Sky model</td><td>350 point sources, Stokes I 100 µJy – 2 mJy, square field filling the FoV</td></tr>
-                    <tr><td>Polarized source</td><td>1 source at Stokes V = 1 mJy</td></tr>
-                    <tr><td>Image / pixel</td><td>512 × 512 · 0.4922″/px · FoV 0.07°</td></tr>
-                    <tr><td>Weighting</td><td>Briggs robust 0</td></tr>
-                </table>
-            </div>
-
-            <div class="case-block">
-                <h2>Sky model</h2>
-                <p>
-                    The input catalog contains 350 point sources uniformly
-                    distributed across the full square 0.07° imaging field,
-                    with Stokes I amplitudes drawn log-uniformly between
-                    100 µJy and 2 mJy. One source is assigned Stokes V = 1 mJy
-                    while Q = U = V = 0 for all others, producing a single
-                    circular-polarization beacon in an otherwise unpolarized
-                    population.
-                </p>
-                <figure class="wide-figure">
-                    <img
-                        src="images/sky_model_fov.png"
-                        alt="Sky model field of view with 350 sources"
-                    />
-                    <figcaption>
-                        Sky model FoV (0.07°). The cross size encodes Stokes I
-                        flux; one embedded source is circularly polarized at 1 mJy.
-                    </figcaption>
-                </figure>
+                <div class="setup-grid">
+                    <table class="spec-table" style="overflow-wrap: anywhere">
+                        <tr><th>Setting</th><th>Value</th></tr>
+                        <tr><td>Facility</td><td>SKA-LOW-AAstar</td></tr>
+                        <tr><td>Array config</td><td>SKA_OST_ARRAY_CONFIG_2_3_1</td></tr>
+                        <tr><td>Stations</td><td>307 · 38 m · station SEFD 4532 Jy</td></tr>
+                        <tr><td>Frequency / bandwidth</td><td>175 MHz · 50 MHz (64 × 781.25 kHz)</td></tr>
+                        <tr><td>Observation time</td><td>7200 s · 360 × 20 s integrations</td></tr>
+                        <tr><td>Sky model</td><td>T-RECS (60 462 sources, V = 0) + A and B (80% circular)</td></tr>
+                        <tr><td>Image / pixel</td><td>900 × 900 · 4″/px · FoV 1°</td></tr>
+                        <tr><td>Weighting</td><td>Briggs robust 0 · 5″ Gaussian taper</td></tr>
+                        <tr><td>Restoring beam</td><td>20″ × 20″ (Stokes I and V)</td></tr>
+                    </table>
+                    <figure class="wide-figure">
+                        <img
+                            src="images/sky_model.png"
+                            alt="T-RECS sky model over the 1 degree field, sources drawn as filled blobs sized and coloured by Stokes I flux density, with sources A and B circled"
+                        />
+                        <figcaption>
+                            Input sky model over the 1° field: 60 464 sources,
+                            with blob size and colour scaling with Stokes I
+                            flux density. A and B are circled.
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
 
             <div class="case-block">
                 <h2>Results</h2>
                 <p>
-                    The restored WSClean images show the dramatic difference
-                    between the confusion-limited Stokes I map and the
-                    polarization-selected Stokes V map. In Stokes I the
-                    polarized target is visually lost among dozens of brighter
-                    sources and sidelobe structure. In Stokes V the same field
-                    collapses to a single dominant detection, because every
-                    unpolarized source is suppressed to the noise floor.
+                    In Stokes I the image noise is dominated by confusion
+                    (σ<sub>I</sub> ≈ 107 µJy/beam, from the MAD), so source A
+                    sits at only 2.4σ<sub>I</sub> and source B at
+                    1.5σ<sub>I</sub>. Within 2′ of each target there are 23 and
+                    29 Stokes I peaks at least as bright as the target itself:
+                    both are indistinguishable from the background population.
                 </p>
                 <p>
-                    <strong>Restored image:</strong> the WSClean output shown
-                    below is the <em>restored</em> image (clean model plus
-                    convolved residuals). This is the physically meaningful map
-                    that would be compared against the input sky model.
+                    In Stokes V the confusing background disappears and the
+                    image is thermal-noise limited, with
+                    σ<sub>V</sub> = 25.6 µJy/beam. A blind search above
+                    5σ<sub>V</sub> recovers both sources, A at +8.1σ<sub>V</sub>
+                    (peak 208.5 µJy/beam) and B at −6.3σ<sub>V</sub>
+                    (peak −160.7 µJy/beam), with no spurious detections
+                    (0.016 expected for Gaussian noise).
                 </p>
 
                 <div class="result-grid">
                     <div
                         class="result-card"
-                        data-lightbox="images/clean_stokes_i.png"
-                        data-caption="Stokes I restored image — Peak 2.447 mJy/beam · RMS 5.63 µJy/beam · SNR 434.8 · Beam 19.181″ × 11.555″"
+                        style="grid-column: 1 / -1"
+                        data-lightbox="images/stokes_iv_field.png"
+                        data-caption="Full 1° field at 20″ — Stokes I (left), confusion-limited at σ_I ≈ 106.8 µJy/beam (MAD); Stokes V (right) in units of σ_V = 25.6 µJy/beam, with a 9′ zoom on the targets. A: peak +208.5 µJy/beam (+8.1σ_V); B: peak −160.7 µJy/beam (−6.3σ_V). Blind |V| ≥ 5σ_V search: 2 detections, 0 false positives."
                     >
                         <figure>
                             <img
-                                src="images/clean_stokes_i.png"
-                                alt="Stokes I restored image"
+                                src="images/stokes_iv_field.png"
+                                alt="Stokes I and Stokes V images of the full 1 degree field, with sources A and B circled in Stokes I and shown in a zoom inset in Stokes V"
                             />
-                            <figcaption>Stokes I total intensity</figcaption>
+                            <figcaption>Stokes I vs Stokes V, full 1° field</figcaption>
                         </figure>
                         <div class="beam">
-                            Peak 2.447 mJy/beam · RMS 5.63 µJy/beam · SNR 434.8
-                        </div>
-                    </div>
-
-                    <div
-                        class="result-card"
-                        data-lightbox="images/clean_stokes_v.png"
-                        data-caption="Stokes V restored image — Peak 152.19 µJy/beam · RMS 399.68 nJy/beam · SNR 380.8 · Beam 19.181″ × 11.555″"
-                    >
-                        <figure>
-                            <img
-                                src="images/clean_stokes_v.png"
-                                alt="Stokes V restored image"
-                            />
-                            <figcaption>
-                                Stokes V circular polarization
-                            </figcaption>
-                        </figure>
-                        <div class="beam">
-                            Peak 152.19 µJy/beam · RMS 399.68 nJy/beam · SNR
-                            380.8
+                            σ<sub>I</sub> ≈ 106.8 µJy/beam · σ<sub>V</sub> = 25.6 µJy/beam · A +8.1σ<sub>V</sub> · B −6.3σ<sub>V</sub>
                         </div>
                     </div>
                 </div>
@@ -633,25 +849,32 @@
                 <h2>Takeaways</h2>
                 <ul>
                     <li>
-                        <strong>Stokes I is confusion-limited</strong>: with 350
-                        sources in a 0.07° field, the target source at 1 mJy is
-                        visually indistinguishable from brighter neighbors and
-                        sidelobe artifacts.
+                        <strong>Stokes I is confusion-limited</strong>: with
+                        60 462 T-RECS sources in the field, σ<sub>I</sub> ≈
+                        107 µJy/beam after 2 h, four times the Stokes V noise,
+                        and both targets fall below 2.5σ<sub>I</sub>.
                     </li>
                     <li>
-                        <strong>Stokes V is a clean filter</strong>: the same 20
-                        min snapshot isolates the polarized source because
-                        every unpolarized source drops to the noise floor.
-                        With Stokes V = 1 mJy the V image still contains
-                        realistic noise, making the detection visually
-                        convincing.
+                        <strong>Stokes V removes the confusing
+                        background</strong>: the same visibilities reach
+                        σ<sub>V</sub> = 25.6 µJy/beam, and both 80% polarized
+                        sources are recovered blindly at +8.1σ<sub>V</sub> and
+                        −6.3σ<sub>V</sub>, with no false positives above
+                        5σ<sub>V</sub>.
                     </li>
                     <li>
-                        <strong>Science hook</strong>: star-planet interaction
-                        and auroral radio emission are expected to be strongly
-                        circularly polarized. SKA-LOW polarization snapshots can
-                        therefore search for these signatures in fields that
-                        would be hopeless in total intensity alone.
+                        <strong>Thresholds can be set before observing</strong>:
+                        lowering the cut to 4.5σ<sub>V</sub> adds two unmatched
+                        peaks, against 0.19 expected for Gaussian noise, so the
+                        simulation also calibrates the false-positive rate of a
+                        real search.
+                    </li>
+                    <li>
+                        <strong>Science hook</strong>: auroral emission from
+                        stars, brown dwarfs and star–planet interacting
+                        systems is strongly circularly polarized, so
+                        SKA-Low Stokes V imaging can find these emitters in
+                        fields where they are hopeless in total intensity.
                     </li>
                 </ul>
             </div>
@@ -659,15 +882,15 @@
 
         <footer>
             <p>
-                Built for the <a href="index.html#about">CSIC4SKA</a> project.
-                Source:
-                <a href="https://github.com/your-org/espsrc-ska-simulator"
+                Built for the
+                <a href="../index.html#about">CSIC4SKA</a> project. Source:
+                <a href="https://github.com/espsrc/espsrc_ska_simulator"
                     >espsrc-ska-simulator</a
                 >.
             </p>
         </footer>
 
-        <!-- lightbox -->
+        <!-- lightbox: required whenever the page has .result-card elements -->
         <div id="lightbox" class="lightbox" aria-hidden="true">
             <div class="lightbox-content">
                 <span class="lightbox-counter" id="lightbox-counter"></span>
@@ -698,6 +921,16 @@
         </div>
 
         <script>
+            // "Check layout" toggle inside a result card
+            function toggleLayout(id) {
+                const panel = document.getElementById(id);
+                if (!panel) return;
+                const open = panel.classList.toggle("open");
+                const btn = panel.previousElementSibling;
+                if (btn)
+                    btn.textContent = open ? "Hide layout ↑" : "Check layout →";
+            }
+
             // lightbox logic
             const cards = Array.from(
                 document.querySelectorAll(".result-card[data-lightbox]"),
@@ -741,7 +974,11 @@
             }
 
             cards.forEach((card, i) =>
-                card.addEventListener("click", () => openLightbox(i)),
+                card.addEventListener("click", (e) => {
+                    // clicks inside an open layout panel should not zoom
+                    if (e.target.closest(".layout-panel")) return;
+                    openLightbox(i);
+                }),
             );
 
             lightbox.addEventListener("click", (e) => {

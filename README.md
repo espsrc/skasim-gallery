@@ -21,7 +21,7 @@ catalog files needed to reproduce it.
 | Case | Telescope | Key capability | Status |
 |------|-----------|----------------|--------|
 | MIGHTEE deep field | MeerKAT / SKA1-MID / VLA | Deep continuum survey, source confusion, and image-fidelity comparison | complete |
-| Polarization in the confusion limit | SKA-LOW | Stokes V detection of a polarized source in a crowded 0.07° field; auroral/SPI science case | complete |
+| Circular polarization in the confusion limit | SKA-LOW | Blind Stokes V recovery of two faint 80% circularly polarized sources in a confusion-limited T-RECS field; auroral/SPI science case | complete |
 | SKAO staged delivery | SKA1-MID AA0.5 → AA4 | SDC1 field observed across five array assemblies (Band 2, 950–1670 MHz) | complete |
 | Redshifted radio galaxies (Arp 220, Arp 299) | SKA1-MID AA* | Arp 220 & Arp299 rescaled to z = 0.15–2.0 and observed at 1.35, 6.5 and 11.9 GHz | complete |
 | HI gas kinematics in spiral galaxies | SKA1-MID AA* | pyHIARD galaxy in the 21-cm line at i = 10°, 45° and 80°: moment maps and PV diagrams | complete |
