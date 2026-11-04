@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Case #{{N}} — {{TITLE}} · skasim portfolio</title>
+        <meta name="description" content="{{DESCRIPTION — 140–160 characters: telescope, band, target and the result}}" />
+        <link rel="canonical" href="https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../logos/favicon-32.png" />
+        <link rel="icon" href="../logos/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="../logos/apple-touch-icon.png" />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="skasim gallery" />
+        <meta property="og:title" content="Case #{{N}} — {{TITLE}}" />
+        <meta property="og:description" content="{{DESCRIPTION}}" />
+        <meta property="og:url" content="https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/" />
+        <meta property="og:image" content="https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/images/thumbnail.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Case #{{N}} — {{TITLE}}" />
+        <meta name="twitter:description" content="{{DESCRIPTION}}" />
+        <meta name="twitter:image" content="https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/images/thumbnail.png" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "TechArticle",
+                    "headline": "{{TITLE}}",
+                    "description": "{{DESCRIPTION}}",
+                    "url": "https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/",
+                    "mainEntityOfPage": "https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/",
+                    "image": "https://espsrc.github.io/skasim-gallery/case{{N}}-{{SLUG}}/images/thumbnail.png",
+                    "datePublished": "{{YYYY-MM-DD}}",
+                    "dateModified": "{{YYYY-MM-DD}}",
+                    "inLanguage": "en",
+                    "author": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska"
+                    },
+                    "publisher": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska"
+                    },
+                    "isPartOf": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#website"
+                    },
+                    "about": [
+                        {
+                            "@type": "Thing",
+                            "name": "Square Kilometre Array"
+                        },
+                        {
+                            "@type": "Thing",
+                            "name": "{{Topic, e.g. SKA-Mid, Neutral hydrogen (HI); one object per topic}}"
+                        }
+                    ],
+                    "mentions": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#skasim"
+                    },
+                    "citation": [
+                        "{{https://doi.org/… for every paper cited on the page; drop the key if none}}"
+                    ]
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska",
+                    "name": "CSIC4SKA",
+                    "url": "https://espsrc.github.io/skasim-gallery/",
+                    "logo": "https://espsrc.github.io/skasim-gallery/logos/skasim-v1.png",
+                    "description": "espSRC-coordinated CSIC initiative preparing Spanish research groups and technologies for the Square Kilometre Array.",
+                    "parentOrganization": {
+                        "@type": "ResearchOrganization",
+                        "name": "Instituto de Astrofísica de Andalucía (IAA-CSIC)",
+                        "url": "https://www.iaa.csic.es/"
+                    }
+                },
+                {
+                    "@type": "SoftwareSourceCode",
+                    "@id": "https://espsrc.github.io/skasim-gallery/#skasim",
+                    "name": "skasim",
+                    "description": "Researcher-oriented simulation package for synthetic radio-interferometric observations with the SKA Observatory (SKAO) telescopes and other radio interferometers.",
+                    "codeRepository": "https://github.com/espsrc/skasim",
+                    "url": "https://espsrc.github.io/skasim/",
+                    "author": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska"
+                    }
+                }
+            ]
+        }
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400&amp;family=Sora:wght@300..700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <!-- MATHJAX: keep only if the page has equations (equation-box) -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["\\(", "\\)"],
+                        ["$", "$"],
+                    ],
+                    displayMath: [["\\[", "\\]"]],
+                },
+                svg: { fontCache: "global" },
+            };
+        </script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+        ></script>
+        <!-- /MATHJAX -->
+        <style>
+            :root {
+                --bg: #fafaf9;
+                --bg-elev: #ffffff;
+                --bg-card: #ffffff;
+                --text: #1c1917;
+                --text-muted: #78716c;
+                --accent: #9f1239;
+                --accent-2: #7c2d12;
+                --accent-3: #4338ca;
+                --border: #e7e5e4;
+                --radius: 16px;
+                --radius-sm: 8px;
+                --shadow: 0 12px 40px rgba(28, 25, 23, 0.08);
+                --max-w: 1080px;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: "Sora", system-ui, sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.65;
+                -webkit-font-smoothing: antialiased;
+            }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(14px);
+                background: rgba(250, 250, 249, 0.88);
+                border-bottom: 1px solid var(--border);
+            }
+            nav .wrap {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 14px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .logo {
+                font-family: "Cormorant Garamond", serif;
+                font-weight: 600;
+                font-size: 1.45rem;
+                color: var(--text);
+                letter-spacing: -0.01em;
+            }
+            .logo span {
+                color: var(--accent);
+                font-weight: 700;
+            }
+            .back {
+                font-size: 0.88rem;
+                font-weight: 500;
+                color: var(--text-muted);
+            }
+            .back:hover {
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            header.case-header {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 70px 24px 40px;
+            }
+            .case-header .tag {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 999px;
+                border: 1px solid var(--border);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.07em;
+                margin-bottom: 14px;
+            }
+            .case-header h1 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: clamp(2.4rem, 5vw, 3.6rem);
+                margin: 0 0 16px;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+            }
+            .case-header .lead {
+                font-size: 1.15rem;
+                color: var(--text-muted);
+                max-width: 760px;
+                margin: 0;
+                font-weight: 300;
+            }
+
+            main {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 0 24px 90px;
+            }
+            .case-block {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 36px;
+                margin-bottom: 28px;
+                box-shadow: var(--shadow);
+            }
+            .case-block + .case-block {
+                margin-top: 32px;
+            }
+            .case-block h2 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.8rem;
+                margin: 0 0 18px;
+                font-weight: 500;
+            }
+            .case-block h3 {
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.35rem;
+                margin: 32px 0 12px;
+                font-weight: 500;
+            }
+            .case-block h3:first-child {
+                margin-top: 0;
+            }
+            .case-block p {
+                color: var(--text-muted);
+                margin: 0 0 16px;
+                font-weight: 300;
+            }
+            .case-block p:last-child {
+                margin-bottom: 0;
+            }
+            .case-block ul {
+                color: var(--text-muted);
+                font-weight: 300;
+                padding-left: 22px;
+            }
+            .case-block li {
+                margin-bottom: 8px;
+            }
+            .case-block code {
+                background: #f5f5f4;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 0.9em;
+                color: var(--accent-2);
+            }
+            .case-block strong {
+                color: var(--text);
+                font-weight: 600;
+            }
+            .case-block.takeaways {
+                margin-top: 56px;
+            }
+            .takeaways {
+                background:
+                    radial-gradient(
+                        circle at 10% 20%,
+                        rgba(159, 18, 57, 0.14) 0%,
+                        transparent 40%
+                    ),
+                    radial-gradient(
+                        circle at 90% 80%,
+                        rgba(67, 56, 202, 0.12) 0%,
+                        transparent 45%
+                    ),
+                    #fff;
+            }
+            .note {
+                font-size: 0.85rem;
+            }
+
+            /* single-run settings table */
+            .spec-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.88rem;
+                margin: 18px 0 10px;
+            }
+            .spec-table th,
+            .spec-table td {
+                text-align: left;
+                padding: 9px 12px;
+                border-bottom: 1px solid var(--border);
+            }
+            .spec-table th {
+                color: var(--text-muted);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                font-size: 0.7rem;
+                width: 30%;
+            }
+            .spec-table td {
+                font-weight: 400;
+            }
+            .spec-table tr:last-child th,
+            .spec-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            /* comparative runs table: one column per run */
+            .runs-table-wrap {
+                margin-top: 22px;
+                border-radius: var(--radius);
+                overflow: hidden;
+                box-shadow: var(--shadow);
+            }
+            .runs-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.9rem;
+                background: var(--bg-card);
+            }
+            .runs-table th,
+            .runs-table td {
+                padding: 14px 16px;
+                text-align: left;
+                border-bottom: 1px solid var(--border);
+                vertical-align: middle;
+            }
+            .runs-table thead th {
+                background: linear-gradient(180deg, #fff 0%, #fafaf9 100%);
+                font-weight: 600;
+                font-size: 0.95rem;
+                color: var(--text);
+                letter-spacing: -0.01em;
+                border-bottom: 2px solid var(--border);
+            }
+            .runs-table tbody th {
+                background: #fafaf9;
+                font-weight: 600;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-muted);
+                width: 18%;
+            }
+            .runs-table td {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .runs-table tbody tr:nth-child(odd) td {
+                background: rgba(250, 250, 249, 0.5);
+            }
+            .runs-table tbody tr:hover td {
+                background: rgba(159, 18, 57, 0.03);
+            }
+            .runs-table tbody tr:hover th {
+                background: #f5f5f4;
+                color: var(--text);
+            }
+            .runs-table tbody tr:last-child th,
+            .runs-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+            @media (max-width: 720px) {
+                .runs-table-wrap {
+                    border-radius: var(--radius-sm);
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .runs-table {
+                    min-width: 560px;
+                }
+                .runs-table th,
+                .runs-table td {
+                    padding: 10px 12px;
+                }
+            }
+
+            /* results summary table (e.g. rms / beam per run) */
+            .summary-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.95rem;
+                margin-top: 18px;
+            }
+            .summary-table th,
+            .summary-table td {
+                padding: 12px 14px;
+                border-bottom: 1px solid var(--border);
+                text-align: left;
+            }
+            .summary-table th {
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                background: #fafaf9;
+            }
+            .summary-table td {
+                color: var(--text);
+                font-weight: 500;
+            }
+            .summary-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+            .summary-table tbody tr:hover td {
+                background: #fafaf9;
+            }
+            @media (max-width: 720px) {
+                .summary-table {
+                    display: block;
+                    overflow-x: auto;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                }
+            }
+
+            /* key/value cards */
+            .run-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 14px;
+                margin-top: 22px;
+            }
+            .run-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 16px;
+            }
+            .run-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 12px;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            .run-card dl {
+                margin: 0;
+            }
+            .run-card dt {
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                font-weight: 600;
+                margin-bottom: 1px;
+            }
+            .run-card dd {
+                margin: 0 0 8px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--text);
+            }
+            .run-card dd:last-child {
+                margin-bottom: 0;
+            }
+
+            /* input-model cards (image on top, text below) */
+            .source-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 18px;
+                margin: 22px 0 0;
+            }
+            .source-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                overflow: hidden;
+            }
+            .source-card img {
+                display: block;
+                width: 100%;
+                height: auto;
+                background: #000;
+            }
+            .source-card .source-body {
+                padding: 16px;
+            }
+            .source-card h4 {
+                font-family: "Cormorant Garamond", serif;
+                margin: 0 0 8px;
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+            .source-card p {
+                margin-bottom: 0;
+                font-size: 0.92rem;
+            }
+
+            /* equations */
+            .equation-box {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 18px 22px;
+                margin: 18px 0;
+                overflow-x: auto;
+                color: var(--text);
+            }
+            .equation-box p {
+                margin-bottom: 10px;
+            }
+            .orcid-symbol {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.55em;
+                height: 1.55em;
+                margin-left: 0.2em;
+                border-radius: 50%;
+                border: 1px solid var(--border);
+                font-size: 0.7em;
+                font-weight: 700;
+                color: var(--accent);
+                vertical-align: text-top;
+            }
+            .orcid-symbol:hover {
+                text-decoration: none;
+                border-color: var(--accent);
+            }
+
+            /* static figures */
+            .wide-figure {
+                margin: 22px 0 0;
+            }
+            .wide-figure img {
+                width: 100%;
+                height: auto;
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--border);
+                background: #fafaf9;
+            }
+            .wide-figure figcaption {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 8px;
+                text-align: center;
+            }
+            .fig-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 18px;
+                margin: 22px 0 8px;
+            }
+            .fig-grid figure {
+                margin: 0;
+                text-align: center;
+            }
+            .fig-grid img {
+                width: 100%;
+                height: auto;
+                border-radius: var(--radius-sm);
+                border: 1px solid var(--border);
+                background: #fafaf9;
+            }
+            .fig-grid figcaption {
+                font-size: 0.8rem;
+                color: var(--text-muted);
+                margin-top: 8px;
+            }
+
+            /* clickable result cards (open in lightbox) */
+            .result-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+                margin: 18px -12px 0;
+            }
+            @media (max-width: 720px) {
+                .result-grid {
+                    grid-template-columns: 1fr;
+                    margin: 18px 0 0;
+                }
+            }
+            .result-card {
+                background: #fafaf9;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                padding: 10px;
+                text-align: center;
+                cursor: zoom-in;
+                transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+            .result-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(28, 25, 23, 0.1);
+            }
+            .result-card figure {
+                margin: 0;
+                pointer-events: none;
+            }
+            .result-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 6px;
+                border: 1px solid var(--border);
+                background: #fff;
+                display: block;
+                pointer-events: none;
+            }
+            .result-card figcaption {
+                font-size: 0.85rem;
+                color: var(--text);
+                font-weight: 500;
+                margin: 8px 0 6px;
+                pointer-events: none;
+            }
+            .result-card .beam {
+                font-size: 0.72rem;
+                color: var(--text-muted);
+                margin-bottom: 8px;
+                line-height: 1.4;
+                pointer-events: none;
+            }
+            .check-layout {
+                display: inline-block;
+                padding: 5px 12px;
+                border-radius: 999px;
+                border: 1px solid var(--accent);
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 600;
+                cursor: pointer;
+                background: transparent;
+                font-family: inherit;
+                transition:
+                    background 0.2s,
+                    color 0.2s;
+            }
+            .check-layout:hover {
+                background: var(--accent);
+                color: #fff;
+            }
+            .layout-panel {
+                display: none;
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1px dashed var(--border);
+                text-align: left;
+                cursor: default;
+            }
+            .layout-panel.open {
+                display: block;
+            }
+            .layout-panel .fig-grid {
+                margin: 0;
+            }
+
+            /* lightbox overlay */
+            .lightbox {
+                position: fixed;
+                inset: 0;
+                z-index: 200;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(28, 25, 23, 0.92);
+                padding: 24px;
+                opacity: 0;
+                transition: opacity 0.25s ease;
+            }
+            .lightbox.open {
+                display: flex;
+                opacity: 1;
+            }
+            .lightbox-content {
+                position: relative;
+                max-width: min(1100px, 92vw);
+                max-height: 92vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .lightbox-content img {
+                max-width: 100%;
+                max-height: 78vh;
+                width: auto;
+                height: auto;
+                border-radius: var(--radius-sm);
+                background: #fff;
+                box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            }
+            .lightbox-caption {
+                margin-top: 14px;
+                color: #f5f5f4;
+                font-size: 0.95rem;
+                font-weight: 500;
+                text-align: center;
+                max-width: 600px;
+            }
+            .lightbox-close,
+            .lightbox-prev,
+            .lightbox-next {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #fff;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                transition: background 0.2s;
+            }
+            .lightbox-close:hover,
+            .lightbox-prev:hover,
+            .lightbox-next:hover {
+                background: rgba(255, 255, 255, 0.22);
+            }
+            .lightbox-close {
+                top: -56px;
+                right: 0;
+            }
+            .lightbox-prev {
+                left: -64px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .lightbox-next {
+                right: -64px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            @media (max-width: 900px) {
+                .lightbox-prev {
+                    left: 12px;
+                }
+                .lightbox-next {
+                    right: 12px;
+                }
+            }
+            .lightbox-counter {
+                position: absolute;
+                top: -50px;
+                left: 0;
+                color: #d6d3d1;
+                font-size: 0.78rem;
+                letter-spacing: 0.05em;
+            }
+
+            @media (max-width: 720px) {
+                .case-block {
+                    padding: 24px;
+                }
+            }
+
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 40px 24px;
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+                background: #fff;
+            }
+        </style>
+        <!-- shared case-page chrome: contents sidebar, previous/next links, facts strip -->
+        <link rel="stylesheet" href="../assets/case-nav.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="wrap">
+                <a href="../index.html" class="logo">ska<span>sim</span></a>
+                <a href="../index.html#cases" class="back">← Back to cases</a>
+            </div>
+        </nav>
+
+        <header class="case-header">
+            <span class="tag">Science case #{{N}}</span>
+            <h1>{{TITLE}}</h1>
+            <p class="lead">{{LEAD — 2–4 sentences: telescope, band, field, the question}}</p>
+            <ul class="facts">
+                <li><strong>{{Telescope(s) as skasim prints them}}</strong></li>
+                <li>{{Band}}</li>
+                <li>{{Target object(s) or field}}</li>
+            </ul>
+            <p class="byline">
+                <a href="../index.html#about">espSRC</a> · IAA-CSIC ·
+                Published <time datetime="{{YYYY-MM-DD}}">{{D Month YYYY}}</time> ·
+                Updated <time datetime="{{YYYY-MM-DD}}">{{D Month YYYY}}</time>
+            </p>
+        </header>
+
+        <main>
+            <div class="case-block">
+                <h2>Science motivation</h2>
+                <p>{{Why this matters; cite papers inline as Author et al. YEAR, arXiv:XXXX.XXXXX}}</p>
+                <ul>
+                    <li>{{Goal 1}}</li>
+                    <li>{{Goal 2}}</li>
+                    <li>{{Goal 3}}</li>
+                </ul>
+            </div>
+
+            <div class="case-block">
+                <h2>Simulation run</h2>
+                <p>{{One paragraph: what was run and how it was imaged}}</p>
+                <!-- COMPONENT: spec-table (1 run) | runs-table (N runs) | run-grid — see components.md -->
+            </div>
+
+            <div class="case-block">
+                <h2>Sky model</h2>
+                <p>{{Catalogue / image model, source counts, flux range, what is special}}</p>
+                <figure class="wide-figure">
+                    <img src="images/{{sky_model_fov}}.png" alt="{{alt}}" />
+                    <figcaption>{{caption}}</figcaption>
+                </figure>
+            </div>
+
+            <div class="case-block">
+                <h2>Results</h2>
+                <p>{{What the images show, quoting weblog peak / RMS / beam}}</p>
+                <div class="result-grid">
+                    <!-- COMPONENT: result-card, one per image — see components.md -->
+                </div>
+            </div>
+
+            <div class="case-block takeaways">
+                <h2>Takeaways</h2>
+                <ul>
+                    <li><strong>{{Short claim}}</strong>: {{evidence from the run}}</li>
+                    <li><strong>{{Short claim}}</strong>: {{evidence from the run}}</li>
+                    <li><strong>{{Short claim}}</strong>: {{evidence from the run}}</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Built for the
+                <a href="../index.html#about">CSIC4SKA</a> project. Source:
+                <a href="https://github.com/espsrc/skasim"
+                    >skasim</a
+                >.
+            </p>
+        </footer>
+
+        <!-- lightbox: required whenever the page has .result-card elements -->
+        <div id="lightbox" class="lightbox" aria-hidden="true">
+            <div class="lightbox-content">
+                <span class="lightbox-counter" id="lightbox-counter"></span>
+                <button
+                    class="lightbox-close"
+                    aria-label="Close"
+                    onclick="closeLightbox()"
+                >
+                    ×
+                </button>
+                <button
+                    class="lightbox-prev"
+                    aria-label="Previous"
+                    onclick="prevImage()"
+                >
+                    ‹
+                </button>
+                <img id="lightbox-img" src="" alt="" />
+                <button
+                    class="lightbox-next"
+                    aria-label="Next"
+                    onclick="nextImage()"
+                >
+                    ›
+                </button>
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <script>
+            // "Check layout" toggle inside a result card
+            function toggleLayout(id) {
+                const panel = document.getElementById(id);
+                if (!panel) return;
+                const open = panel.classList.toggle("open");
+                const btn = panel.previousElementSibling;
+                if (btn)
+                    btn.textContent = open ? "Hide layout ↑" : "Check layout →";
+            }
+
+            // lightbox logic
+            const cards = Array.from(
+                document.querySelectorAll(".result-card[data-lightbox]"),
+            );
+            const lightbox = document.getElementById("lightbox");
+            const lbImg = document.getElementById("lightbox-img");
+            const lbCaption = document.getElementById("lightbox-caption");
+            const lbCounter = document.getElementById("lightbox-counter");
+            let currentIdx = 0;
+
+            function openLightbox(index) {
+                currentIdx = index;
+                updateLightbox();
+                lightbox.classList.add("open");
+                lightbox.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove("open");
+                lightbox.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+            }
+
+            function updateLightbox() {
+                const card = cards[currentIdx];
+                lbImg.src = card.dataset.lightbox;
+                lbImg.alt = card.querySelector("img")?.alt || "";
+                lbCaption.textContent = card.dataset.caption || "";
+                lbCounter.textContent = `${currentIdx + 1} / ${cards.length}`;
+            }
+
+            function nextImage() {
+                currentIdx = (currentIdx + 1) % cards.length;
+                updateLightbox();
+            }
+
+            function prevImage() {
+                currentIdx = (currentIdx - 1 + cards.length) % cards.length;
+                updateLightbox();
+            }
+
+            cards.forEach((card, i) =>
+                card.addEventListener("click", (e) => {
+                    // clicks inside an open layout panel should not zoom
+                    if (e.target.closest(".layout-panel")) return;
+                    openLightbox(i);
+                }),
+            );
+
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("open")) return;
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowRight") nextImage();
+                if (e.key === "ArrowLeft") prevImage();
+            });
+        </script>
+        <script src="../assets/case-nav.js" defer></script>
+    </body>
+</html>
