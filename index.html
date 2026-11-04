@@ -3,11 +3,112 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>skasim · SKA simulation portfolio</title>
+        <title>skasim — SKA radio telescope simulation gallery | CSIC4SKA</title>
+        <meta name="description" content="Gallery of end-to-end Square Kilometre Array (SKA) radio telescope simulations made with skasim: MeerKAT, SKA-Mid, SKA-Low and VLA, polarization, HI kinematics." />
+        <meta name="google-site-verification" content="Q5PxPJp86KrAhKD0kFfmIYcX4s6z_wTft5EdLMZQAqo" />
+        <link rel="canonical" href="https://espsrc.github.io/skasim-gallery/" />
+        <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon-32.png" />
+        <link rel="icon" href="logos/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="logos/apple-touch-icon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="skasim gallery" />
+        <meta property="og:title" content="skasim — SKA radio telescope simulation gallery" />
+        <meta property="og:description" content="Gallery of end-to-end Square Kilometre Array (SKA) radio telescope simulations made with skasim: MeerKAT, SKA-Mid, SKA-Low and VLA, polarization, HI kinematics." />
+        <meta property="og:url" content="https://espsrc.github.io/skasim-gallery/" />
+        <meta property="og:image" content="https://espsrc.github.io/skasim-gallery/logos/og-home.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_GB" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="skasim — SKA radio telescope simulation gallery" />
+        <meta name="twitter:description" content="Gallery of end-to-end Square Kilometre Array (SKA) radio telescope simulations made with skasim: MeerKAT, SKA-Mid, SKA-Low and VLA, polarization, HI kinematics." />
+        <meta name="twitter:image" content="https://espsrc.github.io/skasim-gallery/logos/og-home.png" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://espsrc.github.io/skasim-gallery/#website",
+                    "name": "skasim gallery",
+                    "url": "https://espsrc.github.io/skasim-gallery/",
+                    "description": "Gallery of end-to-end Square Kilometre Array (SKA) radio telescope simulations made with skasim: MeerKAT, SKA-Mid, SKA-Low and VLA, polarization, HI kinematics.",
+                    "inLanguage": "en",
+                    "publisher": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska"
+                    }
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska",
+                    "name": "CSIC4SKA",
+                    "url": "https://espsrc.github.io/skasim-gallery/",
+                    "logo": "https://espsrc.github.io/skasim-gallery/logos/skasim-v1.png",
+                    "description": "espSRC-coordinated CSIC initiative preparing Spanish research groups and technologies for the Square Kilometre Array.",
+                    "parentOrganization": {
+                        "@type": "ResearchOrganization",
+                        "name": "Instituto de Astrofísica de Andalucía (IAA-CSIC)",
+                        "url": "https://www.iaa.csic.es/"
+                    }
+                },
+                {
+                    "@type": "SoftwareSourceCode",
+                    "@id": "https://espsrc.github.io/skasim-gallery/#skasim",
+                    "name": "skasim",
+                    "description": "Researcher-oriented simulation package for synthetic radio-interferometric observations with the SKA Observatory (SKAO) telescopes and other radio interferometers.",
+                    "codeRepository": "https://github.com/espsrc/skasim",
+                    "url": "https://espsrc.github.io/skasim/",
+                    "author": {
+                        "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska"
+                    }
+                }
+            ]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is skasim?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "skasim is a researcher-oriented simulation package for synthetic radio-interferometric observations, made for the SKA Observatory (SKAO) telescopes, SKA-Low and SKA-Mid, and for other radio interferometers. It takes a user-supplied sky model through to visibilities, dirty and CLEANed images, uv coverage and a weblog of each run. It is built on the Karabo pipeline and uses OSKAR and WSClean."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Which telescopes can skasim simulate?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Any radio interferometer: the SKAO telescopes SKA-Low and SKA-Mid at each array assembly, MeerKAT, the Karl G. Jansky Very Large Array (VLA), the Atacama Large Millimeter/submillimeter Array (ALMA) and others. The cases in this gallery use SKA-Mid from AA0.5 to the AA4 design baseline, SKA-Low (AA*), MeerKAT, and the VLA in its B and D configurations."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What do the science cases show?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Realistic science cases simulated end to end, from a sky model built on published catalogues or galaxy models to the final images: a deep continuum field compared across four telescopes, a blind Stokes V search for circularly polarized sources, the SKA-Mid staged delivery, starburst galaxies moved to cosmological redshifts, and the neutral hydrogen (HI) kinematics of a spiral galaxy."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Where can I find the code and documentation?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The source code is on GitHub at espsrc/skasim and the documentation, with configuration examples, is at espsrc.github.io/skasim. Each case page lists the telescope, frequency, observing time and imaging settings of its runs."
+                    }
+                }
+            ]
+        }
+        </script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400&amp;family=Sora:wght@300..700&amp;display=swap"
             rel="stylesheet"
         />
         <style>
@@ -488,6 +589,53 @@
                 font-weight: 500;
                 font-size: 0.85rem;
                 color: var(--text-muted);
+                text-decoration: none;
+            }
+            a.partner:hover {
+                color: var(--accent);
+                border-color: var(--accent);
+            }
+
+            .faq-list {
+                max-width: 860px;
+                border-top: 1px solid var(--border);
+            }
+            .faq-item {
+                border-bottom: 1px solid var(--border);
+            }
+            .faq-item summary {
+                cursor: pointer;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 16px;
+                padding: 20px 0;
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.4rem;
+                font-weight: 500;
+            }
+            .faq-item summary::-webkit-details-marker {
+                display: none;
+            }
+            .faq-item summary::after {
+                content: "+";
+                font-family: "Sora", sans-serif;
+                font-size: 1.1rem;
+                color: var(--text-muted);
+                flex-shrink: 0;
+            }
+            .faq-item[open] summary::after {
+                content: "\2212";
+            }
+            .faq-item summary:hover,
+            .faq-item summary:focus-visible {
+                color: var(--accent);
+            }
+            .faq-item p {
+                margin: 0 0 22px;
+                color: var(--text-muted);
+                line-height: 1.7;
             }
 
             @media (max-width: 1000px) {
@@ -682,6 +830,7 @@
                     <a href="#cases">Science cases</a>
                     <a href="#pipeline">Pipeline</a>
                     <a href="#about">About</a>
+                    <a href="#faq">FAQ</a>
                 </div>
             </div>
         </nav>
@@ -709,7 +858,7 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <img src="logos/skasim-v1.png" alt="skasim logo" />
+                    <img src="logos/skasim-v1.png" alt="skasim: SKA radio interferometry simulator" width="1262" height="505" />
                 </div>
             </div>
         </header>
@@ -752,6 +901,8 @@
                             src="case1-mightee/images/thumbnail.png"
                             alt="MIGHTEE deep field preview"
                             loading="lazy"
+                            width="800"
+                            height="600"
                         />
                     </div>
                     <div class="case-body">
@@ -778,6 +929,8 @@
                             src="case2-polarization/images/thumbnail.png"
                             alt="SKA-LOW Stokes V image of a confused field"
                             loading="lazy"
+                            width="800"
+                            height="600"
                         />
                     </div>
                     <div class="case-body">
@@ -806,6 +959,8 @@
                             src="case3-staged-delivery/images/thumbnail.png"
                             alt="SKAO Staged Delivery"
                             loading="lazy"
+                            width="800"
+                            height="600"
                         />
                     </div>
                     <div class="case-body">
@@ -833,6 +988,8 @@
                             src="case4-redshift-galaxies/images/thumbnail.png"
                             alt="Arp 220 redshift sequence"
                             loading="lazy"
+                            width="800"
+                            height="600"
                         />
                     </div>
                     <div class="case-body">
@@ -860,6 +1017,8 @@
                             src="case5-hi-kinematics/images/thumbnail.png"
                             alt="HI velocity field of the model galaxy at 45° inclination"
                             loading="lazy"
+                            width="800"
+                            height="600"
                         />
                     </div>
                     <div class="case-body">
@@ -977,12 +1136,12 @@
                 <div class="about-card">
                     <h3>The project</h3>
                     <p>
-                        <strong>CSIC4SKA</strong> is a espSRC-coordinated
+                        <strong>CSIC4SKA</strong> is an espSRC-coordinated
                         initiative with the goal of enhancing CSIC members'
                         participation in international collaborations for SKA
                         Key Science Projects, increasing visibility of CSIC
                         studies within the SKA international community, and
-                        foster scientific and technological cooperation.
+                        fostering scientific and technological cooperation.
                     </p>
                 </div>
                 <div class="about-card">
@@ -997,13 +1156,46 @@
                         the SKA community.
                     </p>
                     <div class="partner-strip">
-                        <span class="partner">CSIC</span>
-                        <span class="partner">IAA</span>
-                        <span class="partner">SKAO</span>
-                        <span class="partner">OSKAR</span>
-                        <span class="partner">WSClean</span>
+                        <a class="partner" href="https://www.csic.es/">CSIC</a>
+                        <a class="partner" href="https://www.iaa.csic.es/">IAA</a>
+                        <a class="partner" href="https://www.skao.int/">SKAO</a>
+                        <a class="partner" href="https://github.com/OxfordSKA/OSKAR">OSKAR</a>
+                        <a class="partner" href="https://gitlab.com/aroffringa/wsclean">WSClean</a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="section-header">
+                <span class="tag">FAQ</span>
+                <h2>Questions about skasim</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What is skasim?</summary>
+                    <p>
+                        skasim is a researcher-oriented simulation package for synthetic radio-interferometric observations, made for the SKA Observatory (SKAO) telescopes, SKA-Low and SKA-Mid, and for other radio interferometers. It takes a user-supplied sky model through to visibilities, dirty and CLEANed images, uv coverage and a weblog of each run. It is built on the Karabo pipeline and uses OSKAR and WSClean.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary>Which telescopes can skasim simulate?</summary>
+                    <p>
+                        Any radio interferometer: the SKAO telescopes SKA-Low and SKA-Mid at each array assembly, MeerKAT, the Karl G. Jansky Very Large Array (VLA), the Atacama Large Millimeter/submillimeter Array (ALMA) and others. The cases in this gallery use SKA-Mid from AA0.5 to the AA4 design baseline, SKA-Low (AA*), MeerKAT, and the VLA in its B and D configurations.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary>What do the science cases show?</summary>
+                    <p>
+                        Realistic science cases simulated end to end, from a sky model built on published catalogues or galaxy models to the final images: a deep continuum field compared across four telescopes, a blind Stokes V search for circularly polarized sources, the SKA-Mid staged delivery, starburst galaxies moved to cosmological redshifts, and the neutral hydrogen (HI) kinematics of a spiral galaxy.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary>Where can I find the code and documentation?</summary>
+                    <p>
+                        The source code is on GitHub at <a href="https://github.com/espsrc/skasim">espsrc/skasim</a> and the documentation, with configuration examples, is at <a href="https://espsrc.github.io/skasim/">espsrc.github.io/skasim</a>. Each case page lists the telescope, frequency, observing time and imaging settings of its runs.
+                    </p>
+                </details>
             </div>
         </section>
 
@@ -1012,8 +1204,9 @@
                 <div class="footer-logo">
                     <img
                         src="logos/institutional.svg"
-                        alt="Institutional logo"
+                        alt="Instituto de Astrofísica de Andalucía (IAA), Severo Ochoa Centre of Excellence and CSIC"
                         class="footer-logo-img"
+                        loading="lazy"
                     />
                 </div>
                 <div class="footer-acknowledgements">

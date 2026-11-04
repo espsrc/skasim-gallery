@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use these simulations or figures, please cite the gallery as below."
+title: "skasim gallery: SKA radio telescope simulation science cases"
+type: dataset
+authors:
+  - name: "CSIC4SKA, Instituto de Astrofísica de Andalucía (IAA-CSIC)"
+    website: "https://espsrc.github.io/skasim-gallery/"
+repository-code: "https://github.com/espsrc/skasim-gallery"
+url: "https://espsrc.github.io/skasim-gallery/"
+abstract: >-
+  End-to-end radio-interferometric simulations of the Square Kilometre Array
+  (SKA) and its precursors made with skasim: multi-telescope continuum
+  comparisons, circular polarization, the SKA-Mid staged delivery, redshifted
+  starburst galaxies and HI kinematics.
+keywords:
+  - SKA
+  - radio astronomy
+  - radio interferometry
+  - simulation
+  - MeerKAT
+  - OSKAR
+  - WSClean
+date-released: "2026-10-28"
+references:
+  - type: software
+    title: skasim
+    authors:
+      - name: "CSIC4SKA, Instituto de Astrofísica de Andalucía (IAA-CSIC)"
+    repository-code: "https://github.com/espsrc/skasim"
+    url: "https://espsrc.github.io/skasim/"

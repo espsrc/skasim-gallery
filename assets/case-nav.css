@@ -1,4 +1,4 @@
-/* Shared by every case page: quick-facts strip, contents sidebar, previous/next links. */
+/* Shared by every case page: quick-facts strip, byline, contents sidebar, previous/next links. */
 
 /* quick facts under the lead */
 .facts {
@@ -26,6 +26,19 @@
     border-color: rgba(159, 18, 57, 0.25);
     background: rgba(159, 18, 57, 0.05);
     color: var(--accent);
+}
+
+/* organisation and dates under the facts */
+.byline {
+    margin: 14px 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+.byline a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 2px;
 }
 
 /* contents sidebar: wide screens only */
