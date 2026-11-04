@@ -40,3 +40,10 @@ node_modules/
 
 # temporary / local notes
 .stfolder/
+
+# local working notes, run backups and heavy source data
+SEO-report.md
+portfolio/get.sh
+case2-polarization/sources/sky_model_*.json
+case3-staged-delivery/sources_v2/
+case5-hi-kinematics/backup_*/
