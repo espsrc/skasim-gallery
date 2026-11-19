@@ -47,3 +47,4 @@ portfolio/get.sh
 case2-polarization/sources/sky_model_*.json
 case3-staged-delivery/sources_v2/
 case5-hi-kinematics/backup_*/
+case4-redshift-galaxies/backup_*/
