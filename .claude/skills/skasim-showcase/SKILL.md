@@ -5,7 +5,7 @@ description: Build a new science-case page for the skasim gallery from skasim we
 
 # skasim-showcase
 
-A science case is a folder `caseN-<slug>/` holding `index.html`, `images/` and `sources/` (the raw weblogs). Every page is the same static, self-contained HTML: shared palette and fonts, a stack of white `case-block` cards, a closing `takeaways` card, and a lightbox for results. Skill files, relative to this one:
+A science case is a folder `caseN-<slug>/` holding `index.html`, `images/` and `sources/` (the raw weblogs, tracked but not linked from the page). A case built from FITS or catalogues rather than weblogs may have no `sources/`, or keep its inputs there as git-ignored files. Every page is the same static, self-contained HTML: shared palette and fonts, a stack of white `case-block` cards, a closing `takeaways` card, and a lightbox for results. Skill files, relative to this one:
 
 - `assets/template.html`: the canonical page. It carries the full stylesheet for every component, the lightbox and the layout toggle, so each new page starts as a copy of it.
 - `components.md`: snippet for each block (settings tables, result cards, layout toggle, source cards, equations, summary table) and when to pick it. Read it at step 4.
@@ -33,7 +33,7 @@ python .claude/skills/skasim-showcase/scripts/extract_weblog.py caseN-<slug>/sou
 
 `--prefix` names the run (`meerkat`, `AA2`, `stokes`); outputs are `<run>_layout.png`, `<run>_uv_coverage.png`, `<run>_sky_model[_fov].png`, `<run>[_<product>]_{clean,model,residual,dirty_image}.png` and `<run>_weblog.json`. Delete the PNGs the page will not show, and delete the `*_weblog.json` files once the page is written: `sources/` keeps the originals.
 
-When the inputs are FITS or catalogues rather than weblogs (case2, case4 pattern), write a plotting script under `caseN-<slug>/scripts/` (add the folder to `.gitignore`) and draw in the gallery's web style, not a paper style such as `plot-like-bordiu`. Copy `scripts/web_style.py` beside the script and start with:
+When the inputs are FITS or catalogues rather than weblogs (case2, case4 pattern), write a plotting script under `caseN-<slug>/scripts/` (the `*/scripts/` rule in `.gitignore` already keeps it local) and draw in the gallery's web style, not a paper style such as `plot-like-bordiu`. Copy `scripts/web_style.py` beside the script and start with:
 
 ```python
 sys.path.insert(0, str(Path(__file__).resolve().parent))

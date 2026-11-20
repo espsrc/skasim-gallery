@@ -1,15 +1,15 @@
-# raw FITS data products and generation scripts are kept out of the public repo
+# raw FITS data products are kept out of the public repo
 # they can be regenerated / downloaded separately
 *.fits
 *.FITS
-portfolio/case4-redshift-galaxies/sources/
-portfolio/case4-redshift-galaxies/sources_arp299/
 
-# image generation scripts
-portfolio/case4-redshift-galaxies/scripts/
-case4-redshift-galaxies/scripts/
-case2-polarization/scripts/
-case5-hi-kinematics/scripts/
+# per-case local-only material: plotting scripts, run backups, alternate runs
+*/scripts/
+*/backup_*/
+*/sources_v*/
+*/sources-v*/
+case4-redshift-galaxies/sources_arp299/
+case2-polarization/sources/sky_model_*.json
 
 # other large / local-only artifacts
 *.h5
@@ -38,13 +38,6 @@ __pycache__/
 venv/
 node_modules/
 
-# temporary / local notes
+# sync / local notes
 .stfolder/
-
-# local working notes, run backups and heavy source data
 SEO-report.md
-portfolio/get.sh
-case2-polarization/sources/sky_model_*.json
-case3-staged-delivery/sources_v2/
-case5-hi-kinematics/backup_*/
-case4-redshift-galaxies/backup_*/
