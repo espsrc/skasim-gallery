@@ -11,7 +11,9 @@ catalog files needed to reproduce it.
 ## What this is
 
 - Reference science cases powered by `skasim`.
-- Fully runnable configs and source catalogs.
+- The skasim config of every run, in each case's `config/` folder. Input sky
+  models and FITS cubes are not in the repository; the configs expect them
+  under `data/`.
 - Output images and weblog summaries, where available.
 - A practical starting point for users who want to see what the simulator can do
   before writing their own configs from scratch.

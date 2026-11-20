@@ -1,0 +1,69 @@
+{
+  "title": "Case #2 — Circular polarization in the confusion limit",
+  "description": "Blind Stokes V recovery of two faint circularly polarized sources in a confusion-limited SKA-Low field, inspired by V-LoTSS (Callingham et al. 2023). SKA-Low AA* (307 stations), 175 MHz, 50 MHz in 64 channels (781.25 kHz, limiting bandwidth smearing to <5% at the image edge at 20 arcsec), 2 h with 20 s integrations, station SEFD 4532 Jy. Background: T-RECS (Bonaldi et al. 2019) continuum population at 175 MHz down to 10 uJy within the imaged 1x1 deg field (60462 sources, Stokes V = 0). Two unresolved 80% circularly polarized sources: A with V = +8 sigma_V and B with V = -5 sigma_V, sigma_V = 25.6 uJy/beam (the 36.2 uJy/beam measured at 20 arcsec in a 1 h noise-only run, scaled by 1/sqrt(2)), each placed 8-12 arcsec from a 3-5 times brighter Stokes I source. Stokes I (multiscale) and V images at Briggs 0 with a 20 arcsec restoring beam (5 arcsec taper).",
+  "telescope": "SKA-LOW-AAstar",
+  "telescope_version": "SKA_OST_ARRAY_CONFIG_2_3_1",
+  "center": "10h00m00s -30d00m00s",
+  "models": [
+    {
+      "type": "component_sky_model",
+      "path": "data/sky_model_64ch_2h.json",
+      "sky_format": "json"
+    }
+  ],
+  "observation": {
+    "frequency_mhz": 175,
+    "bandwidth_mhz": 50,
+    "n_channels": 64,
+    "observation_time_s": 7200,
+    "integration_time_s": 20
+  },
+  "uv_coverage": false,
+  "imaging": [
+    {
+      "tag": "stokes-i-20arcsec",
+      "imager": "wsclean",
+      "wsclean_command": "wsclean -pol I -taper-gaussian 5asec -beam-size 20",
+      "pixels": 900,
+      "fov_deg": 1.0,
+      "robust": 0.0,
+      "clean_iterations": 100000,
+      "mgain": 0.8,
+      "multiscale": true,
+      "multiscale_scales": [
+        0,
+        5,
+        15
+      ],
+      "auto_threshold": 1.0,
+      "auto_mask": 3.0,
+      "local_rms": false,
+      "join_channels": true,
+      "channels_out": 4
+    },
+    {
+      "tag": "stokes-v-20arcsec",
+      "imager": "wsclean",
+      "wsclean_command": "wsclean -pol V -taper-gaussian 5asec -beam-size 20",
+      "pixels": 900,
+      "fov_deg": 1.0,
+      "robust": 0.0,
+      "clean_iterations": 10000,
+      "mgain": 0.8,
+      "multiscale": false,
+      "multiscale_scales": null,
+      "auto_threshold": 3.0,
+      "auto_mask": 5.0,
+      "local_rms": false,
+      "join_channels": true,
+      "channels_out": 4
+    }
+  ],
+  "noise_injection": {
+    "enabled": true,
+    "sefd_file": "noise-sefd/ska-low-aastar-200mhz-sefd.json",
+    "eta_c": 0.95
+  },
+  "output_dir": "output/full_64ch_2h",
+  "overwrite": true
+}

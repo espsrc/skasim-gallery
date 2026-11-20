@@ -1,0 +1,53 @@
+{
+  "title": "Case #5 — HI gas kinematics in spiral galaxies (i = 10 deg)",
+  "description": "SKA-Mid AA* observation of a synthetic spiral galaxy (pyHIARD model 1, P. Kamphuis) inclined at 10 deg, in the HI 21-cm line in Band 2. 20 min, 256 channels of 4.66 kHz (0.98 km/s) centred on 1393.98 MHz, so the band just covers the projected rotation at this inclination. Input cube resampled to 512 x 512 pixels of 0.75 arcsec, thermal noise from the AA* Band 2 SEFD, imaged channel by channel with WSClean multiscale at Briggs robust 1. One of three runs (i = 10, 45 and 80 deg) used for the moment maps and position-velocity diagrams.",
+  "telescope": "SKA-MID-AAstar",
+  "telescope_version": "SKA_OST_ARRAY_CONFIG_2_3_1",
+  "center": "04h37m44.4695s +07d35m27.0086s",
+  "models": [
+    {
+      "type": "spectral_cube",
+      "cube": "data/hi_galaxy_model1_i10_0p75arcsec.fits"
+    }
+  ],
+  "observation": {
+    "frequency_mhz": 1393.9825566386517,
+    "bandwidth_mhz": 1.1939668256939306,
+    "n_channels": 256,
+    "observation_time_s": 1200
+  },
+  "uv_coverage": false,
+  "imaging": [
+    {
+      "tag": "wsclean-cube",
+      "imager": "wsclean",
+      "wsclean_command": "wsclean",
+      "wsclean_predict_command": "wsclean",
+      "pixels": 512,
+      "fov_deg": 0.10666666666665472,
+      "robust": 1.0,
+      "clean_iterations": 10000,
+      "mgain": 0.8,
+      "multiscale": true,
+      "multiscale_scales": [
+        0,
+        3,
+        9,
+        27,
+        81
+      ],
+      "auto_threshold": 1.5,
+      "auto_mask": 3.0,
+      "local_rms": false,
+      "join_channels": false,
+      "channels_out": 256
+    }
+  ],
+  "noise_injection": {
+    "enabled": true,
+    "sefd_file": "noise-sefd/ska-mid-aastar-band2-corrected-sefd.json",
+    "eta_c": 0.95
+  },
+  "output_dir": "output/hi_galaxy_model1_i10_ska_mid_lband",
+  "overwrite": true
+}

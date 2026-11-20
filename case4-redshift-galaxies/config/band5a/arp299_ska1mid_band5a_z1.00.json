@@ -1,0 +1,44 @@
+{
+  "title": "Case #4 — Redshifted radio galaxies · Arp 299, 6.5 GHz (Band 5a), z = 1.00",
+  "description": "SKA-Mid AA* observation of the Arp 299 continuum model rescaled from z = 0.0109 to z = 1.00 in Band 5a: 6.55 GHz centre, 3900 MHz in 64 channels, 600 s around transit. WSClean multiscale imaging at Briggs robust -2, 2048 x 2048 pixels over 72 arcsec, 10000 iterations with mgain 0.5. One of 18 Arp 299 runs (native redshift and z = 0.15–2.00, in Bands 2, 5a and 5b) behind the redshift sequence.",
+  "telescope": "SKA-MID-AAstar",
+  "telescope_version": "SKA_OST_ARRAY_CONFIG_2_3_1",
+  "center": "0h0m0s, +0d0m0.0000s",
+  "models": [
+    {
+      "type": "casa_taylor_terms",
+      "tt0": "data/Arp299_5GHz_z1.00.model",
+      "reference_frequency_hz": 5000000000.0
+    }
+  ],
+  "uv_coverage": true,
+  "shadems_command": "conda run -n shadems shadems",
+  "observation": {
+    "frequency_mhz": 6550.0,
+    "bandwidth_mhz": 3900.0,
+    "n_channels": 64,
+    "observation_time_s": 600
+  },
+  "imaging": [
+    {
+      "tag": "wsclean",
+      "imager": "wsclean",
+      "pixels": 2048,
+      "fov_deg": 0.02,
+      "robust": -2,
+      "clean_iterations": 10000,
+      "mgain": 0.5,
+      "channels_out": 8,
+      "join_channels": true,
+      "auto_threshold": 2.0,
+      "auto_mask": 8.0,
+      "multiscale": true,
+      "local_rms": false,
+      "wsclean_command": "wsclean -multiscale-scale-bias 0.55 -multiscale-gain 0.1 -multiscale-max-scales 6 -clean-border 1"
+    }
+  ],
+  "noise_rms_start": 0.001,
+  "noise_rms_end": 0.001,
+  "output_dir": "output/run_Arp299_band5a_z1.00_aastar",
+  "overwrite": true
+}
