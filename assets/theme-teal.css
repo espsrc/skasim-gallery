@@ -1,0 +1,368 @@
+/*
+ * skasim gallery · site theme (teal), shared by every page.
+ * In line with the skasim talk (Manchester 2026) and the array-spiral logo:
+ * Bricolage Grotesque for display, IBM Plex Sans for text, IBM Plex Mono for labels,
+ * near-black ink, one teal accent, flat surfaces with hairlines instead of shadows.
+ * Each page loads it after its own <style>, so it only overrides. Figures follow the same
+ * accent through ACCENT in .claude/skills/skasim-showcase/scripts/web_style.py.
+ */
+
+:root {
+    --bg: #fafaf9;
+    --bg-elev: #ffffff;
+    --bg-card: #ffffff;
+    --text: #141414;
+    --text-muted: #4b5157;
+    --text-faint: #8a9196;
+    --accent: #0d7c72;
+    --accent-strong: #095f57;
+    --accent-soft: #e3f1ef;
+    --accent-2: #095f57;
+    --accent-3: #154b8d;
+    --border: #e4e6e5;
+    --border-strong: #c9cdcc;
+    --radius: 6px;
+    --radius-sm: 4px;
+    --shadow: none;
+    --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+    --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+a:hover {
+    color: var(--accent-strong);
+}
+
+/* ---- display type: every serif heading becomes Bricolage ---- */
+h1,
+.section-header h2,
+.case-body h3,
+.about-card h3,
+.faq-item summary,
+.pipeline-step h3,
+.case-header h1,
+.case-block h2,
+.case-block h3,
+.run-card h4,
+.case-pager span {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-variation-settings: "opsz" 96;
+}
+h1,
+.case-header h1 {
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+}
+.case-block h3,
+.case-body h3,
+.faq-item summary,
+.run-card h4,
+.case-pager span {
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    font-variation-settings: "opsz" 48;
+}
+.faq-item summary {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.faq-item summary::after {
+    font-family: var(--font-mono);
+}
+
+/* body copy: Plex light, as in the talk */
+.hero p.lead,
+.case-header .lead,
+.section-header p,
+.case-body p,
+.about-card p,
+.about-card ul,
+.case-block p,
+.case-block ul,
+.pipeline-step p,
+.footer-acknowledgements p {
+    font-weight: 300;
+    color: var(--text-muted);
+}
+.case-block strong,
+.facts li strong {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* ---- labels: mono, sentence case, a short teal rule in front, no capsule ---- */
+.eyebrow,
+.tag,
+.case-header .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--accent);
+}
+.eyebrow span {
+    display: none;
+}
+.eyebrow::before,
+.tag::before,
+.case-header .tag::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+    flex: none;
+}
+
+/* ---- nav ---- */
+.links a,
+.back {
+    font-weight: 500;
+}
+
+/* ---- hero: quiet teal wash, no indigo glow ---- */
+.hero {
+    background:
+        radial-gradient(circle at 12% 20%, rgba(13, 124, 114, 0.06) 0%, transparent 45%),
+        var(--bg);
+}
+.hero-visual img {
+    filter: none;
+}
+
+/* ---- buttons: squarer, flat ---- */
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+}
+.btn-primary,
+.btn-primary:hover {
+    background: var(--accent);
+    box-shadow: none;
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--accent-strong);
+}
+.btn-ghost {
+    border-color: var(--border-strong);
+}
+
+/* ---- cards: flat white on hairlines, teal on hover ---- */
+.case-card,
+.about-card,
+.case-block,
+.case-pager a {
+    box-shadow: none;
+}
+.case-card:hover,
+.case-pager a:hover,
+.pipeline-step:hover {
+    border-color: var(--accent);
+    box-shadow: none;
+}
+.case-media {
+    background: var(--bg);
+}
+.case-cta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* chips: mono, square, the telescope chip in soft teal */
+.chip,
+.facts li {
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+.chip.scope,
+.facts li.result {
+    border-color: transparent;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+}
+.facts li {
+    font-size: 0.76rem;
+}
+
+/* grid / list switch */
+.view-toggle,
+.view-toggle button {
+    border-radius: var(--radius-sm);
+}
+
+/* pipeline: numbered steps as a mono label, the step under a teal rule */
+.pipeline-step {
+    border-top: 3px solid var(--accent);
+}
+.pipeline-step .step-num {
+    display: block;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* ---- case pages ---- */
+.case-block {
+    border-radius: var(--radius);
+}
+.case-block code {
+    font-family: var(--font-mono);
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+}
+.run-card,
+.result-card {
+    background: var(--bg);
+}
+.run-card dt,
+.summary-table th,
+.toc-title,
+.case-pager small,
+.lightbox-counter {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+.run-card dt {
+    font-size: 0.72rem;
+}
+.summary-table th {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    border-bottom: 2px solid var(--text);
+}
+.summary-table td {
+    font-variant-numeric: tabular-nums;
+}
+.result-card figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.result-card:hover {
+    box-shadow: none;
+    border-color: var(--accent);
+}
+
+/* takeaways: white card under a thick teal rule, as the talk's highlighted columns */
+.takeaways,
+.case-block.takeaways {
+    background: var(--bg-card);
+    border-top: 6px solid var(--accent);
+}
+
+/* settings tables (spec-table, runs-table): mono row labels, flat header */
+.case-block h4,
+.source-card h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    font-variation-settings: "opsz" 48;
+}
+.spec-table th,
+.runs-table tbody th {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+.runs-table-wrap {
+    box-shadow: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.runs-table thead th {
+    background: var(--bg-card);
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    border-bottom: 2px solid var(--text);
+}
+.runs-table tbody tr:hover td {
+    background: var(--accent-soft);
+}
+.spec-table td,
+.runs-table td {
+    font-variant-numeric: tabular-nums;
+}
+
+/* source cards, equations, wide figures */
+.source-card,
+.equation-box,
+.wide-figure {
+    border-radius: var(--radius-sm);
+}
+.source-card {
+    background: var(--bg);
+}
+
+/* result cards: stats line in mono, layout button squared */
+.result-card .beam {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+}
+.check-layout {
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-weight: 500;
+}
+.layout-panel {
+    border-top-style: solid;
+}
+
+/* contents sidebar */
+.toc-title {
+    font-size: 0.75rem;
+}
+
+/* lightbox */
+.lightbox-caption {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.88rem;
+}
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    border-radius: var(--radius-sm);
+}
+
+/* footer */
+footer {
+    font-family: var(--font-sans);
+}
+.footer-acknowledgements summary {
+    font-family: var(--font-mono);
+}

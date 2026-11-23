@@ -12,7 +12,7 @@ for _f in glob("/usr/share/fonts/opentype/inter/Inter-*.otf"):
 TEXT = "#1c1917"
 MUTED = "#78716c"
 BORDER = "#d6d3d1"
-ACCENT = "#9f1239"
+ACCENT = "#0d7c72"  # teal, as the site theme (assets/theme-teal.css)
 
 plt.rcParams.update({
     "font.family": ["Inter", "DejaVu Sans"],
