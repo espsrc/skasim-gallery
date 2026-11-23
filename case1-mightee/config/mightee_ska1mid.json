@@ -1,0 +1,59 @@
+{
+    "title": "Case #1 — MIGHTEE deep field (SKA-Mid AA*)",
+    "description": "MIGHTEE COSMOS field, 4 h with SKA-Mid AA* (64 x 13.5 m MeerKAT + 80 x 15 m SKA dishes) in Band 2: 1310 MHz centre, 720 MHz in 64 channels of 11.25 MHz, 8 s integrations. Sky: 487 MIGHTEE DR1 COSMOS components (Hale et al. 2025) with their deconvolved sizes, plus 9632 T-RECS sources (Bonaldi et al. 2019) below the MIGHTEE completeness limit, trimmed to the 0.2 deg image (10119 components, flat spectrum). Thermal noise from per-antenna SEFDs (461 Jy MeerKAT, 304 Jy SKA dishes, eta_c 0.95), no RFI flagging. Natural-weight thermal rms 0.58 uJy/beam. Two WSClean multiscale images, 8 output channels joined, 100000 iterations, mgain 0.8, auto-threshold 0.3, auto-mask 3: Briggs robust 0.5 at 1024 x 1024 px of 0.703 arcsec, and Briggs robust -1 at 2048 x 2048 px of 0.352 arcsec (both 0.2 deg); plus an OSKAR dirty image.",
+    "telescope": "SKA-MID-AAstar",
+    "telescope_version": "SKA_OST_ARRAY_CONFIG_2_3_1",
+    "shadems_command": "conda run -n shadems shadems",
+    "center": "10h00m28.438s +02d13m11.04s",
+    "models": [
+        {
+            "type": "component_sky_model",
+            "path": "data/mightee-dr1-trecs-0p2deg.json"
+        }
+    ],
+    "observation": {
+        "frequency_mhz": 1310.0,
+        "bandwidth_mhz": 720.0,
+        "n_channels": 64,
+        "observation_time_s": 14400
+    },
+    "noise_injection": {
+        "enabled": true,
+        "sefd_file": "data/sefd/ska-mid-aastar-band2-sefd.json",
+        "eta_c": 0.95
+    },
+    "imaging": [
+        {
+            "tag": "wsclean-r0p5",
+            "imager": "wsclean",
+            "wsclean_command": "wsclean -no-update-model-required",
+            "pixels": 1024,
+            "fov_deg": 0.2,
+            "robust": 0.5,
+            "mgain": 0.8,
+            "multiscale": true,
+            "channels_out": 8,
+            "clean_iterations": 100000
+        },
+        {
+            "tag": "wsclean-r-1",
+            "imager": "wsclean",
+            "wsclean_command": "wsclean -no-update-model-required",
+            "pixels": 2048,
+            "fov_deg": 0.2,
+            "robust": -1.0,
+            "mgain": 0.8,
+            "multiscale": true,
+            "channels_out": 8,
+            "clean_iterations": 100000
+        },
+        {
+            "tag": "dirty",
+            "imager": "oskar-dirty",
+            "pixels": 2048,
+            "fov_deg": 0.2
+        }
+    ],
+    "output_dir": "output/run_mightee_ska1mid",
+    "overwrite": true
+}

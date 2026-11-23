@@ -41,3 +41,6 @@ node_modules/
 # sync / local notes
 .stfolder/
 SEO-report.md
+
+# review artifact (local only)
+review/

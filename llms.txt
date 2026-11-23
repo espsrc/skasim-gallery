@@ -6,7 +6,7 @@ skasim is a researcher-oriented simulation package for the SKA Observatory (SKAO
 
 ## Science cases
 
-- [Case 1 — MIGHTEE deep field](https://espsrc.github.io/skasim-gallery/case1-mightee/): the MIGHTEE DR1 COSMOS field at L-band observed with MeerKAT, SKA1-MID (AA*) and the VLA in B and D configurations, in four matched runs over a 0.2° field, comparing sensitivity, angular resolution and uv coverage.
+- [Case 1 — MIGHTEE deep field](https://espsrc.github.io/skasim-gallery/case1-mightee/): the MIGHTEE DR1 COSMOS field (plus T-RECS sources below the MIGHTEE limit) observed for 4 h at L-band with MeerKAT, SKA-Mid AA* (Band 2) and the VLA in B and D configurations; AA* reaches 1.78 µJy/beam at 1.52″ × 0.94″ (robust −1) against 5.63 µJy/beam at 5.94″ × 4.06″ for MeerKAT, and all four images match the radiometer, weighting and confusion prediction to within 8%.
 - [Case 2 — Circular polarization in the confusion limit](https://espsrc.github.io/skasim-gallery/case2-polarization/): a 2 h SKA-LOW-AAstar observation at 175 MHz of a 1° field with 60 462 T-RECS sources; two faint, 80% circularly polarized sources are recovered blindly in Stokes V at +8.1σ and −6.3σ, with no false positives.
 - [Case 3 — SKAO staged delivery](https://espsrc.github.io/skasim-gallery/case3-staged-delivery/): a 0.6° portion of the SKA Data Challenge 1 catalogue observed in SKA-MID Band 2 (950–1670 MHz) by each array assembly, from AA0.5 to the AA4 design baseline.
 - [Case 4 — Redshifted radio galaxies](https://espsrc.github.io/skasim-gallery/case4-redshift-galaxies/): Arp 220 and Arp 299 placed at z = 0.15–2.0 and observed with SKA-MID-AA* at 1.35, 6.5 and 11.9 GHz, with cosmological dimming, angular-size scaling and star-formation-rate evolution applied.

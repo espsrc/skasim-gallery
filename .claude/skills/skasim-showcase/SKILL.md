@@ -115,3 +115,14 @@ Open the page with the `run` skill or a local server (`python -m http.server` fr
 Also check the metadata: every `<script type="application/ld+json">` block on the page and on `index.html` parses as JSON (`python -c "import json,re,sys; [json.loads(b) for b in re.findall(r'<script type=\"application/ld\+json\">(.*?)</script>', open(sys.argv[1]).read(), re.S)]" caseN-<slug>/index.html`), the description is 140–160 characters, and the canonical URL matches the sitemap entry.
 
 Done when every check above passes; report any that fail rather than skipping them.
+
+## Keep the review artifact in sync
+
+`review/` at the repo root (git-ignored, so it may be missing in a fresh clone) holds a private claude.ai artifact where the user comments on the text of every case: `build.py` and `template.html` make `index.html` from the case pages, `files.json` lists the figures it shows, and `ARTIFACT_URL` holds its link. Each block carries a number such as `1·5.3` (case 1, section 5, block 3), and comments may quote it.
+
+Whenever a case page, its figures, or its gallery card changes, through this skill or any other edit, and `review/` exists:
+
+1. Run `python3 review/build.py`.
+2. Publish `review/index.html` with the Artifact tool to the URL in `review/ARTIFACT_URL`, passing every entry of `review/files.json` as `files` so new or redrawn figures upload. Pass `null` for a figure the pages no longer use. If this conversation has not published or read the artifact yet, read it first (`action: "read"`), as the tool requires. Never publish without `url`: that makes a second artifact.
+
+When the user asks to apply the review comments: read them with `ArtifactComments` (`action: "read"`, the same URL), edit the case pages, rebuild and republish as above, then reply to and resolve each thread you addressed. Threads not sent to Claude cannot be resolved by you; list them for the user. Block numbers shift once text moves, so match a comment to its passage by the quoted text, and by the number only as a fallback.

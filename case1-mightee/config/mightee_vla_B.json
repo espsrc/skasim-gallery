@@ -1,0 +1,47 @@
+{
+    "title": "Case #1 — MIGHTEE deep field (VLA B)",
+    "description": "MIGHTEE COSMOS field, 4 h with the VLA in B configuration (27 x 25 m) at L band: 1500 MHz centre, 1000 MHz in 64 channels of 15.625 MHz, 8 s integrations. Sky: 487 MIGHTEE DR1 COSMOS components (Hale et al. 2025) with their deconvolved sizes, plus 9632 T-RECS sources (Bonaldi et al. 2019) below the MIGHTEE completeness limit, trimmed to the 0.2 deg image (10119 components, flat spectrum). Thermal noise from per-antenna SEFDs (420 Jy, eta_c 0.93), no RFI flagging. Natural-weight thermal rms 3.18 uJy/beam. WSClean multiscale, Briggs robust 0, 1024 x 1024 px at 0.703 arcsec (0.2 deg), 8 output channels joined, 100000 iterations, mgain 0.8, auto-threshold 0.3, auto-mask 3; plus an OSKAR dirty image.",
+    "telescope": "VLA",
+    "telescope_version": "B",
+    "shadems_command": "conda run -n shadems shadems",
+    "center": "10h00m28.438s +02d13m11.04s",
+    "models": [
+        {
+            "type": "component_sky_model",
+            "path": "data/mightee-dr1-trecs-0p2deg.json"
+        }
+    ],
+    "observation": {
+        "frequency_mhz": 1500.0,
+        "bandwidth_mhz": 1000.0,
+        "n_channels": 64,
+        "observation_time_s": 14400
+    },
+    "noise_injection": {
+        "enabled": true,
+        "sefd_file": "data/sefd/vla-sefd-Lband.json",
+        "eta_c": 0.93
+    },
+    "imaging": [
+        {
+            "tag": "wsclean-r0",
+            "imager": "wsclean",
+            "wsclean_command": "wsclean -no-update-model-required",
+            "pixels": 1024,
+            "fov_deg": 0.2,
+            "robust": 0.0,
+            "mgain": 0.8,
+            "multiscale": true,
+            "channels_out": 8,
+            "clean_iterations": 100000
+        },
+        {
+            "tag": "dirty",
+            "imager": "oskar-dirty",
+            "pixels": 1024,
+            "fov_deg": 0.2
+        }
+    ],
+    "output_dir": "output/run_mightee_vla_B",
+    "overwrite": true
+}

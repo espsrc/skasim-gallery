@@ -1,0 +1,46 @@
+{
+    "title": "Case #1 — MIGHTEE deep field (MeerKAT)",
+    "description": "MIGHTEE COSMOS field, 4 h with MeerKAT (64 x 13.5 m) at L band: 1284 MHz centre, 856 MHz in 64 channels of 13.375 MHz, 8 s integrations. Sky: 487 MIGHTEE DR1 COSMOS components (Hale et al. 2025) with their deconvolved sizes, plus 9632 T-RECS sources (Bonaldi et al. 2019) below the MIGHTEE completeness limit, trimmed to the 0.2 deg image (10119 components, flat spectrum). Thermal noise from per-antenna SEFDs (426 Jy, eta_c 0.98), no RFI flagging. Natural-weight thermal rms 1.38 uJy/beam. WSClean multiscale, Briggs robust -1, 1024 x 1024 px at 0.703 arcsec (0.2 deg), 8 output channels joined, 100000 iterations, mgain 0.8, auto-threshold 0.3, auto-mask 3; plus an OSKAR dirty image.",
+    "telescope": "MeerKAT",
+    "shadems_command": "conda run -n shadems shadems",
+    "center": "10h00m28.438s +02d13m11.04s",
+    "models": [
+        {
+            "type": "component_sky_model",
+            "path": "data/mightee-dr1-trecs-0p2deg.json"
+        }
+    ],
+    "observation": {
+        "frequency_mhz": 1284.0,
+        "bandwidth_mhz": 856.0,
+        "n_channels": 64,
+        "observation_time_s": 14400
+    },
+    "noise_injection": {
+        "enabled": true,
+        "sefd_file": "data/sefd/meerkat-sefd-Lband.json",
+        "eta_c": 0.98
+    },
+    "imaging": [
+        {
+            "tag": "wsclean-r-1",
+            "imager": "wsclean",
+            "wsclean_command": "wsclean -no-update-model-required",
+            "pixels": 1024,
+            "fov_deg": 0.2,
+            "robust": -1.0,
+            "mgain": 0.8,
+            "multiscale": true,
+            "channels_out": 8,
+            "clean_iterations": 100000
+        },
+        {
+            "tag": "dirty",
+            "imager": "oskar-dirty",
+            "pixels": 1024,
+            "fov_deg": 0.2
+        }
+    ],
+    "output_dir": "output/run_mightee_meerkat",
+    "overwrite": true
+}

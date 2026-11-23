@@ -11,7 +11,7 @@ Static site (GitHub Pages, no build step) showcasing science cases simulated wit
 - `sources/`: the original skasim weblogs. Tracked but never linked from the page. FITS-based cases keep their inputs here as git-ignored files, or have no `sources/`.
 - `config/`: the skasim configs that produced the page, one per run (subfolders when there are many, e.g. case 4 by band).
 
-Local only, git-ignored: `*/scripts/` (plotting scripts), `*/backup_*/`, `*/sources_v*/`, all FITS, and large sky models (e.g. case 2's `sky_model_64ch_2h.json`).
+Local only, git-ignored: `*/scripts/` (plotting scripts), `*/backup_*/`, `*/sources_v*/`, all FITS, large sky models (e.g. case 2's `sky_model_64ch_2h.json`), and `review/` (the review artifact, see the `skasim-showcase` skill).
 
 ## Configs
 
