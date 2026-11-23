@@ -34,7 +34,7 @@
                     "mainEntityOfPage": "https://espsrc.github.io/skasim-gallery/case3-staged-delivery/",
                     "image": "https://espsrc.github.io/skasim-gallery/case3-staged-delivery/images/thumbnail.png",
                     "datePublished": "2026-06-22",
-                    "dateModified": "2026-10-28",
+                    "dateModified": "2026-11-23",
                     "inLanguage": "en",
                     "author": {
                         "@id": "https://espsrc.github.io/skasim-gallery/#csic4ska"
@@ -546,7 +546,7 @@
             <p class="byline">
                 <a href="../index.html#about">espSRC</a> · IAA-CSIC ·
                 Published <time datetime="2026-06-22">22 June 2026</time> ·
-                Updated <time datetime="2026-10-28">28 October 2026</time>
+                Updated <time datetime="2026-11-23">23 November 2026</time>
             </p>
         </header>
 
@@ -607,8 +607,8 @@
                             <img
                                 src="images/AA0.5_layout.png"
                                 alt="AA0.5 Layout"
-                                width="640"
-                                height="480"
+                                width="1091"
+                                height="863"
                                 loading="lazy"
                             />
                             <figcaption>Array Layout</figcaption>
@@ -623,8 +623,8 @@
                             <img
                                 src="images/AA0.5_result.png"
                                 alt="AA0.5 Result"
-                                width="1207"
-                                height="904"
+                                width="1091"
+                                height="863"
                                 loading="lazy"
                             />
                             <figcaption>Restored Image</figcaption>
@@ -649,7 +649,7 @@
                         data-caption="AA1 Antenna Positions / Array Layout"
                     >
                         <figure>
-                            <img src="images/AA1_layout.png" alt="AA1 Layout" width="640" height="480" loading="lazy" />
+                            <img src="images/AA1_layout.png" alt="AA1 Layout" width="1091" height="872" loading="lazy" />
                             <figcaption>Array Layout</figcaption>
                         </figure>
                     </div>
@@ -659,7 +659,7 @@
                         data-caption="AA1 Restored Image (Cleaned)"
                     >
                         <figure>
-                            <img src="images/AA1_result.png" alt="AA1 Result" width="1177" height="904" loading="lazy" />
+                            <img src="images/AA1_result.png" alt="AA1 Result" width="1091" height="872" loading="lazy" />
                             <figcaption>Restored Image</figcaption>
                         </figure>
                     </div>
@@ -682,7 +682,7 @@
                         data-caption="AA2 Antenna Positions / Array Layout"
                     >
                         <figure>
-                            <img src="images/AA2_layout.png" alt="AA2 Layout" width="640" height="480" loading="lazy" />
+                            <img src="images/AA2_layout.png" alt="AA2 Layout" width="1063" height="863" loading="lazy" />
                             <figcaption>Array Layout</figcaption>
                         </figure>
                     </div>
@@ -692,7 +692,7 @@
                         data-caption="AA2 Restored Image (Cleaned)"
                     >
                         <figure>
-                            <img src="images/AA2_result.png" alt="AA2 Result" width="1050" height="927" loading="lazy" />
+                            <img src="images/AA2_result.png" alt="AA2 Result" width="1063" height="863" loading="lazy" />
                             <figcaption>Restored Image</figcaption>
                         </figure>
                     </div>
@@ -720,8 +720,8 @@
                             <img
                                 src="images/AAstar_layout.png"
                                 alt="AA* Layout"
-                                width="640"
-                                height="480"
+                                width="1062"
+                                height="872"
                                 loading="lazy"
                             />
                             <figcaption>Array Layout</figcaption>
@@ -736,8 +736,8 @@
                             <img
                                 src="images/AAstar_result.png"
                                 alt="AA* Result"
-                                width="1050"
-                                height="927"
+                                width="1062"
+                                height="872"
                                 loading="lazy"
                             />
                             <figcaption>Restored Image</figcaption>
@@ -763,7 +763,7 @@
                         data-caption="AA4 Antenna Positions / Array Layout"
                     >
                         <figure>
-                            <img src="images/AA4_layout.png" alt="AA4 Layout" width="640" height="480" loading="lazy" />
+                            <img src="images/AA4_layout.png" alt="AA4 Layout" width="1049" height="863" loading="lazy" />
                             <figcaption>Array Layout</figcaption>
                         </figure>
                     </div>
@@ -773,7 +773,7 @@
                         data-caption="AA4 Restored Image (Cleaned)"
                     >
                         <figure>
-                            <img src="images/AA4_result.png" alt="AA4 Result" width="1050" height="927" loading="lazy" />
+                            <img src="images/AA4_result.png" alt="AA4 Result" width="1049" height="863" loading="lazy" />
                             <figcaption>Restored Image</figcaption>
                         </figure>
                     </div>
@@ -804,15 +804,17 @@
                 <h3 style="margin-top: 42px">Performance Summary</h3>
                 <p>
                     Comparison of the five array assemblies for the same SDC1
-                    field and imaging setup. Beam values quote the smallest axis
-                    (BMIN) of the restored beam.
+                    field and imaging setup. Integration is the observing time
+                    of each run, RMS the thermal noise of each image, and beam
+                    values quote the smallest axis (BMIN) of the restored beam.
                 </p>
                 <table class="summary-table">
                     <thead>
                         <tr>
                             <th>Assembly</th>
                             <th>Stations</th>
-                            <th>RMS (μJy/beam)</th>
+                            <th>Integration</th>
+                            <th>RMS (<span style="text-transform: none">μJy/beam</span>)</th>
                             <th>Beam (arcsec)</th>
                         </tr>
                     </thead>
@@ -820,35 +822,46 @@
                         <tr>
                             <td>AA0.5</td>
                             <td>4</td>
-                            <td>177.52</td>
-                            <td>12.35</td>
+                            <td>1 h</td>
+                            <td>49.47</td>
+                            <td>11.68</td>
                         </tr>
                         <tr>
                             <td>AA1</td>
                             <td>8</td>
-                            <td>153.20</td>
-                            <td>16.94</td>
+                            <td>30 min</td>
+                            <td>42.95</td>
+                            <td>15.81</td>
                         </tr>
                         <tr>
                             <td>AA2</td>
                             <td>64</td>
-                            <td>20.16</td>
-                            <td>1.66</td>
+                            <td>10 min</td>
+                            <td>12.42</td>
+                            <td>0.95</td>
                         </tr>
                         <tr>
                             <td>AA*</td>
                             <td>144</td>
-                            <td>5.48</td>
-                            <td>2.79</td>
+                            <td>10 min</td>
+                            <td>8.29</td>
+                            <td>1.14</td>
                         </tr>
                         <tr>
                             <td>AA4</td>
                             <td>197</td>
-                            <td>4.96</td>
-                            <td>2.54</td>
+                            <td>10 min</td>
+                            <td>4.84</td>
+                            <td>0.40</td>
                         </tr>
                     </tbody>
                 </table>
+                <p style="margin-top: 14px; font-size: 0.85rem; color: var(--text-muted)">
+                    For AA2–AA4, the SKAO Sensitivity Calculator's robust −2
+                    noise and beam come from simulations with a fixed 1 h track
+                    and a smaller image grid, so they are not directly
+                    comparable to these images.
+                </p>
             </div>
         </main>
 

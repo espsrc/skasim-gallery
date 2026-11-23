@@ -1,0 +1,58 @@
+{
+    "title": "Case #3 — SKAO staged delivery (AA1)",
+    "description": "SDC1 field, 30 min with SKA-Mid AA1 (8 x 15 m SKA dishes, longest baseline 1.4 km) in Band 2: 1310 MHz centre, 720 MHz in 64 channels of 11.25 MHz, 8 s integrations, phase centre RA 0h, Dec -30 deg. Sky: the SKA Data Challenge 1 560-1400 MHz catalogue (Bonaldi et al. 2021), 80095 sources >= 10 uJy out to 1.55 deg, with their own spectral indices, attenuated by a Gaussian primary beam. Thermal noise from per-antenna SEFDs (304 Jy SKA dishes, eta_c 0.95), no RFI flagging. Natural-weight thermal rms 26.55 uJy/beam. WSClean multiscale image (scales 0-96 px), Briggs robust -2, 8192 x 8192 px over 0.6 deg (0.264 arcsec), 8 output channels joined, 400000 iterations, mgain 0.8, auto-threshold 1, auto-mask 3; plus an OSKAR dirty image.",
+    "telescope": "SKA-MID-AA1",
+    "telescope_version": "SKA_OST_ARRAY_CONFIG_2_3_1",
+    "center": "00h00m00s -30d00m00s",
+    "models": [
+        {
+            "type": "component_sky_model",
+            "path": "data/SDC1_560_1400_10uJy.json"
+        }
+    ],
+    "observation": {
+        "frequency_mhz": 1310.0,
+        "bandwidth_mhz": 720.0,
+        "n_channels": 64,
+        "observation_time_s": 1800
+    },
+    "noise_injection": {
+        "enabled": true,
+        "sefd_file": "data/sefd/ska-mid-aa1-band2-sefd.json",
+        "eta_c": 0.95
+    },
+    "shadems_command": "conda run -n shadems shadems",
+    "imaging": [
+        {
+            "tag": "dirty",
+            "imager": "oskar-dirty",
+            "pixels": 8192,
+            "fov_deg": 0.6
+        },
+        {
+            "tag": "wsclean",
+            "imager": "wsclean",
+            "pixels": 8192,
+            "fov_deg": 0.6,
+            "robust": -2,
+            "clean_iterations": 400000,
+            "multiscale": true,
+            "multiscale_scales": [
+                0,
+                6,
+                12,
+                24,
+                48,
+                96
+            ],
+            "mgain": 0.8,
+            "channels_out": 8,
+            "join_channels": true,
+            "auto_threshold": 1.0,
+            "auto_mask": 3.0,
+            "wsclean_command": "wsclean -no-update-model-required"
+        }
+    ],
+    "output_dir": "output/ska1mid_aa1_lband",
+    "overwrite": true
+}
