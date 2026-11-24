@@ -798,6 +798,235 @@
                 }
             }
 
+            /* pipeline walkthrough: one real run (case 1) through the four steps.
+               Hidden without JS; the four cards above still read as before. */
+            .walk-bar {
+                max-width: 1100px;
+                margin: 0 auto 18px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px 18px;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .walk-bar p {
+                margin: 0;
+                color: var(--text-muted);
+                font-size: 0.92rem;
+            }
+            .walk-bar p b {
+                color: var(--text);
+                font-weight: 600;
+            }
+            .walk-scopes {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .walk-scopes button {
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                color: var(--text);
+                background: var(--bg-card);
+                border: 1px solid var(--border-strong);
+                border-radius: var(--radius-sm);
+                padding: 7px 11px;
+                cursor: pointer;
+            }
+            .walk-scopes button:hover {
+                border-color: var(--accent);
+            }
+            .walk-scopes button[aria-pressed="true"] {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: #fff;
+            }
+            .js-walk .pipeline-step {
+                cursor: pointer;
+            }
+            .js-walk .pipeline-step.is-active {
+                background: var(--accent-soft);
+                border-color: var(--accent);
+                z-index: 4;
+            }
+            .js-walk .pipeline-step.is-active::before {
+                border-left-color: var(--accent-soft);
+            }
+            .pipeline-step:focus-visible,
+            .walk-scopes button:focus-visible,
+            .walk-nav button:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 2px;
+            }
+            .walk-panel {
+                max-width: 1100px;
+                margin: 18px auto 0;
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            .walk-text {
+                padding: 26px 28px;
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                min-width: 0;
+                border-right: 1px solid var(--border);
+            }
+            .walk-label {
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                color: var(--accent);
+            }
+            .walk-text h3 {
+                font-family: var(--font-display);
+                font-size: 1.45rem;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                line-height: 1.15;
+                margin: -6px 0 0;
+            }
+            .walk-text > p {
+                margin: 0;
+                color: var(--text-muted);
+                font-size: 0.93rem;
+                line-height: 1.6;
+            }
+            .walk-config {
+                margin: 0;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                background: var(--bg);
+                min-width: 0;
+            }
+            .walk-config figcaption {
+                font-family: var(--font-mono);
+                font-size: 0.72rem;
+                color: var(--text-muted);
+                padding: 8px 12px;
+                border-bottom: 1px solid var(--border);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .walk-config pre {
+                margin: 0;
+                padding: 12px;
+                overflow-x: auto;
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                line-height: 1.6;
+                color: var(--text);
+            }
+            .walk-config .k {
+                color: var(--accent-strong);
+            }
+            .walk-config .s {
+                color: var(--accent-3);
+            }
+            .walk-config .n {
+                color: #9a4d0b;
+            }
+            .walk-nav {
+                margin-top: auto;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .walk-nav button {
+                font: inherit;
+                font-size: 0.9rem;
+                min-width: 40px;
+                padding: 7px 10px;
+                border: 1px solid var(--border-strong);
+                border-radius: var(--radius-sm);
+                background: var(--bg-card);
+                color: var(--text);
+                cursor: pointer;
+            }
+            .walk-nav button:disabled {
+                opacity: 0.35;
+                cursor: default;
+            }
+            .walk-count {
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                color: var(--text-muted);
+                font-variant-numeric: tabular-nums;
+            }
+            .walk-nav a {
+                margin-left: auto;
+                font-family: var(--font-mono);
+                font-size: 0.82rem;
+            }
+            .walk-figure {
+                margin: 0;
+                padding: 22px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+                background: var(--bg);
+                border-radius: 0 var(--radius) var(--radius) 0;
+                min-width: 0;
+            }
+            .walk-figure img {
+                display: block;
+                max-width: 100%;
+                max-height: 440px;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                border-radius: var(--radius-sm);
+            }
+            .walk-figure figcaption {
+                font-size: 0.82rem;
+                color: var(--text-muted);
+                text-align: center;
+            }
+            @media (max-width: 900px) {
+                .js-walk .pipeline-flow {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 8px;
+                }
+                .js-walk .pipeline-step {
+                    padding: 14px 16px;
+                }
+                .js-walk .pipeline-step p {
+                    display: none;
+                }
+                .js-walk .pipeline-step .step-num {
+                    margin-bottom: 4px;
+                }
+                .js-walk .pipeline-step h3 {
+                    font-size: 1.1rem;
+                    margin: 0;
+                }
+                .js-walk .pipeline-step:hover {
+                    transform: none;
+                }
+                .walk-panel {
+                    grid-template-columns: minmax(0, 1fr);
+                }
+                .walk-text {
+                    border-right: 0;
+                    padding: 20px 18px;
+                }
+                .walk-figure {
+                    order: -1;
+                    padding: 16px;
+                    border-radius: var(--radius) var(--radius) 0 0;
+                    border-bottom: 1px solid var(--border);
+                }
+                .walk-figure img {
+                    max-height: 340px;
+                }
+            }
+
             /* footer */
             footer {
                 border-top: 1px solid var(--border);
@@ -1064,6 +1293,13 @@
                         imaging, and shadeMS for uv-coverage diagnostics.
                     </p>
                 </div>
+                <div class="walk-bar" id="walk-bar" hidden>
+                    <p>
+                        Follow a real run:
+                        <b>Case 1, the MIGHTEE COSMOS field</b>, with
+                    </p>
+                    <div class="walk-scopes" role="group" aria-label="Telescope" id="walk-scopes"></div>
+                </div>
                 <div class="pipeline-flow">
                     <div class="pipeline-step">
                         <span class="step-num">1</span>
@@ -1117,6 +1353,27 @@
                             <span class="tool-tag">FITS</span>
                         </div>
                     </div>
+                </div>
+                <div class="walk-panel" id="walk-panel" aria-live="polite" hidden>
+                    <div class="walk-text">
+                        <span class="walk-label" id="walk-label"></span>
+                        <h3 id="walk-title"></h3>
+                        <p id="walk-desc"></p>
+                        <figure class="walk-config">
+                            <figcaption id="walk-file"></figcaption>
+                            <pre><code id="walk-code"></code></pre>
+                        </figure>
+                        <div class="walk-nav">
+                            <button type="button" id="walk-prev" aria-label="Previous step">←</button>
+                            <button type="button" id="walk-next" aria-label="Next step">→</button>
+                            <span class="walk-count" id="walk-count"></span>
+                            <a href="case1-mightee/index.html">Open case 1 →</a>
+                        </div>
+                    </div>
+                    <figure class="walk-figure">
+                        <img id="walk-img" src="case1-mightee/images/sky_model.png" alt="" loading="lazy" />
+                        <figcaption id="walk-caption"></figcaption>
+                    </figure>
                 </div>
                 <div class="pipeline-links">
                     <a
@@ -1332,6 +1589,165 @@
                 }
             }
         </style>
+        <script>
+            const WALK_CONFIG = {
+                "ska1mid": [
+                    "{\n    \"center\": \"10h00m28.438s +02d13m11.04s\",\n    \"models\": [\n        {\n            \"type\": \"component_sky_model\",\n            \"path\": \"data/mightee-dr1-trecs-0p2deg.json\"\n        }\n    ]\n}",
+                    "{\n    \"telescope\": \"SKA-MID-AAstar\",\n    \"telescope_version\": \"SKA_OST_ARRAY_CONFIG_2_3_1\",\n    \"observation\": {\n        \"frequency_mhz\": 1310.0,\n        \"bandwidth_mhz\": 720.0,\n        \"n_channels\": 64,\n        \"observation_time_s\": 14400\n    },\n    \"noise_injection\": {\n        \"enabled\": true,\n        \"sefd_file\": \"data/sefd/ska-mid-aastar-band2-sefd.json\",\n        \"eta_c\": 0.95\n    }\n}",
+                    "{\n    \"imaging\": [\n        {\n            \"tag\": \"wsclean-r-1\",\n            \"imager\": \"wsclean\",\n            \"wsclean_command\": \"wsclean -no-update-model-required\",\n            \"pixels\": 2048,\n            \"fov_deg\": 0.2,\n            \"robust\": -1.0,\n            \"mgain\": 0.8,\n            \"multiscale\": true,\n            \"channels_out\": 8,\n            \"clean_iterations\": 100000\n        }\n    ]\n}",
+                    "{\n    \"shadems_command\": \"conda run -n shadems shadems\",\n    \"output_dir\": \"output/run_mightee_ska1mid\"\n}"
+                ],
+                "meerkat": [
+                    "{\n    \"center\": \"10h00m28.438s +02d13m11.04s\",\n    \"models\": [\n        {\n            \"type\": \"component_sky_model\",\n            \"path\": \"data/mightee-dr1-trecs-0p2deg.json\"\n        }\n    ]\n}",
+                    "{\n    \"telescope\": \"MeerKAT\",\n    \"observation\": {\n        \"frequency_mhz\": 1284.0,\n        \"bandwidth_mhz\": 856.0,\n        \"n_channels\": 64,\n        \"observation_time_s\": 14400\n    },\n    \"noise_injection\": {\n        \"enabled\": true,\n        \"sefd_file\": \"data/sefd/meerkat-sefd-Lband.json\",\n        \"eta_c\": 0.98\n    }\n}",
+                    "{\n    \"imaging\": [\n        {\n            \"tag\": \"wsclean-r-1\",\n            \"imager\": \"wsclean\",\n            \"wsclean_command\": \"wsclean -no-update-model-required\",\n            \"pixels\": 1024,\n            \"fov_deg\": 0.2,\n            \"robust\": -1.0,\n            \"mgain\": 0.8,\n            \"multiscale\": true,\n            \"channels_out\": 8,\n            \"clean_iterations\": 100000\n        }\n    ]\n}",
+                    "{\n    \"shadems_command\": \"conda run -n shadems shadems\",\n    \"output_dir\": \"output/run_mightee_meerkat\"\n}"
+                ],
+                "vla_B": [
+                    "{\n    \"center\": \"10h00m28.438s +02d13m11.04s\",\n    \"models\": [\n        {\n            \"type\": \"component_sky_model\",\n            \"path\": \"data/mightee-dr1-trecs-0p2deg.json\"\n        }\n    ]\n}",
+                    "{\n    \"telescope\": \"VLA\",\n    \"telescope_version\": \"B\",\n    \"observation\": {\n        \"frequency_mhz\": 1500.0,\n        \"bandwidth_mhz\": 1000.0,\n        \"n_channels\": 64,\n        \"observation_time_s\": 14400\n    },\n    \"noise_injection\": {\n        \"enabled\": true,\n        \"sefd_file\": \"data/sefd/vla-sefd-Lband.json\",\n        \"eta_c\": 0.93\n    }\n}",
+                    "{\n    \"imaging\": [\n        {\n            \"tag\": \"wsclean-r0\",\n            \"imager\": \"wsclean\",\n            \"wsclean_command\": \"wsclean -no-update-model-required\",\n            \"pixels\": 1024,\n            \"fov_deg\": 0.2,\n            \"robust\": 0.0,\n            \"mgain\": 0.8,\n            \"multiscale\": true,\n            \"channels_out\": 8,\n            \"clean_iterations\": 100000\n        }\n    ]\n}",
+                    "{\n    \"shadems_command\": \"conda run -n shadems shadems\",\n    \"output_dir\": \"output/run_mightee_vla_B\"\n}"
+                ]
+            };
+            // Pipeline walkthrough: case 1 (MIGHTEE) through the four steps, per telescope.
+            // Config excerpts above are copied verbatim from case1-mightee/config/*.json.
+            (function () {
+                const section = document.getElementById("pipeline");
+                const steps = Array.from(section.querySelectorAll(".pipeline-step"));
+                const $ = (id) => document.getElementById(id);
+                const IMG = "case1-mightee/images/";
+                const SCOPES = [
+                    { id: "ska1mid", name: "SKA-Mid AA*", img: "ska", clean: "ska_r1_clean",
+                      array: "144 dishes (64 MeerKAT dishes of 13.5 m and 80 SKA dishes of 15 m)",
+                      freq: "1310 MHz (Band 2), 720 MHz wide", robust: "−1", px: 2048,
+                      extra: "The same run also makes a robust 0.5 image and an OSKAR dirty image." },
+                    { id: "meerkat", name: "MeerKAT", img: "meerkat", clean: "meerkat_clean",
+                      array: "64 dishes of 13.5 m", freq: "1284 MHz (L band), 856 MHz wide",
+                      robust: "−1", px: 1024, extra: "The same run also makes an OSKAR dirty image." },
+                    { id: "vla_B", name: "VLA B", img: "vlaB", clean: "vlaB_clean",
+                      array: "27 dishes of 25 m in the B configuration", freq: "1500 MHz (L band), 1000 MHz wide",
+                      robust: "0", px: 1024, extra: "The same run also makes an OSKAR dirty image." },
+                ];
+                const STAGES = [
+                    (s) => ({
+                        title: "A sky of 10 119 components",
+                        desc: "A component list over a 0.2° field in COSMOS: 487 MIGHTEE DR1 sources with their deconvolved sizes, plus 9632 fainter T-RECS sources below the MIGHTEE completeness limit. Every telescope observes this same sky.",
+                        img: "sky_model", alt: "Positions of the 10 119 sky-model components in the 0.2 degree field, MIGHTEE DR1 sources in teal and T-RECS sources in grey, sized by flux density",
+                        cap: "Sky model: MIGHTEE DR1 in teal, T-RECS in grey, sized by flux density",
+                    }),
+                    (s) => ({
+                        title: s.name + ", 4 hours on the field",
+                        desc: s.name + " has " + s.array + ". OSKAR, through Karabo, simulates 4 h at " + s.freq + " in 64 channels and adds thermal noise from each antenna's SEFD.",
+                        img: s.img + "_layout", alt: s.name + " antenna positions, east and north of the array centre in km", cap: s.name + " antenna positions",
+                    }),
+                    (s) => ({
+                        title: "CLEANed with WSClean",
+                        desc: "Multiscale CLEAN with Briggs robust " + s.robust + ", " + s.px + " × " + s.px + " px over the 0.2° field, up to 100 000 iterations. " + s.extra,
+                        img: s.clean, alt: s.name + " robust " + s.robust + " restored image of the MIGHTEE field",
+                        cap: s.name + " · robust " + s.robust + " restored image",
+                    }),
+                    (s) => ({
+                        title: "A weblog of the run",
+                        desc: "Every run ends in a weblog with image previews, FITS downloads, a metadata JSON and a uv-coverage plot from shadeMS. Here, the uv coverage of the " + s.name + " run: every baseline over the 4 h and the 64 channels.",
+                        img: s.img + "_uv_coverage", alt: s.name + " uv coverage over 4 hours and 64 channels",
+                        cap: s.name + " uv coverage, samples per cell on a log scale",
+                    }),
+                ];
+
+                let scope = SCOPES[0];
+                let stage = 0;
+
+                function highlight(json) {
+                    const esc = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    return esc.replace(
+                        /("(?:[^"\\]|\\.)*")(\s*:)?|(-?\b\d+(?:\.\d+)?\b|\btrue\b|\bfalse\b|\bnull\b)/g,
+                        (m, str, colon, num) =>
+                            str
+                                ? colon
+                                    ? '<span class="k">' + str + "</span>" + colon
+                                    : '<span class="s">' + str + "</span>"
+                                : '<span class="n">' + num + "</span>",
+                    );
+                }
+
+                function render() {
+                    const d = STAGES[stage](scope);
+                    steps.forEach((el, i) => {
+                        el.classList.toggle("is-active", i === stage);
+                        el.setAttribute("aria-pressed", String(i === stage));
+                    });
+                    $("walk-scopes").querySelectorAll("button").forEach((b) =>
+                        b.setAttribute("aria-pressed", String(b.dataset.scope === scope.id)),
+                    );
+                    $("walk-label").textContent = "Step " + (stage + 1) + " · " + steps[stage].querySelector("h3").textContent;
+                    $("walk-title").textContent = d.title;
+                    $("walk-desc").textContent = d.desc;
+                    $("walk-file").textContent = "case1-mightee/config/mightee_" + scope.id + ".json · excerpt";
+                    $("walk-code").innerHTML = highlight(WALK_CONFIG[scope.id][stage]);
+                    const img = $("walk-img");
+                    img.src = IMG + d.img + ".png";
+                    img.alt = d.alt;
+                    $("walk-caption").textContent = d.cap;
+                    $("walk-count").textContent = stage + 1 + " / " + steps.length;
+                    $("walk-prev").disabled = stage === 0;
+                    $("walk-next").disabled = stage === steps.length - 1;
+                }
+
+                function go(i) {
+                    stage = Math.max(0, Math.min(steps.length - 1, i));
+                    render();
+                }
+
+                SCOPES.forEach((s) => {
+                    const b = document.createElement("button");
+                    b.type = "button";
+                    b.dataset.scope = s.id;
+                    b.textContent = s.name;
+                    b.addEventListener("click", () => {
+                        scope = s;
+                        render();
+                        preload();
+                    });
+                    $("walk-scopes").appendChild(b);
+                });
+                steps.forEach((el, i) => {
+                    el.tabIndex = 0;
+                    el.setAttribute("role", "button");
+                    el.addEventListener("click", () => go(i));
+                    el.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            go(i);
+                        } else if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                            e.preventDefault();
+                            go(i + (e.key === "ArrowRight" ? 1 : -1));
+                            steps[stage].focus();
+                        }
+                    });
+                });
+                $("walk-prev").addEventListener("click", () => go(stage - 1));
+                $("walk-next").addEventListener("click", () => go(stage + 1));
+
+                // preload the figures for the current telescope so stepping doesn't flash
+                function preload() {
+                    STAGES.forEach((f) => {
+                        new Image().src = IMG + f(scope).img + ".png";
+                    });
+                }
+                new IntersectionObserver((entries, obs) => {
+                    if (entries.some((e) => e.isIntersecting)) {
+                        preload();
+                        obs.disconnect();
+                    }
+                }, { rootMargin: "400px" }).observe(section);
+
+                section.classList.add("js-walk");
+                $("walk-bar").hidden = false;
+                $("walk-panel").hidden = false;
+                render();
+            })();
+        </script>
         <script>
             // grid / list switch for the case cards, remembered per viewer
             (function () {
